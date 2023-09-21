@@ -42,4 +42,9 @@ class Employee extends Model
         'CovenantRecord',
         'user_id'
     ];
+
+
+    public function scopeSearch($query, $value){
+        $query->where('Name','like',"%{$value}%")->orWhere('email','like',"%{$value}%");
+    }
 }

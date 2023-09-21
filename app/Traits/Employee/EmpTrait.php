@@ -106,4 +106,74 @@ trait EmpTrait
 
     }*/
 
+    public function header()
+    {
+      return  $columnMapping = [
+            'Name' => 'الاسم',
+            'JobNumber' => 'الرقم الوظيفي',
+            'Gender' => 'الجنس',
+            'Nationality' => 'الجنسية',
+            'DateOfBirth' => 'تاريخ الميلاد',
+            'Start_work' => 'تاريخ المباشرة',
+            'ContratType' => 'نوع العقد',
+            'CarteNumber' => 'رقم البطاقة',
+            'VacationSalary' => 'راتب الإجازة',
+            'VacationDays' => 'رصيد الإجازة',
+            'Status' => 'حالة الموظف',
+            'Rating' => 'التقييم',
+            'BasicSalary' => 'الراتب الأساسي',
+            'HousingAllowance' => 'بدل السكن',
+            'transportationAllowance' => 'بدل المواصلات',
+            'Name1' => 'الاسم', //1
+            'Name2' => 'الاسم', //2
+            'InsuranceRatio' => 'نسبة التأمينات',
+            'InsuranceSubscriptionAmount' => 'مبلغ اشتراك التأمينات',
+            'Phone' => 'الهاتف',
+            'email' => 'البريد الإلكتروني',
+            'FriendName' => 'صديق في حالة الطوارئ',
+            'CovenantRecord' => 'سجل العهد',
+            'InsuranceClass' => 'فئة التأمينات',
+            'End' => 'تاريخ الانتهاء',
+            'Name3' => 'الاسم', //2
+        ];
+        
+    }
+    public function body()
+    {
+        $columnMap = [
+            'Name' => 'Name',
+            'JobNumber' => 'Job Number',
+            'Gender' => 'Gender',
+            'Nationality' => 'Nationality',
+            'DateOfBirth' => 'Date of Birth',
+            'Start_work' => 'Start Work Date',
+            'ContratType' => 'Contract Type',
+            'CarteNumber' => 'Carte Number',
+            'VacationSalary' => 'Vacation Salary',
+            'VacationDays' => 'Vacation Days',
+            'Status' => 'Status',
+            'Rating' => 'Rating',
+            'BasicSalary' => 'Basic Salary',
+            'HousingAllowance' => 'Housing Allowance',
+            'transportationAllowance' => 'Transportation Allowance',
+            'Name1' => 'Name', //1
+            'Name2' => 'Name', //2
+
+            'InsuranceRatio' => 'Insurance Ratio',
+            'InsuranceSubscriptionAmount' => 'Insurance Subscription Amount',
+            'Phone' => 'Phone',
+            'email' => 'Email',
+            'FriendName' => 'Friend Name',
+            'CovenantRecord' => 'Covenant Record',
+            'InsuranceClass' => 'Insurance Class',
+            'End' => 'End Date',
+            'Name3' => 'Name', //3
+
+        ];
+    
+        $columnKeys = array_keys($columnMap);
+
+        return $columnKeys;
+
+    }
 }
