@@ -41,13 +41,13 @@
    </aside>
    
   
-  <div class="fixed inset-0 z-10 hidden min-h-screen  bg-gray-900/50 dark:bg-gray-900/90 h-screen" id="sidebarBackdrop"></div>
+
+   <div class="fixed inset-0 z-10 hidden min-h-screen  bg-gray-900/50 dark:bg-gray-900/90 h-screen" id="sidebarBackdrop"></div>
  
 
    {{$slot}}
   
   </div>
-
 
     @livewireScripts
   <script>
