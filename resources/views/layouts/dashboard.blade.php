@@ -44,9 +44,10 @@
 
    <div class="fixed inset-0 z-10 hidden min-h-screen  bg-gray-900/50 dark:bg-gray-900/90 h-screen" id="sidebarBackdrop"></div>
  
+   <div id="main-content" class="relative w-full h-full  overflow-y-auto bg-gray-50 rtl:lg:mr-64 ltr:lg:ml-64 dark:bg-gray-900 ">
 
    {{$slot}}
-  
+   </div>
   </div>
 
     @livewireScripts
