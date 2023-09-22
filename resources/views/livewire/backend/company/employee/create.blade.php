@@ -2,405 +2,223 @@
 
 <div>
 <section class="mt-10">
+    <form class="z-1" wire:submit="save">
                 <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
                     <!-- Start coding here -->
                   
                 
-                <div class="  grid md:grid-cols-4 md:gap-12 " >
+                <div class="  grid md:grid-cols-4 md:gap-12 mb-4" >
                 
-                                                
-                            <button type="button" class="text-white bg-lime-500 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-lime-600 dark:hover:bg-lime-700 focus:outline-none dark:focus:ring-lime-800 relative z-0 w-full mb-6 group  h-14  ">حفظ</button>
-                            <button type="button" class="text-white bg-violet-500 hover:bg-violet-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-violet-600 dark:hover:bg-violet-700 focus:outline-none dark:focus:ring-blue-800 relative z-0 w-full mb-6 group h-14">حفظ وتعديل لاحقاً</button>
-                            <button type="button" class="text-white bg-violet-500 hover:bg-violet-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-violet-600 dark:hover:bg-violet-700 focus:outline-none dark:focus:ring-blue-800 relative z-0 w-full mb-6 group h-14">إضافة موظف</button>
-                            <button type="button" class="text-white bg-violet-500 hover:bg-violet-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-violet-600 dark:hover:bg-violet-700 focus:outline-none dark:focus:ring-blue-800 relative z-0 w-full mb-6 group h-14">رجوع</button>
-
-                        
-                        
+                    <x-button lime label="حفظ" type="submit" class="font-semibold" />
+                    <x-button href="{{route('employee.index')}}" primary label="رجوع" class="font-semibold" />
+                              
                 </div>
 
 
-                    <form class="z-1">
+                    
                             <div class="grid md:grid-cols-2 md:gap-6">
                                     <div class="relative z-0 w-full mb-6 group">
-                                            <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">الاسم الكامل</label>
-                                            <div class="relative">
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                                </svg>
-                                            </div>
-                                            <input type="text" id="email-address-icon" class="bg-white h-14 h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل اسم المستخدم">
-                                            </div>
+                                        <x-input wire:model="Name" right-icon="user" label="الاسم الكامل"  />
+
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
-                                            <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">رقم الهوية</label>
-                                            <div class="relative">
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                                </svg>
-                                            </div>
-                                            <input type="text" id="email-address-icon" class="bg-white h-14 h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل رقم الهوية">
-                                            </div>
+                                        <x-input wire:model="CarteNumber" type="number" right-icon="identification" label="رقم الهوية"  />
+
                                     </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                     <div class="relative z-0 w-full mb-6 group">
-                                            <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">الرقم الوظيفي</label>
-                                            <div class="relative">
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                                </svg>
-                                            </div>
-                                            <input type="text" id="email-address-icon" class="bg-white h-14 h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل الرقم الوظيفي">
-                                            </div>
+                                        <x-input wire:model="JobNumber" type="number" right-icon="user" label="الرقم الوظيفي"  />
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
                                             
-                                      <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">الجنسية</label>
-                                      <select id="countries" class="bg-white h-14 h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                        
-                                        <option value="US">سعودي</option>
-                                        <option value="CA">سعودي</option>
-                                        <option value="FR">سعودي</option>
-                                        <option value="DE">سعودي</option>
-                                      </select>
+                                        <x-native-select label="الجنسية" wire:model="Nationality">
+                                            <option>سعودي</option>
+                                            <option>مصري</option>
+                                        </x-native-select>
 
                                     </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">البريد الالكتروني</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل بريدك الالكتروني">
-                                        </div>
+                                    <x-input wire:model="email" right-icon="at-symbol" label="البريد الإلكتروني"  />
+
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
                                         
-                                  <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">النوع</label>
-                                  <select id="countries" class="bg-white h-14 h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                   
-                                    <option value="US">انثى</option>
-                                    <option value="CA">ذكر </option>
-                                  </select>
+                                    <x-native-select label="النوع" wire:model="Gender">
+                                        <option>ذكر</option>
+                                        <option>انثى</option>
+                                    </x-native-select>
 
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
-                                <div class="relative z-0 w-full mb-6 group">
-                                    <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تاريخ الميلاد</label>
-                                    <div class="relative">
-                                  
-                                      <input type="date" id="email-address-icon" class="bg-white h-14 h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com">
-                                    </div>
-                                    
-                                
-                                
+                                <div class="z-30 w-full ">
+                           
+                                    <x-form.datepicker label="تاريخ الميلاد" model="DateOfBirth"   />
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                      
-
-                                    <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تاريخ المباشرة</label>
-                                    <div class="relative">
-                                  
-                                      <input type="date" id="email-address-icon" class="bg-white h-14 h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com">
-                                    </div>
-                                
+                                    <x-form.datepicker label="تاريخ المباشرة" model="Start_work"   />
+                            
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                     <div class="relative z-0 w-full mb-6 group">
-                                            <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">رقم الهاتف</label>
-                                            <div class="relative">
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                                </svg>
-                                            </div>
-                                            <input type="text" id="email-address-icon" class="bg-white h-14 h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل رقم الهاتف">
-                                            </div>
+                                        <x-input wire:model="Phone" class="text-left" right-icon="device-mobile"  type="number" label="رقم الهاتف"  />
+
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
-                                            <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">عدد أيام الإجازة</label>
-                                            <div class="relative">
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                                </svg>
-                                            </div>
-                                            <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="عدد الأيام السنوية المستحقة حسب العقد">
-                                            </div>
+                                        <x-input wire:model="VacationDays"  right-icon="flag"  type="number" label="عدد ايام الإجازة"  />
+
                                     </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">نوع العقد</label>
-                                    <select id="countries" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                      
-                                      <option value="US">محدد</option>
-                                      <option value="CA">محدد</option>
-                                     
-                                    </select>
+                                    <x-native-select label="نوع العقد" wire:model="ContratType">
+                                        <option>محدد</option>
+                                        <option>محدد</option>
+                                    </x-native-select>
+  
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                        
-                                  <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">التقييم</label>
-                                  <select id="countries" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                   
-                                    <option value="US">ممتاز</option>
-                                    <option value="US">ممتاز</option>
-                                    <option value="US">جيد جداً</option>
-                                    <option value="US">جيد</option>
-                                    <option value="US">مقبول</option>
-                                    <option value="US">ضعيف</option>
-                                    <option value="US">لا يوجد</option>
+                                    <x-native-select label="التقييم" wire:model="Rating">
+                                    <option >ممتاز</option>
+                                    <option >جيد جداً</option>
+                                    <option >جيد</option>
+                                    <option >مقبول</option>
+                                    <option >ضعيف</option>
+                                    <option >لا يوجد</option>
     
-                                  </select>
+                                  </x-native-select>
 
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تاريخ إنتهاء العقد</label>
-                                        <div class="relative">
-                                      
-                                          <input type="date" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com">
-                                        </div>
+                                    <x-form.datepicker label="تاريخ نهاية العقد" model="End"  />
+
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                        
-                                  <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">حالة الموظف</label>
-                                  <select id="countries" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                  
-                                    <option value="US">على رأس العمل</option>
-                                    <option value="US">فترة تجريبية</option>
-                                    <option value="US">إجازة عادية</option>
-                                    <option value="US">إضطرارية</option>
-                                    <option value="US">خرج ولم يعد</option>
-                                    <option value="US">مفصول</option>
-                                    <option value="US">إستقالة</option>
-                                    <option value="US">إنهاء خدمات</option>
-                                    <option value="US">إجازة مرضية انتهت ولم يباشر</option>
-                                    <option value="US">إجازة عادية انتهت ولم يباشر</option>
-                                    <option value="US">متدرب</option>
-                                  </select>
+                                    <x-native-select label="الحالة" wire:model="Status">
+
+                                    <option >على رأس العمل</option>
+                                    <option >فترة تجريبية</option>
+                                    <option >إجازة عادية</option>
+                                    <option >إضطرارية</option>
+                                    <option >خرج ولم يعد</option>
+                                    <option >مفصول</option>
+                                    <option >إستقالة</option>
+                                    <option >إنهاء خدمات</option>
+                                    <option >إجازة مرضية انتهت ولم يباشر</option>
+                                    <option >إجازة عادية انتهت ولم يباشر</option>
+                                    <option >متدرب</option>
+                                </x-native-select>
 
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">صديق في حالة الطوارىء</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل اسم صديق في حالة الطوارىء">
-                                        </div>
+                                    <x-input right-icon="users" label="اسم صديق" model="FriendName"  />
+
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">رقم هاتف صديق حالة الطوارىء</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل رقم هاتف صديق حالة الطوارىء">
-                                        </div>
+                                    <x-input class="text-left" right-icon="device-mobile"  type="number" label=" رقم هاتف الصديق" model="FriendPhone" />
+
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
                                         
-                                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">فئة التأمين</label>
-                                    <select id="countries" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                      
-                                      <option  value="US">VVIP</option>
-                                      <option  value="US">VIP</option>
-                                      <option  value="US">a</option>
-                                      <option  value="US">b</option>
-                                      <option  value="US">c</option>
-                                    </select>
+                                    <x-native-select label="فئة التأمين" wire:model="InsuranceClass">
+
+                                      <option  >VVIP</option>
+                                      <option  >VIP</option>
+                                      <option  >a</option>
+                                      <option  >b</option>
+                                      <option  >c</option>
+                                    </x-native-select>
               
                                   </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تاريخ إنتهاء التأمين </label>
-                                        <div class="relative">
-                                      
-                                          <input type="date" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com">
-                                        </div>
+                                    <x-form.datepicker label="تاريخ نهاية التأمين" model="InsuranceExpiryDate"  />
                                 </div>
                                 
                             </div>
 
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">اسم البنك</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل اسم البنك">
-                                        </div>
+                                    <x-input right-icon="library" label="اسم البنك" wire:model="BankName"  />
+
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">الحساب البنكي</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل الحساب البنكي">
-                                        </div>
+                                    <x-input right-icon="credit-card" label="الحساب البنكي" wire:model="BankNumber" />
+
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">الراتب الأساسي</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل الراتب الأساسي">
-                                        </div>
+                                    <x-input right-icon="cash" label="الراتب الأساسي" wire:model="BasicSalary"  />
+
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">بدلات أخرى</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل  البدلات أخرى">
-                                        </div>
+                                    <x-input right-icon="cash" label="بدلات أخرى" wire:model="OtherAllowances"  />
+
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">نسبة التأمنات</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل نسبة التأمنات">
-                                        </div>
+                                    <x-input type="number" right-icon="chart-pie" wire:model="InsuranceRatio" label="نسبة التأمينات"  />
+
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">مبلغ اشتراك التأمينات</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل مبلغ اشتراك التأمينات">
-                                        </div>
+                                    <x-input type="number" right-icon="cash" wire:model="InsuranceSubscriptionAmount" label="مبلغ اشتراك التأمينات"  />
+
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">بدل السكن</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل  بدل السكن">
-                                        </div>
+                                    <x-input right-icon="cash" wire:model="HousingAllowance" label="بدل السكن"  />
+
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">بدل المواصلات</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل بدل المواصلات">
-                                        </div>
+                                    <x-input right-icon="cash" wire:model="transportationAllowance" label="بدل المواصلات"  />
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">رصيد الإجازة</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل رصيد الإجازة">
-                                        </div>
+                                    <x-input type="number" wire:model="VacationSalary" right-icon="currency-dollar" label="رصيد الإجازة"  />
+
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                        <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">مدة مهلة الانذار</label>
-                                        <div class="relative">
-                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
-                                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
-                                            <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="email-address-icon" class="bg-white h-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ادخل عدد ايام الانذار">
-                                        </div>
+                                    <x-input type="number" wire:model="DurationOfTheWarningPeriod" right-icon="exclamation" label="مدة مهلة الإنذار"  />
+
                                 </div>
                             </div>
                             <div class="form-group mt-2 mb-3">
-                                <label for="inputTag" class="input-file text-center block  border border-radius border-dashed border-1 border-[#000]" style="padding: 60px 20px; ">
-                                    + إضافة ملفات ومستندات
-                                    <input id="inputTag" type="file" style="display: none;" multiple/>
-                                </label>
+                               <x-form.fileupload />
                               
                             </div>
 
-                            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">سجل القروض</label>
-                            <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="سجل القروض"></textarea>
+                            <x-textarea wire:model="LoanHistory" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"  label="سجل  القروض" />
 
-
-                            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">سجل العهد</label>
-                            <textarea id="message" rows="4" class="mb-3 block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="سجل العهد"></textarea>
+    
+                            <x-textarea wire:model="CovenantRecord" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"  label="سجل  العهد" />
 
                 
+                            <x-native-select class="block mb-2" label="الفرع" wire:model="branch_id">
+                              @foreach (settings('branches') as $item)
+                              <option value="{{$item->id}}" >{{$item->name}}</option>
 
-                       
+                              @endforeach
 
-
-                    </form>
+                              </x-native-select>
   
                 </div>
+            </form>
+
             </section>
+            @push('scripts')
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
+            @endpush
 </div>

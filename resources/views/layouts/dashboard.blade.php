@@ -9,7 +9,6 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
          <!-- Scripts -->
          @wireUiScripts
-         
          @vite(['resources/css/app.css', 'resources/js/app.js'])
          @livewireStyles
 
@@ -19,6 +18,7 @@
 
 </head>
 <body class="bg-gray-50 dark:bg-gray-800" x-data="{ mode: $persist('theme') || 'light' }" x-init="$watch('mode', value => $persist('theme', value))" :class="{'dark': mode === 'dark'}">
+  <x-dialog />
 
 
 <x-layouts.dashboard.navbar />

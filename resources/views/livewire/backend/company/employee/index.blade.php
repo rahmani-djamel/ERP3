@@ -13,7 +13,6 @@
                                 <div class="flex space-x-3 items-center">
                                     <x-button
                                     href="{{route('employee.create')}}"
-                                    target="_blank"
                                     label="إضافة موظف"
                                     teal
                                 />
@@ -42,5 +41,4 @@
             </section>
         
         </div>
-  
     </main>

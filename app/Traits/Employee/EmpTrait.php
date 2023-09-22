@@ -56,6 +56,7 @@ trait EmpTrait
             'LoanHistory' => $validated['LoanHistory'],
             'CovenantRecord' => $validated['CovenantRecord'],
             'user_id' => $user->id,
+            'branch_id' => $validated['branch_id']
         ]);
         
         // Save the employee to the database
@@ -64,7 +65,7 @@ trait EmpTrait
         return $employee;
 
     }
-/*
+
     public function storeFiles($files,$user,$employee)
     {
 
@@ -104,7 +105,7 @@ trait EmpTrait
 
         return true;
 
-    }*/
+    }
 
     public function header()
     {
@@ -175,5 +176,21 @@ trait EmpTrait
 
         return $columnKeys;
 
+    }
+
+    public function mapping()
+    {
+       return $props =
+       [
+        'Name', 'email', 'CarteNumber', 'JobNumber', 'Nationality',
+        'Gender', 'DateOfBirth', 'Start_work', 'End', 'Phone', 
+        'VacationDays', 'ContratType', 'Rating', 'Status', 'FriendName', 
+        'FriendPhone', 'InsuranceClass', 'InsuranceExpiryDate', 'BankName', 
+        'BankNumber', 'BasicSalary', 'OtherAllowances', 'InsuranceRatio', 
+        'InsuranceSubscriptionAmount', 'HousingAllowance', 
+        'transportationAllowance', 'VacationSalary', 
+        'DurationOfTheWarningPeriod', 'LoanHistory', 'CovenantRecord', 
+        'branch_id'
+       ];
     }
 }

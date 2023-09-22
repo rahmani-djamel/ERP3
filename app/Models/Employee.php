@@ -40,11 +40,17 @@ class Employee extends Model
         'DurationOfTheWarningPeriod',
         'LoanHistory',
         'CovenantRecord',
-        'user_id'
+        'user_id',
+        'branch_id'
     ];
 
 
     public function scopeSearch($query, $value){
         $query->where('Name','like',"%{$value}%")->orWhere('email','like',"%{$value}%");
+    }
+
+    public function files()
+    {
+        return $this->morphMany(File::class, 'fileable');
     }
 }
