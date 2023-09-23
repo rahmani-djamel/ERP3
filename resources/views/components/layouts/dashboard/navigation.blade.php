@@ -1,9 +1,9 @@
 <div>
-    <x-layouts.dashboard.navigationitem url="index" icon="users" text="Employees" />
+    <x-layouts.dashboard.navigationitem url="employee.index" icon="users" text="Employees" />
 
-    <x-layouts.dashboard.navigationitem url="index" icon="clipboard" text="Attendance" />
+    <x-layouts.dashboard.navigationitem url="vacation.index" icon="clipboard" text="Attendance" />
 
-    <x-layouts.dashboard.navigationitem url="index" icon="calendar" text="Vacations" />
+    <x-layouts.dashboard.navigationitem url="vacation.index" icon="calendar" text="Vacations" />
 
     
 

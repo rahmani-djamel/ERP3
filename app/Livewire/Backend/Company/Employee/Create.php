@@ -127,6 +127,8 @@ class Create extends Component
 
         $store = $this->storeFiles($this->files,$user,$employee);
 
+        $worktime = $this->worktime($employee);
+
 
         $this->dialog()->success(
             $title = 'اضافة موظف',

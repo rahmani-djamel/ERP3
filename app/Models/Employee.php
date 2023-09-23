@@ -46,11 +46,23 @@ class Employee extends Model
 
 
     public function scopeSearch($query, $value){
-        $query->where('Name','like',"%{$value}%")->orWhere('email','like',"%{$value}%");
+        $query->where('Name','like',"%{$value}%")
+        ->orWhere('email','like',"%{$value}%")
+        ->orWhere('JobNumber','like',"%{$value}%");
     }
 
     public function files()
     {
         return $this->morphMany(File::class, 'fileable');
+    }
+
+    public function user()
+    {
+        return  $this->belongsTo(User::class);
+    }
+
+    public function worktime()
+    {
+       return $this->hasMany(Worktime::class);
     }
 }

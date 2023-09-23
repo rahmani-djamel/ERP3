@@ -5,6 +5,8 @@ namespace App\Traits\Employee;
 use App\Models\Employee;
 use App\Models\File;
 use App\Models\User;
+use App\Models\Vacation;
+use App\Models\Worktime;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -192,5 +194,26 @@ trait EmpTrait
         'DurationOfTheWarningPeriod', 'LoanHistory', 'CovenantRecord', 
         'branch_id'
        ];
+    }
+    public function worktime($employee)
+    {
+        $vacations = Vacation::all();
+
+
+            foreach ($vacations as $key => $day) {
+
+                $worktime = new Worktime();
+
+                $worktime->employee_id = $employee->id;
+                $worktime->vacation_id = $day->id;
+                $worktime->work_start = $day->work_start;
+                $worktime->work_end = $day->work_end;
+                $worktime->is_vacation = $day->is_vacation;
+                $worktime->weekday = $day->weekday;
+
+
+                $worktime->save();
+            }   
+        
     }
 }
