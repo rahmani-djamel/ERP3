@@ -23,6 +23,15 @@ Route::namespace('App\Livewire\Backend\Company')->group(function() {
         Route::get('/worktime', Worktime::class)->name('worktime');
         Route::get('/worktime/{employee}', WorktimeEdit::class)->name('worktimeedit');
 
+        // Vacation/Annual Holiday
+        Route::namespace('AnnualHoliday')->prefix('annualholiday')->as('annualholiday.')->group(function () {
+            Route::get('/', Index::class)->name('index');
+            Route::get('/create', Create::class)->name('create');
+
+
+
+        });
+
 
 
     });
