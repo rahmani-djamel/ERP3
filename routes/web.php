@@ -28,15 +28,17 @@ Route::namespace('App\Livewire\Backend\Company')->group(function() {
             Route::get('/', Index::class)->name('index');
             Route::get('/create', Create::class)->name('create');
             Route::get('/edit', Edit::class)->name('edit');
-
-
-
+            Route::get('/show', Show::class)->name('show');
 
         });
-
+    });
+    Route::namespace('Attendance')->prefix('attendance')->as('attendance.')->group(function() {
+         Route::get('/', Index::class)->name('index');
 
 
     });
+
+
 
 
     

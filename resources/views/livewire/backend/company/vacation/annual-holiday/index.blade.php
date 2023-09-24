@@ -8,7 +8,7 @@
 
                 <div class="  grid md:grid-cols-3 md:gap-12 my-4" >
 
-                    <x-button href="{{route('vacation.annualholiday.index')}}" primary label="عرض الإجازات السنوية" class="font-semibold" />
+                    <x-button href="{{route('vacation.annualholiday.show')}}" primary label="عرض الإجازات السنوية" class="font-semibold" />
               
                     <x-button href="{{route('vacation.annualholiday.edit')}}" primary label="إجراء علي أجازة" class="font-semibold" />
                   

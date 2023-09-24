@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -68,5 +69,44 @@ class Employee extends Model
     public function annualholiday()
     {
         return $this->hasMany(AnnualHoliday::class);
+    }
+
+    public function diffrence()
+    {
+
+        $totalDateDifference = 0;
+
+        foreach ($this->annualholiday as $holiday) {
+            $startDate = Carbon::parse($holiday->start_date);
+            $endDate = Carbon::parse($holiday->end_date);
+            $dateDifference = $startDate->diffInDays($endDate);
+
+            $totalDateDifference += $dateDifference + $holiday->extend_days;
+        }
+
+        // Add the total date difference to the employee model
+
+        return $totalDateDifference;
+
+    }
+
+    public function checkIfWorkToday()
+    {
+        // Get today's date
+        $today = Carbon::today();
+    
+        // Iterate through the annual holidays of this employee
+        foreach ($this->annualholiday as $holiday) {
+            $startDate = Carbon::parse($holiday->start_date);
+            $endDate = Carbon::parse($holiday->end_date);
+    
+            // Check if today falls within the holiday period
+            if ($today->between($startDate, $endDate) || $today->equalTo($startDate)) {
+                return 1;
+            }
+        }
+    
+        // If no holiday matches today's date, the employee is assumed to be working
+        return 0;
     }
 }
