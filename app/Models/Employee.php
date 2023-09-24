@@ -65,4 +65,8 @@ class Employee extends Model
     {
        return $this->hasMany(Worktime::class);
     }
+    public function annualholiday()
+    {
+        return $this->hasMany(AnnualHoliday::class);
+    }
 }

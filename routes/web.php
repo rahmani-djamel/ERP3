@@ -27,6 +27,8 @@ Route::namespace('App\Livewire\Backend\Company')->group(function() {
         Route::namespace('AnnualHoliday')->prefix('annualholiday')->as('annualholiday.')->group(function () {
             Route::get('/', Index::class)->name('index');
             Route::get('/create', Create::class)->name('create');
+            Route::get('/edit', Edit::class)->name('edit');
+
 
 
 

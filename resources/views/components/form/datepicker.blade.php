@@ -10,7 +10,8 @@
 <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
 
 </div>
-<x-input type="date"  wire:model="{{$model}}" 
+<x-input type="date"  wire:model.live="{{$model}}" 
+{{$attributes}}
 
 class="bg-gray-50 border border-gray-300
  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block

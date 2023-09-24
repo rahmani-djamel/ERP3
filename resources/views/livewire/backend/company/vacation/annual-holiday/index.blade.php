@@ -10,7 +10,7 @@
 
                     <x-button href="{{route('vacation.annualholiday.index')}}" primary label="عرض الإجازات السنوية" class="font-semibold" />
               
-                    <x-button href="{{route('vacation.weekend')}}" primary label="إجراء علي أجازة" class="font-semibold" />
+                    <x-button href="{{route('vacation.annualholiday.edit')}}" primary label="إجراء علي أجازة" class="font-semibold" />
                   
                     <x-button href="{{route('vacation.annualholiday.create')}}" positive label="إنشاء إجازة" class="font-semibold" />
 
