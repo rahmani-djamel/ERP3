@@ -21,17 +21,57 @@ class Logo extends Component
     public $seal;
 
 
-    public function updating($proprety,$value)
+    public function save()
     {
+  
+        $setting =  Setting::first();
        // dd($proprety);
-        if ($proprety == 'logo') {
-                    // Create a new setting model
+        if ($this->logo != null) {
+            $fileOne = new File();
+            // Handle the logo upload
+            $logo = $this->logo;
+            $logoFileName = "logo.png";
+            $logoFilePath = 'settings/';
+        
+            // Upload the logo image to the desired location
+            $logoPath = Storage::disk('local')->putFileAs($logoFilePath, $logo, $logoFileName, 'public');
 
             
-            # code...
-        } else {
-            # code...
-            dd("hello world 2");
+    
+        // Set the path of the image in the database
+        $fileOne->path = $logoPath;
+        $fileOne->type =  "png";
+        $setting->files()->save($fileOne);
+
+        $this->dialog()->success(
+            $title = 'تم التعديل',
+            $description = 'تم التعديل بنجاح'
+        );
+
+        } 
+        if ($this->seal != null) {
+
+            $fileOne = new File();
+            // Handle the logo upload
+            $logo = $this->seal;
+            $logoFileName = "seal.png";
+            $logoFilePath = 'settings/';
+        
+            // Upload the logo image to the desired location
+            $logoPath = Storage::disk('local')->putFileAs($logoFilePath, $logo, $logoFileName, 'public');
+
+            
+    
+        // Set the path of the image in the database
+        $fileOne->path = $logoPath;
+        $fileOne->type =  "png";
+        $setting->files()->save($fileOne);
+
+        $this->dialog()->success(
+            $title = 'تم التعديل',
+            $description = 'تم التعديل بنجاح'
+        );
+
 
         }
         

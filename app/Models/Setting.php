@@ -24,4 +24,9 @@ class Setting extends Model
         'SubmittingLeave',
         'AutomaticApproval',
     ];
+
+    public function files()
+    {
+        return $this->morphMany(File::class, 'fileable');
+    }
 }

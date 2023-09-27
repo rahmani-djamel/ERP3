@@ -40,6 +40,12 @@
 
                     </div>
             </div>
+            <div class="grid md:grid-cols-1 md:gap-6">
+
+                <x-button wire:click='save' positive label="حفظ"     wire:loading.attr="disabled"/>
+                <div wire:loading >تحميل...</div>
+
+            </div>
             </div>
         </section>
     </div>

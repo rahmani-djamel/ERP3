@@ -117,6 +117,16 @@ class Employee extends Model
         // If no holiday matches today's date, the employee is assumed to be working
         return 0;
     }
+    public function CounterMounth($startDate,$endDate,$status)
+    {
+        $attendancesCount = $this->attendances()
+        ->whereBetween('attendance_date', [$startDate, $endDate])
+        ->where('status',$status)
+        ->count();
+
+        return $attendancesCount;
+
+    }
 
 
 }
