@@ -8,7 +8,7 @@ function settings($settings, $updateCache = false)
 
     switch ($settings) {
 
-    // Appearance settings
+    // Branches settings
     case 'branches':
 
         // Check if want to update cache

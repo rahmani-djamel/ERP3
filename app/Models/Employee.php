@@ -70,6 +70,14 @@ class Employee extends Model
     {
         return $this->hasMany(AnnualHoliday::class);
     }
+    public function branche()
+    {
+        return $this->hasOne(Attendance::class);
+    }
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class);
+    }
 
     public function diffrence()
     {
@@ -109,4 +117,6 @@ class Employee extends Model
         // If no holiday matches today's date, the employee is assumed to be working
         return 0;
     }
+
+
 }

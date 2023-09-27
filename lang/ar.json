@@ -1,5 +1,15 @@
 {
     "Employees":"الموظفين",
     "Attendance":"الحضور و الغياب",
-    "Vacations": "الإجازات و العطل"
+    "Vacations": "الإجازات و العطل",
+    "Settings":"الإعدادات",
+    "Sunday": "الأحد",
+    "Monday": "الاثنين",
+    "Tuesday": "الثلاثاء",
+    "Wednesday": "الأربعاء",
+    "Thursday": "الخميس",
+    "Friday": "الجمعة",
+    "Saturday": "السبت"
+      
+      
 }

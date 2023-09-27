@@ -5,6 +5,9 @@
 
     <x-layouts.dashboard.navigationitem url="vacation.index" icon="calendar" text="Vacations" />
 
+    <x-layouts.dashboard.navigationitem url="settings.index" icon="cog" text="Settings" />
+
+
     
 
     

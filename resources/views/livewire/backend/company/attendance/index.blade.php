@@ -8,9 +8,9 @@
 
                 <div class="  grid md:grid-cols-4 md:gap-12 my-4" >
               
-                    <x-button href="{{route('vacation.weekend')}}" primary label="كشف الحضور والغياب" class="font-semibold" />
+                    <x-button href="{{route('attendance.report')}}" primary label="كشف الحضور والغياب" class="font-semibold" />
                   
-                    <x-button href="{{route('vacation.worktime')}}" positive label=" تقرير الحضور و الغياب" class="font-semibold" />
+                    <x-button href="{{route('attendance.statment')}}" positive label=" تقرير الحضور و الغياب" class="font-semibold" />
 
                 </div>
             </div>

@@ -34,9 +34,17 @@ Route::namespace('App\Livewire\Backend\Company')->group(function() {
     });
     Route::namespace('Attendance')->prefix('attendance')->as('attendance.')->group(function() {
          Route::get('/', Index::class)->name('index');
+         Route::get('/report', Report::class)->name('report');
+         Route::get('/statement', Statment::class)->name('statment');
+    });
+    Route::namespace('Settings')->prefix('settings')->as('settings.')->group(function() {
+        Route::get('/', Index::class)->name('index');
+        Route::get('/main', Main::class)->name('main');
+
 
 
     });
+
 
 
 

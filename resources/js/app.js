@@ -4,6 +4,7 @@ import 'flowbite';
 
 import persist from '@alpinejs/persist'
 
+
 window.Alpine = Alpine
 Alpine.plugin(persist)
 
