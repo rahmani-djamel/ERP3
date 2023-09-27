@@ -10,10 +10,10 @@
               
                     <x-button href="{{route('settings.main')}}" primary label="الإعدادات الأساسية" class="font-semibold" />
 
-                    <x-button href="{{route('attendance.statment')}}" primary label="إعدادات مواقع العمل" class="font-semibold" />
+                    <x-button href="{{route('settings.branches')}}" primary label="إعدادات مواقع العمل" class="font-semibold" />
 
 
-                    <x-button href="{{route('attendance.report')}}" positive label="إعدادات الشعار والختم" class="font-semibold" />
+                    <x-button href="{{route('settings.logo')}}" positive label="إعدادات الشعار والختم" class="font-semibold" />
 
                   
 
