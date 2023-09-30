@@ -13,7 +13,8 @@ class AnnualHoliday extends Model
         'employee_id',
         'start_date',
         'end_date',
-        'type'
+        'type',
+        'vacationtype_id'
     ];
 
     public function scopeSearch($query, $value){
@@ -27,6 +28,11 @@ class AnnualHoliday extends Model
     public function employee()
     {
         return $this->belongsTo(Employee::class);
+    }
+
+    public function  vacationtype()
+    {
+        return $this->belongsTo(Vacationtype::class,'vacationtype_id');
     }
 
 }

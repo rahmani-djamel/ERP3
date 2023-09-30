@@ -72,7 +72,7 @@
                                                                     {{ $val->status == 'حاضر' ? 'bg-green-700 text-white' : '' }}
                                                                     {{ $val->status == 'غائب' ? 'bg-rose-700 text-white' : '' }}
                                                                     {{ $val->status == 'متأخر' ? 'bg-yellow-400 text-black' : '' }}
-                                                                    {{ $val->status == 'عطلة' ? 'bg-indigo-700 text-white' : '' }}
+                                                                    {{ $val->status == 'عطلة' ? 'bg-indigo-900 text-white' : '' }}
                                                                     {{ $val->status == 'لم يحدد' ? 'bg-yellow-950 text-white' : '' }}
                                                                 "
                                                                 x-on:change="showSelectedInfo($el)">

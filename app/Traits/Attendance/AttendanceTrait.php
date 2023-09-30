@@ -71,7 +71,7 @@ public  function ReportByWeek($date = null,$branche = null)
             'number' => $employee->JobNumber,
             'name' => $employee->Name,
             'attendance' => $employee->attendance,
-            'branch' => $employee->branche->id,
+            'branch' => $employee->branch_id,
             'days' => $days,
         ];
     });

@@ -1,7 +1,7 @@
 @props(['label','model'])
 <div>
     
-    <label class="block text-gray-700 text-sm font-bold mb-1" for="{{$label}}">
+    <label class="block text-gray-700 dark:text-white text-sm font-bold mb-1" for="{{$label}}">
         {{$label}}
       </label>
 

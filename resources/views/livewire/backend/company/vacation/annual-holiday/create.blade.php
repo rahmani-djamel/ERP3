@@ -33,8 +33,8 @@
                                 <div class="grid md:grid-cols-1 md:gap-6">
                                         <div class="relative z-0 w-full mb-6 group">
                                             <x-native-select label="نوع الإجازة" wire:model.live="type">
-                                                @foreach ($vacationtypes as $item)
-                                                <option>{{$item}}</option>
+                                                @foreach (settings('VacationTypes') as $item)
+                                                <option value="{{$item->id}}">{{$item->name}}</option>
 
                                                 @endforeach
                                             </x-native-select>

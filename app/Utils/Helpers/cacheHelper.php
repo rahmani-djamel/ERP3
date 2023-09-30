@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Branche;
+use App\Models\Vacationtype;
 use Illuminate\Support\Facades\Cache;
 
 function settings($settings, $updateCache = false)
@@ -27,5 +28,24 @@ function settings($settings, $updateCache = false)
         }
 
         break;
+
+        case 'VacationTypes':
+
+            // Check if want to update cache
+            if ($updateCache) {
+    
+                // Remove it from cache
+                Cache::forget('VacationTypes');
+    
+            } else {
+        
+                // Return data
+                return Cache::rememberForever('VacationTypes', function () {
+                    return Vacationtype::all();
+                });
+    
+            }
+    
+            break;
     }
 }

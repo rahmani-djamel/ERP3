@@ -41,16 +41,11 @@
                               
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
-                                             
-                                        <x-native-select multiple label="أيام الإجازة الأسبوعية ( يوم )" wire:model="VacationDay">
-                                            <option>السبت</option>
-                                            <option>الأحد</option>
-                                            <option>الاثنين</option>
-                                            <option>الثلاثاء</option>
-                                            <option>الأربعاء</option>
-                                            <option>الخميس</option>
-                                            <option>الجمعة</option>
+                                        <x-native-select  label="موافقة تلقائية عند إنشاء تعريف من حساب موظف" wire:model="AutomaticApproval">
+                                            <option value="1">نعم</option>
+                                            <option value="2"> لا, يجب الرجوع للمشرف</option>
                                         </x-native-select>  
+  
                           
                                      </div>
                                 </div>
@@ -117,10 +112,7 @@
                 </div>
                 <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="relative z-0 w-full mb-6 group">
-                        <x-native-select  label="موافقة تلقائية عند إنشاء تعريف من حساب موظف" wire:model="AutomaticApproval">
-                            <option value="1">نعم</option>
-                            <option value="2"> لا, يجب الرجوع للمشرف</option>
-                        </x-native-select>  
+
                     
                     </div>
 

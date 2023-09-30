@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('annual_holidays', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('vacationtype_id');
+
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('extend')->default(0);

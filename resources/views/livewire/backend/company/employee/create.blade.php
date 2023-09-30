@@ -77,7 +77,7 @@
                                 <div class="relative z-0 w-full mb-6 group">
                                     <x-native-select label="نوع العقد" wire:model="ContratType">
                                         <option>محدد</option>
-                                        <option>محدد</option>
+                                        <option>غير محدد</option>
                                     </x-native-select>
   
                                 </div>

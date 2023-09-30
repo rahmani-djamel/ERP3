@@ -19,8 +19,8 @@ class VacationsSeeder extends Seeder
         // Seed at least one vacation day using the Vacation model
         Vacation::create([
             'weekday' => 'الجمعة',
-            'work_start' => null,
-            'work_end' => null,
+            'work_start' => '08:00:00',
+            'work_end' => '17:00:00',
             'is_vacation' => true,
         ]);
 

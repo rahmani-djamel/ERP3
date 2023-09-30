@@ -56,13 +56,38 @@ class Create extends Component
       //  dd($this->start,$this->end);
         
         if (Carbon::parse($this->end)->gt($this->start)) {
+
+            //dd($this->selected);
+
+            $checker = $this->Checker($this->start,$this->end,$this->selected);
+
+          //  dd($checker);
+            if (!is_array($checker)) {
+
+
+                $holiday = new AnnualHoliday();
+                $holiday->employee_id = $this->selected;
+                $holiday->start_date = $this->start;
+                $holiday->end_date = $this->end;
+                $holiday->type = $this->type;
+                $holiday->vacationtype_id = $this->type;
+                $holiday->save();
+
+                $this->dialog()->success(
+                    $title = ' تمت الإضافة',
+                    $description = 'تمت الاضافة بنجاح'
+                );
+              
+            } else {
+                $this->dialog()->error(
+                    $title = ' خطأ',
+                    $description = $checker['error']
+                );
+            }
+            
             //  
-           $holiday = new AnnualHoliday();
-           $holiday->employee_id = $this->selected;
-           $holiday->start_date = $this->start;
-           $holiday->end_date = $this->end;
-           $holiday->type = $this->type;
-           $holiday->save();
+            
+      
 
 
 
@@ -81,26 +106,31 @@ class Create extends Component
         if ($property === 'selected') {
             $employee = $this->employees->firstWhere('id', $value);
             $this->jobNumber = $employee->JobNumber;
-            $this->vacationdays = $employee->VacationDays;
+            $this->vacationdays = $employee->VacationDays + $employee->VacationSalary;
             // caluclate the reset 
             $holidays = $employee->annualholiday;
 
             $totalHolidayDuration = 0;
 
             foreach ($holidays as $holiday) {
-                $startDate = Carbon::parse($holiday->start_date);
-                $endDate = Carbon::parse($holiday->end_date);
+               
+                if ($holiday->vacationtype->is_reducable == 1) {
+                   
+                    
+                    $startDate = Carbon::parse($holiday->start_date);
+                    $endDate = Carbon::parse($holiday->end_date);
 
-                // Calculate the difference in days
-                $duration = $endDate->diffInDays($startDate);
+                    // Calculate the difference in days
+                    $duration = $endDate->diffInDays($startDate);
 
-                $totalHolidayDuration += $duration;
+                    $totalHolidayDuration += $duration;
 
-                if ($holiday->extend != 0) {
-                    $totalHolidayDuration += $holiday->extend_days;
+                    if ($holiday->extend != 0) {
+                        $totalHolidayDuration += $holiday->extend_days;
+                    }
                 }
             }
-            $this->reset = $this->vacationdays - $totalHolidayDuration;
+            $this->reset = ($this->vacationdays) - $totalHolidayDuration;
         }
 
         if ($property === 'start' || $property === 'end') {

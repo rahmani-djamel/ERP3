@@ -45,7 +45,7 @@
                                             </td>
                                             <td class="px-4 py-3 text-center">
                                                 @if($item->start_date && $item->end_date)
-                                                {{ \Carbon\Carbon::parse($item->start_date)->diffInDays($item->end_date) }} يوم
+                                                {{ \Carbon\Carbon::parse($item->start_date)->diffInDays($item->end_date) + $addtional }} يوم
                                             @else
                                                 لم يتم تحديد العطلة
                                             @endif
@@ -181,7 +181,14 @@
                 <div class="p-6 space-y-6">
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
-                            <x-form.datepicker label="تاريخ بداية الإجازة" model="start"  hint="{{$selected['start_date'] ?? ''}}"  />
+                            @if (!$disabled)
+
+                            <x-form.datepicker label="تاريخ بداية الإجازة" model="start"  hint="{{$selected['start_date'] ?? ''}}"   />
+
+                                
+                            @else
+                                <p class="dark:text-white font-bold mt-4"> لا يمكنك تعديل تاريخ البداية</p>
+                            @endif
 
                         </div>
                         <div class="relative z-0 w-full mb-6 group">

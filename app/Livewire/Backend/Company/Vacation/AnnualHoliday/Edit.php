@@ -4,6 +4,7 @@ namespace App\Livewire\Backend\Company\Vacation\AnnualHoliday;
 
 use App\Models\AnnualHoliday;
 use App\Models\Employee;
+use App\Models\Setting;
 use Carbon\Carbon;
 use Livewire\Component;
 use WireUi\Traits\Actions;
@@ -17,10 +18,14 @@ class Edit extends Component
     public $start;
     public $end;
     public $extendDays = 0;
+    public $disabled = false;
+    public $addtional;
 
     public function mount()
     {
       //  $this->holidays = AnnualHoliday::with('employee')->get();
+
+      $this->addtional = Setting::first()->SubmittingLeave;
 
     }
     public function updating($property,$value)
@@ -108,13 +113,21 @@ class Edit extends Component
     public function selection($item)
     {
         $this->selected = $item;
-        $this->start = $item['start_date'];
-        $this->end = $item['end_date'];
-
-
-      //  dd($this->start,$this->end);
-
-
+        $this->start = Carbon::parse($item['start_date']);
+        $this->end = Carbon::parse($item['end_date']);
+        
+        $today = Carbon::now();
+    
+        if ($today->greaterThan($this->start)) {
+            $this->disabled = true;
+        } else {
+            $this->disabled = false;
+        }
+    
+        // Rest of your code...
+    
+        // If you want to see the values for debugging:
+        // dd($this->start, $this->end, $this->disabled);
     }
     public function render()
     {
