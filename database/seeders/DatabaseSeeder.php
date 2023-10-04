@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             EmployeeSeeder::class,
             VacationsSeeder::class,
             WorktimeSeeder::class,
-            AttendanceTableSeeder::class,
+           // AttendanceTableSeeder::class,
             SettingsSeeder::class,
             VacationTypesSeeder::class,
         ]);

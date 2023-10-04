@@ -14,7 +14,7 @@ class VacationsSeeder extends Seeder
      */
     public function run(): void
     {
-        $weekdays = ['السبت', 'الأحد', 'الإثنين', 'الثلاثاء', 'الاربعاء','الخميس','الجمعة'];
+        $weekdays = ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الاربعاء','الخميس','الجمعة'];
 
         // Seed at least one vacation day using the Vacation model
         Vacation::create([

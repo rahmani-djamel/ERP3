@@ -19,8 +19,13 @@ class AttendanceTableSeeder extends Seeder
     {
         $faker = FakerFactory::create();
 
+        Carbon::setLocale('ar');
+
+
         $employees = Employee::all();
         $startDate = Carbon::today();
+
+
         
         foreach ($employees as $employee) {
             $currentDate = clone $startDate; // Create a new Carbon instance for each employee
