@@ -15,9 +15,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
 
-        $schedule->call(function(){
-            Log::info('we just got called');
-           })->everyFiveSeconds();
+        $schedule->command('attendance:check')
+        ->everyFiveSeconds();
+
+     
     }
 
     /**
