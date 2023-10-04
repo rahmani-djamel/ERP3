@@ -32,6 +32,9 @@ class CheckAttendance extends Command
                 // Get the current date
                 $currentDate = Carbon::today()->format('Y-m-d');
 
+                $dayOfWeek = Carbon::today()->translatedFormat('l');
+
+
                 // Query employees who haven't marked attendance for today
                 $absentEmployees = Employee::whereDoesntHave('attendances', function ($query) use ($currentDate) {
                     $query->where('attendance_date', $currentDate);
@@ -44,6 +47,7 @@ class CheckAttendance extends Command
                         'employee_id' => $employee->id,
                         'attendance_date' => $currentDate,
                         'status' => 'غائب',
+                        'day_of_week' => $dayOfWeek
                     ]);
         
                     $this->info('Marked ' . $employee->name . ' as absent.');
