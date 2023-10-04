@@ -6,6 +6,7 @@ use App\Models\Attendance;
 use App\Models\Employee;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class CheckAttendance extends Command
 {
@@ -50,9 +51,9 @@ class CheckAttendance extends Command
                         'day_of_week' => $dayOfWeek
                     ]);
         
-                    $this->info('Marked ' . $employee->name . ' as absent.');
+                    Log::info('Marked ' . $employee->name . ' as absent.');
                 }
         
-                $this->info('Attendance check completed.');
+                Log::info('Attendance check completed.');
     }
 }
