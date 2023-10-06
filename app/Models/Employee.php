@@ -72,7 +72,7 @@ class Employee extends Model
     }
     public function branche()
     {
-        return $this->hasOne(Attendance::class);
+        return $this->belongsTo(Branche::class,'branch_id');
     }
     public function attendances()
     {

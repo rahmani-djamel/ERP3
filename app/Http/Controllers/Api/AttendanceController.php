@@ -6,12 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Attendance;
 use App\Models\Employee;
 use App\Models\Worktime;
+use App\Traits\Api\ApiAttendanceTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class AttendanceController extends Controller
 {
+    use ApiAttendanceTrait;
+
     public function mark(Request $request)
     {
         $validateUser = Validator::make($request->all(), 
@@ -62,8 +65,10 @@ class AttendanceController extends Controller
         $attendance->day_of_week = $dayOfWeek;
         $attendance->attendance_date = $date;
         $attendance->save();
+
+        $delay = $this->apidelay($attendance,$dayOfWeek,$employeeId);
     
-        return response()->json(['message' => 'تم تسجيل الحضور'], 200);
+        return response()->json($delay, 200);
     }
     public function leave(Request $request)
     {
@@ -108,21 +113,11 @@ class AttendanceController extends Controller
         return response()->json(['message' => 'تم تسجيل الإنصراف'], 200);
 
     }
+
     public function delay(Request $request)
     {
-        // Validate the request
-        $validateUser = Validator::make($request->all(), [
-            'employee_id' => 'required|integer',
-            'date' => ['nullable', 'date', 'date_format:Y-m-d'],
-        ]);
-    
-        if ($validateUser->fails()) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Validation error',
-                'errors' => $validateUser->errors()
-            ], 401);
-        }
+
+        
     
         // Get the employee ID from the request
         $employeeId = $request->input('employee_id');
@@ -143,37 +138,60 @@ class AttendanceController extends Controller
             ], 404);
         }
     
-        // Get the day of the week and date from the attendance record
-        $dayOfWeek = Carbon::parse($attendance->attendance_date)->translatedFormat('l');
-        $createdAt = $attendance->created_at;
-
-
-        // Find the corresponding Worktime record for the same employee and day of the week
-        $worktime = Worktime::where('employee_id', $employeeId)
-            ->where('weekday', $dayOfWeek)
-            ->first();
-    
-        if (!$worktime) {
-            return response()->json([
-                'status' => false,
-                'message' => 'No worktime record found for this employee and day of the week',
-            ], 404);
-        }
-
-  
-        // Calculate the delay (difference between attendance created_at and start_work)
-        $startWork = Carbon::parse($worktime->work_start)->format('H:i:s');
-        $createdAt = Carbon::parse($attendance->created_at)->format('H:i:s');
-        $startWorkTime = Carbon::parse($startWork);
-        $createdAtTime = Carbon::parse($createdAt);
-        $delay = $createdAtTime->diffInMinutes($startWorkTime);
+      
     
         return response()->json([
             'status' => true,
             'message' => 'تم حساب  فرق التأخير',
-            'start' => $startWork,
-             'created_at' => $createdAt, 
-            'delay_minutes' => $delay,
+            'created_at' => $attendance->created_at, 
+            'delay_minutes' => $attendance->delay,
         ], 200);
+    }
+
+    public function report(Request $request)
+    {
+        $validateUser = Validator::make($request->all(), 
+        [
+            'employee_id' => 'required|integer', // Adjust validation rules as needed
+            'start_date' => ['required', 'date', 'date_format:Y-m-d'],
+            'end_date' => ['required', 'date', 'date_format:Y-m-d'],
+            'status' => ['nullable', 'in:حاضر,غائب'],
+        ]);
+
+        if($validateUser->fails()){
+            return response()->json([
+                'status' => false,
+                'message' => 'validation error',
+                'errors' => $validateUser->errors()
+            ], 401);
+        }
+
+        // If validation passes, proceed to fetch and process data
+        $employeeId = $request->input('employee_id');
+        $startDate = $request->input('start_date');
+        $endDate = Carbon::parse($request->input('end_date'))->addDay(); // Add a day to the end date
+        $status = $request->input('status'); // Get the status from the request
+
+        // Fetch data from the database (you may need to adjust this part)
+        // Fetch data from the database (you may need to adjust this part)
+        $query = Attendance::where('employee_id', $employeeId)
+            ->whereBetween('created_at', [$startDate, $endDate]);
+
+        if (!empty($status)) {
+            $query->where('status', $status);
+        }
+
+        $reportData = $query->get(['attendance_date', 'day_of_week', 'status', 'created_at', 'delay']);
+
+
+        // Process the report data as needed
+
+        // Return a JSON response with the report data
+        return response()->json([
+            'status' => true,
+            'message' => 'Report data retrieved successfully',
+            'data' => $reportData
+        ], 200);
+
     }
 }
