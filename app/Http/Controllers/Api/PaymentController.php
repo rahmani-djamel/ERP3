@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Attendance;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -35,11 +34,7 @@ class PaymentController extends Controller
         if (!$employee) {
             return response()->json(['error' => 'هذا الموظف غير موجود'], 404);
         }
-        $absent = Attendance::where('employee_id', $employee->id)
-        ->where('status', 'غائب')
-        ->whereYear('attendance_date', $now->year)
-        ->whereMonth('attendance_date', $now->month)
-        ->count();
+        
         
 
          $data = [
