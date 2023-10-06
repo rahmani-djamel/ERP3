@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\AnnualHoliday;
 use App\Models\Attendance;
 use App\Models\Employee;
 use Carbon\Carbon;
@@ -42,18 +43,32 @@ class CheckAttendance extends Command
                 })->get();
         
                 // Mark absent employees
-                foreach ($absentEmployees as $employee) {
-                    // Create an absent attendance record for each employee
-                    Attendance::create([
-                        'employee_id' => $employee->id,
-                        'attendance_date' => $currentDate,
-                        'status' => 'غائب',
-                        'day_of_week' => $dayOfWeek
-                    ]);
-        
-                    Log::info('Marked ' . $employee->name . ' as absent.');
+                foreach ($absentEmployees as $employee)
+                {
+                        // Create an absent attendance record for each employee
+
+                            // Check if the employee is on annual holiday
+                        $isOnHoliday = AnnualHoliday::where('employee_id', $employee->id)
+                        ->where('start_date', '<=', $currentDate)
+                        ->where('end_date', '>=', $currentDate)
+                        ->exists();
+
+                        $attendance = new Attendance();
+                        $attendance->employee_id = $employee->id;
+                        $attendance->attendance_date = $currentDate;
+                        $attendance->day_of_week = $dayOfWeek;
+
+                    if (!$isOnHoliday) {
+                        // Create an absent attendance record for employees not on holiday
+                        $attendance->status = "غائب" ;
+                    }
+                    else {
+                        $attendance->status = "عطلة" ;   
+                    }
+                    $attendance->save();
+                        
+                                Log::info('Attendance check completed.');
                 }
-        
-                Log::info('Attendance check completed.');
-    }
+   }
+
 }
