@@ -12,6 +12,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
+        "santigarcor/laratrust": "^8.2",
         "wireui/wireui": "^1.18"
     },
     "require-dev": {

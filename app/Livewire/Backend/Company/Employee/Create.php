@@ -113,6 +113,9 @@ class Create extends Component
     #[Rule('required')]
     public $branch_id;
 
+    #[Rule('required|in:0,1')]
+    public $is_adminstaror = 0;
+
     public function mount()
     {
     }

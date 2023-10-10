@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Branche;
+use App\Models\Permission;
 use App\Models\Vacationtype;
 use Illuminate\Support\Facades\Cache;
 
@@ -46,6 +47,27 @@ function settings($settings, $updateCache = false)
     
             }
     
-            break;
+        break;
+
+        case 'Permissions':
+
+            // Check if want to update cache
+            if ($updateCache) {
+        
+                // Remove it from cache
+                Cache::forget('Permissions');
+        
+            } else {
+            
+                // Return data
+                return Cache::rememberForever('Permissions', function () {
+                    return Permission::all();
+                });
+        
+            }
+        
+        break;
+
+
     }
 }

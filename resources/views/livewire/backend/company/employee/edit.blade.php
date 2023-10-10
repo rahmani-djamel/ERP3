@@ -10,6 +10,8 @@
                     <div class="  grid md:grid-cols-4 md:gap-12 mb-4" >
                     
                         <x-button lime label="حفظ" type="submit" class="font-semibold" />
+                        <x-button href="{{route('employee.permession',['employee' => $employee])}}" info  label="تعديل الصلاحيات" type="submit" class="font-semibold" />
+
                         <x-button href="{{route('employee.index')}}" primary label="رجوع" class="font-semibold" />
                                   
                     </div>

@@ -58,7 +58,8 @@ trait EmpTrait
             'LoanHistory' => $validated['LoanHistory'],
             'CovenantRecord' => $validated['CovenantRecord'],
             'user_id' => $user->id,
-            'branch_id' => $validated['branch_id']
+            'branch_id' => $validated['branch_id'],
+            'is_adminstaror' => $validated['is_adminstaror']
         ]);
         
         // Save the employee to the database

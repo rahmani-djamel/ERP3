@@ -204,15 +204,30 @@
 
     
                             <x-textarea wire:model="CovenantRecord" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"  label="سجل  العهد" />
+                        <div class="grid md:grid-cols-2 md:gap-6">
+                            <div class="relative z-0 w-full mb-6 group">
+
 
                 
-                            <x-native-select class="block mb-2" label="الفرع" wire:model="branch_id">
-                              @foreach (settings('branches') as $item)
-                              <option value="{{$item->id}}" >{{$item->name}}</option>
+                                <x-native-select class="block mb-2" label="الفرع" wire:model="branch_id">
+                                @foreach (settings('branches') as $item)
+                                <option value="{{$item->id}}" >{{$item->name}}</option>
 
-                              @endforeach
+                                @endforeach
 
                               </x-native-select>
+                            </div>
+                            <div class="relative z-0 w-full mb-6 group">
+                                <x-native-select class="block mb-2" label="الدور" wire:model="is_adminstaror">
+                                    <option value="0" >موظف</option>
+                                    <option value="1" >إداري</option>
+
+                                </x-native-select>
+
+
+
+                            </div>
+                        </div>
   
                 </div>
             </form>

@@ -42,7 +42,8 @@ class Employee extends Model
         'LoanHistory',
         'CovenantRecord',
         'user_id',
-        'branch_id'
+        'branch_id',
+        'is_adminstaror'
     ];
 
 

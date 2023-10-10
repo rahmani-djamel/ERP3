@@ -10,7 +10,23 @@
     "Thursday": "الخميس",
     "Friday": "الجمعة",
     "Saturday": "السبت",
-    "Salaries and commissions":"الرواتب والعمولات"
-      
-      
+    "Salaries and commissions":"الرواتب والعمولات",
+    "Sign in to your account": "تسجيل الدخول الى حسابك",
+    "Email address":"البريد الإلكتروني",
+    "Password":"كلمة السر",
+    "Remember": "تذكرني",
+    "Sign in": "الدخول",
+    "Employee Permissions": "صلاحيات الموظف",
+    "employee":"الموظفين",
+    "attendance": "الحضور و الغياب",
+    "Create employee": "إنشاء موظف",
+    "Read employee Information": "عرض معلومات الموظف",
+    "Delete employee": "حذف موظف",
+    "Edit employee Information":"تعديل معلومات موظف",
+    "Read report":"كشف الحضور و الغياب",
+    "Read Satatment Information":"تقرير الحضور و الغياب",
+    "Submit": "حفظ",
+    "User permissions":"صلاحيات المستخدم",
+    "User permissions have been modified successfully":"تم تعديل صلاحيات المستخدم بنجاح",
+    "Ok":"تم"
 }
