@@ -49,6 +49,9 @@ Route::middleware('auth:sanctum')->group(function() {
 
     Route::get('/employee/payment', [PaymentController::class, 'show'])->name('employee.payment');
 
+    Route::get('/employee/month/details', [EmployeeController::class, 'monthDetails'])->name('employee.monthDetails');
+
+
 
 
 

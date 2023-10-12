@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\AnnualHoliday;
 use App\Models\Attendance;
 use App\Models\Employee;
+use App\Models\Worktime;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
@@ -59,9 +60,23 @@ class CheckAttendance extends Command
                         $attendance->day_of_week = $dayOfWeek;
 
                     if (!$isOnHoliday) {
+                        
+                        // Check if the employee is marked as on vacation in the Worktime model
+                        $isOnVacation = Worktime::where('employee_id', $employee->id)
+                        ->whereDate('weekday', $dayOfWeek)
+                        ->where('is_vacation', true)
+                        ->exists();
                         // Create an absent attendance record for employees not on holiday
-                        $attendance->status = "غائب" ;
+                        if (!$isOnVacation) 
+                        {
+                            $attendance->status = "اجازة" ;   
+                        }
+                        else
+                        {
+                            $attendance->status = "غائب" ;   
+                        }
                     }
+
                     else {
                         $attendance->status = "عطلة" ;   
                     }
