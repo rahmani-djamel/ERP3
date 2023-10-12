@@ -116,9 +116,6 @@ class EmployeeController extends Controller
                         'absent_count' => $absentCount,
                         'vacation_count' => $vacationCount,
                         'incomplete_records' => $IncompleteRecords,
-
-                        'attendances' => $attendances,
-
                     ], 200);
 
     }
