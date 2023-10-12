@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Attendance;
 use App\Models\Employee;
 use App\Models\Worktime;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -19,7 +20,14 @@ class EmployeeController extends Controller
         // Check if the user has an associated employee
         $employee = $user->employee;
 
-        $worktime =  Worktime::where('employee_id',$employee->id)->select('work_start','work_end','is_vacation','weekday')->get();
+        $worktimes =  Worktime::where('employee_id',$employee->id)->select('work_start','work_end','is_vacation','weekday')->get();
+
+        
+foreach ($worktimes as $worktime) {
+    // Format work_start and work_end
+    $worktime->work_start = Carbon::parse($worktime->work_start)->format('h:i A');
+    $worktime->work_end =   Carbon::parse($worktime->work_end)->format('h:i A');
+}
 
             
         // If an employee is found, you can access its attributes
@@ -29,7 +37,7 @@ class EmployeeController extends Controller
             $data = [
                 'user' => $user,
                 'employee' => $employee,
-                'worktime' => $worktime
+                'worktime' => $worktimes
              
             ];
         } else {
