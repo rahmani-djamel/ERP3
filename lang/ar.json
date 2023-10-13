@@ -29,5 +29,18 @@
     "User permissions":"صلاحيات المستخدم",
     "User permissions have been modified successfully":"تم تعديل صلاحيات المستخدم بنجاح",
     "Ok":"تم",
-    "Record Attendance":"تسجيل الحضور"
+    "Recording attendance and absence":" تسجيل الحضور و الإنصراف",
+    "Record attendance":"تسجيل الحضور",
+    "sign out": "تسجيل الإنصراف",
+    "show":"عرض",
+    "Total working days":"مجموع ايام العمل",
+    "Days with incomplete records":"أيام بسجلات غير مكتملة",
+    "Absence":"الغياب",
+    "Attendance not required":"حضور غير مطلوب",
+    "Rest days":"أيام الراحة",
+    "Attendance record for": "سجل الحضور لشهر",
+    "Attendance has already been recorded":"تم تسجيل الحضور من قبل",
+    "Attendance has been registered successfully":"تم تسجيل الحضور بنجاح",
+    "Attendance has not been recorded previously":"لم يتم تسجيل الحضور من قبل",
+    "The checkout has been registered successfully":"تم تسجيل الانصراف بنجاح"
 }
