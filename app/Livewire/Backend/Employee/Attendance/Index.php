@@ -11,11 +11,50 @@ use WireUi\Traits\Actions;
 class Index extends Component
 {
     use Actions,ApiAttendanceTrait;
+
     public $employee;
+    public $absentCount;
+    public $presentCount;
+    public $IncompleteRecords;
+    public $vacationCount;
+    public $month;
+    public $year;
+    public $date;
 
     public function mount()
     {
+        $now = Carbon::now();
+        $this->year = $now->year;
+        $this->month = $now->month;
+
         $this->employee = auth()->user()->employee;
+
+        $this->filterAttendance($this->year,$this->month);
+
+    }
+    public function updating($proprety,$value)
+    {
+        if ($proprety == "date") {
+            $carbonDate = Carbon::parse($value);
+            $this->year = $carbonDate->year;
+            $this->month = $carbonDate->month;
+            
+            // You can use $year and $month for further processing.
+            $this->filterAttendance($this->year,$this->month);
+        }
+    }
+    public function filterAttendance($year,$month)
+    {
+        $attendances = Attendance::where('employee_id',$this->employee->id)->whereYear('created_at', $year)
+        ->whereMonth('created_at', $month)
+        ->get();
+
+
+        $this->presentCount = $attendances->where('status', 'حاضر')->count();
+        $this->absentCount = $attendances->where('status', 'غائب')->count();
+        $this->vacationCount = $attendances->whereIn('status', ['عطلة', 'اجازة'])->count();
+        $this->IncompleteRecords =  $attendances->whereNull('leave')->count();
+
     }
     public function save()
     {
@@ -46,6 +85,8 @@ class Index extends Component
         $attendance->day_of_week = $dayOfWeek;
         $attendance->attendance_date = $date;
         $attendance->save();
+
+        $this->apidelay($attendance,$dayOfWeek,$this->employee->id);
 
 
         $this->dialog()->show([

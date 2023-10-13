@@ -35,18 +35,18 @@ trait ApiAttendanceTrait
         }
 
   
-// Calculate the delay (difference between attendance created_at and start_work)
-$startWork = Carbon::parse($worktime->work_start)->format('H:i:s');
-$createdAt = Carbon::parse($attendance->created_at)->format('H:i:s');
-$startWorkTime = Carbon::parse($startWork);
-$createdAtTime = Carbon::parse($createdAt);
+        // Calculate the delay (difference between attendance created_at and start_work)
+        $startWork = Carbon::parse($worktime->work_start)->format('H:i:s');
+        $createdAt = Carbon::parse($attendance->created_at)->format('H:i:s');
+        $startWorkTime = Carbon::parse($startWork);
+        $createdAtTime = Carbon::parse($createdAt);
 
-if ($createdAtTime < $startWorkTime) {
-    // If created_at is less than start_work, store the delay as a negative value
-    $delay = -$createdAtTime->diffInMinutes($startWorkTime);
-} else {
-    $delay = $createdAtTime->diffInMinutes($startWorkTime);
-}
+        if ($createdAtTime < $startWorkTime) {
+            // If created_at is less than start_work, store the delay as a negative value
+            $delay = -$createdAtTime->diffInMinutes($startWorkTime);
+        } else {
+            $delay = $createdAtTime->diffInMinutes($startWorkTime);
+        }
 
         $attendance->delay = $delay;
 

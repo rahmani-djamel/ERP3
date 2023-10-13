@@ -42,5 +42,26 @@
     "Attendance has already been recorded":"تم تسجيل الحضور من قبل",
     "Attendance has been registered successfully":"تم تسجيل الحضور بنجاح",
     "Attendance has not been recorded previously":"لم يتم تسجيل الحضور من قبل",
-    "The checkout has been registered successfully":"تم تسجيل الانصراف بنجاح"
+    "The checkout has been registered successfully":"تم تسجيل الانصراف بنجاح",
+    "date":"التاريخ",
+    "Main":"الرئيسية",
+    "Day":"اليوم",
+    "Status":"الحالة",
+    "Delay":"مدة التأخير",
+    "Leave":"الإنصراف",
+    "present":"حاضر",
+    "absent":"غائب",
+    "holiday":"اجازة",
+    "Minute":"دقيقة",
+    "Incomplete":"غير مكتمل",
+    "Vacation":"الإجازات",
+    "start date": "تاريخ البداية",
+    "end date": "تاريخ النهاية",
+    "status":"الحالة",
+    "title": "العنوان",
+    "description":"الوصف",
+    "vacation request":"طلب إجازة",
+    "save":"حفظ",
+    "cancel":"إلغاء"
+
 }

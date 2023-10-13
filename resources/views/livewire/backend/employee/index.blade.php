@@ -8,7 +8,18 @@
                     iconName="clipboard-check"
                     title="{{ __('Recording attendance and absence') }}"
                     />
+
+                    <x-employee.index.card 
+                    link="employee.dashboard.attendance.report"
+                    iconName="document-report"
+                    title="{{ __('Read report') }}"
+                    />
               
+                    <x-employee.index.card 
+                    link="employee.dashboard.vacation.index"
+                    iconName="flag"
+                    title="{{ __('Vacation') }}"
+                    />
                   
 
                 </div>

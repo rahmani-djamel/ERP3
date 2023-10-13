@@ -29,9 +29,9 @@
                                 </div>
                             </div>
                             <hr class="h-px mt-4 mx-2 bg-gray-200 border-0 dark:bg-gray-700">
-                            <div class="grid grid-cols-1 gap-4">
+                            <div class="grid grid-cols-1 gap-4 mt-3">
                                 <div class="col-span-1">
-                                    <x-form.datepicker label="تاريخ الميلاد" model="DateOfBirth"   />
+                                    <x-form.datepicker label="{{__('date')}}" model="date"   />
                                 </div>
                                 <div class="col-span-1">
                                     <x-button info  label="{{__('show')}}" />
@@ -40,27 +40,27 @@
                             <hr class="h-px my-3 mx-2 bg-gray-200 border-0 dark:bg-gray-700">
 
                             <h2 class="dark:text-white font-extrabold my-2">
-                                {{__('Attendance record for')}}
+                                {{ trans('messages.attendance_record_for', ['month' => trans('messages.months.'.$month), 'year' => $year]) }}
                             </h2>
 
                             <div class="grid md:grid-cols-3 gap-4">
                                 <div class="col-span-1">
-                                    <x-employee.includes.box text="{{__('Total working days')}}" color="green" number="123" />
+                                    <x-employee.includes.box text="{{__('Total working days')}}" color="green" number="{{$presentCount}}" />
                                 </div>
                                 <div class="col-span-1">
-                                    <x-employee.includes.box text="{{__('Days with incomplete records')}}" color="gray" number="123" />
-                                </div>
-
-                                <div class="col-span-1">
-                                    <x-employee.includes.box text="{{__('Absence')}}" color="red" number="123" />
+                                    <x-employee.includes.box text="{{__('Days with incomplete records')}}" color="gray" number="{{$IncompleteRecords}}" />
                                 </div>
 
                                 <div class="col-span-1">
-                                    <x-employee.includes.box text="{{__('Attendance not required')}}" color="amber" number="123" />
+                                    <x-employee.includes.box text="{{__('Absence')}}" color="red" number="{{$absentCount}}" />
                                 </div>
 
                                 <div class="col-span-1">
-                                    <x-employee.includes.box text="{{__('Rest days')}}" color="blue" number="123" />
+                                    <x-employee.includes.box text="{{__('Attendance not required')}}" color="amber" number="0" />
+                                </div>
+
+                                <div class="col-span-1">
+                                    <x-employee.includes.box text="{{__('Rest days')}}" color="blue" number="{{$vacationCount}}" />
                                 </div>
 
                             

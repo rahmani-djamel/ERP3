@@ -13,6 +13,7 @@ class VacationRequest extends Model
         'employee_id',
         'title',
         'description',
+        'status'
     ];
 
     

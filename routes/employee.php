@@ -11,8 +11,15 @@ Route::namespace('App\Livewire\Backend\Employee')->middleware('auth')->prefix('e
     Route::namespace('Attendance')->prefix('attendance')->as('attendance.')->group(function() {
        
         Route::get('/', Index::class)->name('index');
-
+        Route::get('/report', Report::class)->name('report');
     });
+
+        //Recording attendance and absence
+    Route::namespace('Vacation')->prefix('vacation')->as('vacation.')->group(function() {
+        
+        Route::get('/', Index::class)->name('index');
+    });
+
 
     
 

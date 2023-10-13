@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->text('answer')->nullable();
+            $table->integer('status')->default(0);
             $table->timestamps();
             
             // Define foreign key constraint to link employee_id to the employees table

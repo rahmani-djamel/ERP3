@@ -12,7 +12,12 @@
         </div>
         <div class="flex space-x-3">
             <div class="flex space-x-3 items-center">
-    
+                <x-button
+                icon="arrow-narrow-right"
+                href="{{route('employee.dashboard.Index')}}"
+                label="{{__('Main')}}"
+                info
+               />
             </div>
         </div>
     
