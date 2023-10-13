@@ -56,26 +56,16 @@
                                                     <tr class="border-b dark:border-gray-700 dark:text-white" wire:key="{{$item->id}}">
                                                         
                                                         <td class="px-4 py-3 text-center">
-                                                            @if(app()->getLocale() == 'ar')
-                                                                {{ \Carbon\Carbon::parse($item->attendance_date)->isoFormat('D MMMM Y', 'Do MMMM Y') }}
-                                                            @else
-                                                                {{ \Carbon\Carbon::parse($item->attendance_date)->format('F j, Y') }}
-                                                            @endif
+                                                            {{$item->title}}
                                                         </td>
                                                         <td class="px-4 py-3 text-center">
-                                                            @if ($item->status == "حاضر")
-                                                              <x-badge outline positive label="{{__('present')}}" />
-                                                            @else
-                                                                 @if ($item->status == "غائب")
-
-                                                                 <x-badge outline negative label="{{__('absent')}}" />
-                                                                @else
-                                                                <x-badge outline info label="{{__('holiday')}}" />
-                                                                @endif
-                                                                
-                                                            @endif
+                                                            {{$item->start_date}}
+                                                   
                                                         </td>
-                                                        <td class="px-4 py-3 text-center">{{$item->delay}} {{__('Minute')}}</td>
+                                                        <td class="px-4 py-3 text-center">
+                                                            {{$item->end_date}}
+    
+                                                        </td>
                                                         <td class="px-4 py-3 text-center">
                                                             @if (!$item->leave)
                                                               <x-badge warning label="{{__('Incomplete')}}" />

@@ -27,6 +27,18 @@ class Index extends Component
 
     }
 
+    public function updating($proprety,$value)
+    {
+        if ($proprety == "date") {
+            $carbonDate = Carbon::parse($value);
+            $this->year = $carbonDate->year;
+            $this->month = $carbonDate->month;
+            
+            // You can use $year and $month for further processing.
+            $this->filterVacations($this->year,$this->month);
+        }
+    }
+
     public function filterVacations($year,$month)
     {
         $this->vacations = VacationRequest::where('employee_id',$this->employee->id)->whereYear('created_at', $year)

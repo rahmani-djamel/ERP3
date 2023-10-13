@@ -19,6 +19,7 @@ class ModalCreate extends Component
     public $start_date;
     public $end_date;
     public $employee;
+    public $gt = false;
 
     public function rules()
     {
@@ -34,15 +35,40 @@ class ModalCreate extends Component
     {
         $this->employee = auth()->user()->employee;
     }
+    public function updating($property,$value)
+    {
+
+        if ($property === 'start' || $property === 'end') {
+            $this->{$property} = $value;
+
+            if ($this->start != null && $this->end != null) {
+                $this->start_date = Carbon::parse($this->start_date);
+                $this->end_date = Carbon::parse($this->end_date);
+
+               if ($this->end->gt($this->start)) {
+                
+                $this->gt = true;
+
+               }else{
+                $this->gt = false;
+
+                $this->dialog()->error(
+                    $title = ' خطأ',
+                    $description = 'وقت البداية اكبر من وقت النهاية'
+                );
+               }
+            }
+        }
+    }
     public function save()
     {
         $this->validate();
        $checker =  $this->Checker($this->start_date,$this->end_date,$this->employee->id);
 
-       if ($checker['status'] == false) {
+       if ($checker['status'] == false || $this->gt == false) {
         $this->dialog([
             'title'       => __($checker['status'] ),
-            'description' => __($checker['error']),
+            'description' => __('Something is wrong'),
             'icon'        => 'warning',
             'close'      => [
                 'label'  => __('Ok')
@@ -73,7 +99,7 @@ class ModalCreate extends Component
        
 
     ]);
-    
+
     }
     public function render()
     {
