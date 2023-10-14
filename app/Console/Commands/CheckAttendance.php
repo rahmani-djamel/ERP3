@@ -64,8 +64,9 @@ class CheckAttendance extends Command
                         // Check if the employee is marked as on vacation in the Worktime model
                         $isOnVacation = Worktime::where('employee_id', $employee->id)
                         ->whereDate('weekday', $dayOfWeek)
-                        ->where('is_vacation', true)
+                        ->where('is_vacation', 1)
                         ->exists();
+
                         // Create an absent attendance record for employees not on holiday
                         if (!$isOnVacation) 
                         {
