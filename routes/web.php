@@ -15,9 +15,9 @@ Route::namespace('App\Livewire\Backend\Company')->group(function() {
 
     //Employee
     Route::namespace('Employee')->prefix('employees')->as('employee.')->group(function() {
-        Route::get('/', Index::class)->name('index');
-        Route::get('/create', Create::class)->name('create');
-        Route::get('/edit/{employee}', Edit::class)->name('edit');
+        Route::get('/', Index::class)->name('index')->middleware('checker:read-employee');
+        Route::get('/create', Create::class)->name('create')->middleware('checker:create-employee');
+        Route::get('/edit/{employee}', Edit::class)->name('edit')->middleware('checker:edit-employee');
         Route::get('/permession/{employee}', Permission::class)->name('permession');
 
     });

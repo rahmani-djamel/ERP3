@@ -85,6 +85,13 @@ class Employee extends Model
         return $this->hasMany(AskPermission::class);
     }
 
+    public function roleCheck()
+    {
+        return $this->is_adminstaror == 1;
+
+
+    }
+
     public function diffrence()
     {
 
