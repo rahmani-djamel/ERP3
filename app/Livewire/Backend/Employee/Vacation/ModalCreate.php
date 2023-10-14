@@ -88,6 +88,8 @@ class ModalCreate extends Component
     // Save the instance to the database
     $vacationRequest->save();
 
+    $this->reset();
+
     
     $this->dialog()->show([
         'title'       => __('Record attendance'),

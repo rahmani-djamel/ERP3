@@ -67,7 +67,7 @@
     
                                                         </td>
                                                         <td class="px-4 py-3 text-center">
-                                                            @if (!$item->leave)
+                                                            @if ($item->status == 0)
                                                               <x-badge warning label="{{__('Incomplete')}}" />
                                                             @else
                                                               <x-badge outline sky label="{{ \Carbon\Carbon::parse($item->leave)->format('h:i') }}" />

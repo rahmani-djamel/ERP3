@@ -20,7 +20,30 @@
                     iconName="flag"
                     title="{{ __('Vacation') }}"
                     />
+
+                    <x-employee.index.card 
+                    link="employee.dashboard.information.index"
+                    iconName="identification"
+                    title="{{ __('My Information') }}"
+                    />
                   
+                    <x-employee.index.card 
+                    link="employee.dashboard.password.index"
+                    iconName="lock-closed"
+                    title="{{ __('Change Password') }}"
+                    />
+
+                    <x-employee.index.card 
+                    link="employee.dashboard.askpermission.index"
+                    iconName="clock"
+                    title="{{ __('Asking Permission') }}"
+                    />
+
+                    <x-employee.index.card 
+                    link="employee.dashboard.resumption.index"
+                    iconName="fast-forward"
+                    title="{{ __('Request to start work') }}"
+                    />
 
                 </div>
         </section>
