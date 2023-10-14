@@ -24,9 +24,16 @@ class VacationsSeeder extends Seeder
             'is_vacation' => true,
         ]);
 
+        Vacation::create([
+            'weekday' => 'السبت',
+            'work_start' => '08:00:00',
+            'work_end' => '17:00:00',
+            'is_vacation' => true,
+        ]);
+
         // Seed data for the remaining weekdays
         foreach ($weekdays as $weekday) {
-            if ($weekday !== 'الجمعة') {
+            if ($weekday !== 'الجمعة' || $weekday !== "السبت") {
                 Vacation::create([
                     'weekday' => $weekday,
                     'work_start' => '08:00:00',

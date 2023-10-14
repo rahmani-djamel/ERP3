@@ -16,9 +16,10 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
 
         $schedule->command('attendance:check')
-        ->daily()
-        ->at('23:00')
-        ->timezone('Asia/Riyadh'); // Set the timezone to 'Asia/Riyadh' (Saudi Arabia)
+        ->everyTenSeconds();
+        //->daily()
+        //->at('23:00')
+        //->timezone('Asia/Riyadh'); // Set the timezone to 'Asia/Riyadh' (Saudi Arabia)
 }
 
     /**
