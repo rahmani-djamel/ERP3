@@ -68,7 +68,7 @@ class CheckAttendance extends Command
                         ->exists();
 
                         // Create an absent attendance record for employees not on holiday
-                        if (!$isOnVacation) 
+                        if ($isOnVacation) 
                         {
                             $attendance->status = "اجازة" ;   
                         }
