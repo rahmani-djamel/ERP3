@@ -2,7 +2,9 @@
     "Employees":"الموظفين",
     "Attendance":"الحضور و الغياب",
     "Vacations": "الإجازات و العطل",
+    "Appeal requests":"طلبات الإستئناف",
     "Settings":"الإعدادات",
+    "Employee":"الموظف",
     "Sunday": "الأحد",
     "Monday": "الاثنين",
     "Tuesday": "الثلاثاء",
@@ -112,7 +114,9 @@
     "Direct work":"مباشرة العمل",
     "Work has resumed":"تم استئناف العمل",
     "you are not on vacation":"أنت لست في إجازة",
-    "It has been appealed before":"تم الاستئناف من قبل"
+    "It has been appealed before":"تم الاستئناف من قبل",
+    "Date the appeal was placed":"تاريخ وضع الإستئناف",
+    "actions":"الإجراءات"
 
 
 

@@ -12,4 +12,14 @@ class ResumeWork extends Model
     protected $fillable = [
         'employee_id',
     ];
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
+
+    public function annualholiday()
+    {
+        return $this->belongsTo(AnnualHoliday::class);
+    }
 }

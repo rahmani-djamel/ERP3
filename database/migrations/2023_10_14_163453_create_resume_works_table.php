@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('annualholiday_id');
+            $table->integer('status')->default(0);
 
 
 

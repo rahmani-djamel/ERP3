@@ -62,12 +62,15 @@ Route::namespace('App\Livewire\Backend\Company')->group(function() {
         Route::get('/main', Main::class)->name('main');
         Route::get('/branches', Branches::class)->name('branches');
         Route::get('/logo', Logo::class)->name('logo');
+    });
 
-
-
-
+         // Resumption
+    Route::namespace('Resumption')->prefix('resumption')->as('resumption.')->group(function() {
+        Route::get('/', Index::class)->name('index');
 
     });
+
+
 
 
 

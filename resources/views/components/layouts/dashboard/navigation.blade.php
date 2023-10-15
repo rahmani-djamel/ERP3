@@ -7,6 +7,9 @@
 
     <x-layouts.dashboard.navigationitem url="salaires.index" icon="currency-dollar" text="Salaries and commissions" />
 
+    <x-layouts.dashboard.navigationitem url="resumption.index" icon="fast-forward" text="Appeal requests" />
+
+
 
     <x-layouts.dashboard.navigationitem url="settings.index" icon="cog" text="Settings" />
 
