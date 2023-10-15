@@ -74,6 +74,7 @@
     "Nationality": "الجنسية",
     "Date of Birth": "تاريخ الميلاد",
     "Start Date": "تاريخ البدء",
+    "Start Time": "وقت البدء",
     "Contract Type": "نوع العقد",
     "Card Number": "رقم البطاقة",
     "Vacation Salary": "راتب الإجازة",
@@ -116,7 +117,9 @@
     "you are not on vacation":"أنت لست في إجازة",
     "It has been appealed before":"تم الاستئناف من قبل",
     "Date the appeal was placed":"تاريخ وضع الإستئناف",
-    "actions":"الإجراءات"
+    "actions":"الإجراءات",
+    "ask permission":"طلبات الاستئذان",
+    "hour":"ساعة"
 
 
 

@@ -9,6 +9,9 @@
 
     <x-layouts.dashboard.navigationitem url="resumption.index" icon="fast-forward" text="Appeal requests" />
 
+    <x-layouts.dashboard.navigationitem url="askpermission.index" icon="clock" text="ask permission" />
+
+
 
 
     <x-layouts.dashboard.navigationitem url="settings.index" icon="cog" text="Settings" />

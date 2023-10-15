@@ -70,6 +70,12 @@ Route::namespace('App\Livewire\Backend\Company')->group(function() {
 
     });
 
+             // AskPermission
+    Route::namespace('AskPermission')->prefix('askpermission')->as('askpermission.')->group(function() {
+        Route::get('/', Index::class)->name('index');
+
+    });
+
 
 
 
