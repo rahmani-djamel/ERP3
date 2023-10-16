@@ -57,6 +57,8 @@ class AttendanceController extends Controller
         if ($existingAttendance) {
             return response()->json(['error' => 'تم تسجيل الحضور من قبل'], 400);
         }
+
+        $this->distance();
     
         // Record the attendance in the Attendance table
         $attendance = new Attendance();
@@ -194,4 +196,5 @@ class AttendanceController extends Controller
         ], 200);
 
     }
+
 }

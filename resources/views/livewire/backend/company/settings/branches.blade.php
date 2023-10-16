@@ -162,6 +162,12 @@
 
                 <x-input wire:model.live="Nmap"  right-icon="location-marker"   label="رابط على جوجل" />
 
+                <x-input wire:model.live="lat"  right-icon="map"   label="احداثية lat" />
+
+                <x-input wire:model.live="long"  right-icon="map"   label="احداثية long" />
+
+
+
             </div>
             <!-- Modal footer -->
             <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">

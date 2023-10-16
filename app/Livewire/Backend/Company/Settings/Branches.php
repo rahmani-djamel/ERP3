@@ -12,6 +12,8 @@ class Branches extends Component
     public $selected;
     public $Bname;
     public $address;
+    public $lat;
+    public $long;
     public $map;
     public $id;
     public $display;
@@ -26,10 +28,12 @@ class Branches extends Component
         return [
             'Bname' => 'required|min:5|max:40',
             'address' => 'required|min:5|max:100',
-            'map' => 'required|url:https'
-
+            'map' => 'required|url:https',
+            'lat' => 'required|numeric', // 'lat' should be a numeric value
+            'long' => 'required|numeric', // 'long' should be a numeric value
         ];
     }
+    
 
     public function selection($item)
     {
@@ -47,6 +51,8 @@ class Branches extends Component
         $branche->name = $this->Bname;
         $branche->place = $this->address;
         $branche->map = $this->map;
+        $branche->lat = $this->lat;
+        $branche->long = $this->long;
 
         $branche->save();
 
@@ -84,13 +90,17 @@ class Branches extends Component
         $validated = $this->validate([ 
             'NBname' => 'required|min:5|max:40',
             'Naddress' => 'required|min:5|max:100',
-            'Nmap' => 'required|url:https'
+            'Nmap' => 'required|url:https',
+            'lat' => 'required|numeric', // 'lat' should be a numeric value
+            'long' => 'required|numeric', // 'long' should be a numeric value
         ]);
 
         $branche = new Branche();
         $branche->name = $this->NBname;
         $branche->place = $this->Naddress;
         $branche->map = $this->Nmap;
+        $branche->lat = $this->lat;
+        $branche->long = $this->long;
 
         $branche->save();
 
@@ -102,6 +112,15 @@ class Branches extends Component
             $description = 'تمت اضافة الفرع بنجاح'
         );
     }
+
+    public function mount()
+    {
+      /*   $test =  $this->distance(32.9697, -98.53505, 32.9696, -98.53506, "M") . " Meter<br>";
+
+       dd($test);*/
+    }
+
+    
     
     public function render()
     {
