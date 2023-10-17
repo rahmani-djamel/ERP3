@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Attendance;
+use App\Models\Branche;
 use App\Models\Employee;
 use App\Models\Worktime;
 use App\Traits\Api\ApiAttendanceTrait;
@@ -17,10 +18,10 @@ class AttendanceController extends Controller
 
     public function mark(Request $request)
     {
-        $validateUser = Validator::make($request->all(), 
-        [
-            'employee_id' => 'required|integer', // Adjust validation rules as needed
-
+        $validateUser = Validator::make($request->all(), [
+            'employee_id' => 'required|integer',
+            'lat' => 'required|numeric',
+            'long' => 'required|numeric',
         ]);
 
         if($validateUser->fails()){
@@ -33,6 +34,8 @@ class AttendanceController extends Controller
     
         // Get the employee ID from the request
         $employeeId = $request->input('employee_id');
+        $lat = $request->input('lat');
+        $long = $request->input('long');
     
         // Check if the employee exists
         $employee = Employee::find($employeeId);
@@ -58,7 +61,18 @@ class AttendanceController extends Controller
             return response()->json(['error' => 'تم تسجيل الحضور من قبل'], 400);
         }
 
-        $this->distance();
+        $branche = Branche::findorfail($employee->branch_id);
+
+        $distance = $this->distance($branche->lat,$branche->long,$lat,$long,'M');
+
+        
+        if ($distance > 50) {
+            return response()->json([
+                'status' => false,
+                'distance' => $distance." M",
+                'error' => 'انت خارج الشركة'
+            ], 400);
+        }
     
         // Record the attendance in the Attendance table
         $attendance = new Attendance();
