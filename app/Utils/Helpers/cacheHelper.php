@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Branche;
+use App\Models\Language;
 use App\Models\Permission;
 use App\Models\Vacationtype;
 use Illuminate\Support\Facades\Cache;
@@ -62,6 +63,25 @@ function settings($settings, $updateCache = false)
                 // Return data
                 return Cache::rememberForever('Permissions', function () {
                     return Permission::all();
+                });
+        
+            }
+        
+        break;
+
+        case 'Languages':
+
+            // Check if want to update cache
+            if ($updateCache) {
+        
+                // Remove it from cache
+                Cache::forget('Languages');
+        
+            } else {
+            
+                // Return data
+                return Cache::rememberForever('Languages', function () {
+                    return Language::all();
                 });
         
             }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{config('direction')}}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
   <x-dialog />
 
 
-<x-layouts.dashboard.navbar />
+@livewire('includes.navbar',['fixed' => true])
   <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900 h-screen">
   
     <aside id="logo-sidebar" class="fixed inset-y-0 top-0 ltr:left-0 rtl:sm:right-0 z-40 w-64

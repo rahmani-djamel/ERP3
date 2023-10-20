@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
            // AttendanceTableSeeder::class,
             SettingsSeeder::class,
             VacationTypesSeeder::class,
-            PermissionsSeeder::class
+            PermissionsSeeder::class,
+            LanguageSeeder::class
         ]);
 
     }

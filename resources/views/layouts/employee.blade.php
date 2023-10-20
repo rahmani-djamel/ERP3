@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{config('direction')}}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,8 @@
 <body class="bg-gray-50 dark:bg-gray-800" x-data="{ mode: $persist('theme') || 'light' }" x-init="$watch('mode', value => $persist('theme', value))" :class="{'dark': mode === 'dark'}">
   <x-dialog />
 
-  <x-layouts.dashboard.navbar :fixed="false" />
+  @livewire('includes.navbar',['fixed' => false])
+
 
  
   <div id="main-content" class="min-h-screen dark:bg-slate-700">
