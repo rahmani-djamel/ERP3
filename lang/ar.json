@@ -121,7 +121,31 @@
     "Date the appeal was placed":"تاريخ وضع الإستئناف",
     "actions":"الإجراءات",
     "ask permission":"طلبات الاستئذان",
-    "hour":"ساعة"
+    "hour":"ساعة",
+    "Basic Settings": "الإعدادات الأساسية",
+    "Worksite Settings": "إعدادات مواقع العمل",
+    "Logo and Stamp Settings": "إعدادات الشعار والختم",
+    "Number of days in the month":"عدد أيام الشهر",
+    "Minimum leave period (day)":"اقل مدة إجازة ( يوم )",
+    "Nationalities":"الجنسيات",
+    "Automatic approval when creating an identification from an employee account":"موافقة تلقائية عند إنشاء تعريف من حساب موظف",
+    "Validity of annual leave":"صلاحية الأجازة السنوية",
+    "Guarantee for the borrower":"كفالة للمقترض",
+    "Will employees be paid an advance salary?":"هل سيتم دفع راتب مقدم للموظفين؟",
+    "Maximum number of employees to enjoy vacation at one time":"عدد الموظفين في الاقصى للتمتع بالاجازة في وقت واحد",
+    "The date the path was created":"تاريخ إنشاء المسير",
+    "Automatic deduction in case of absence and lateness":"الخصم التلقائي عند الغياب والتأخير",
+    "Duration between two vacations (days)":"المدة بين إجازتين ( يوم )",
+    "Submitting leave before it begins (number of days)":"تقديم الأجازة قبل بدايتها ب (عدد الأيام)",
+    "Branch Name":"اسم الفرع",
+    "Branch Address":"عنوان الفرع",
+    "New Branch":"فرع جديد",
+    "Map":"الخريطة",
+    "Click here":"إضغط هنا",
+    "to upload the logo":"لرفع الشعار",
+    "to upload the seal":"لرفع الختم",
+    "download...":"تحميل..."
+
 
 
 

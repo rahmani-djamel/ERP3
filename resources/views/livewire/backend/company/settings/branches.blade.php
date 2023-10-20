@@ -11,7 +11,7 @@
                                 <x-button
                                 data-modal-target="defaultModal1"
                                 data-modal-toggle="defaultModal1"
-                                label="إضافة فرع"
+                                label="{{__('New Branch')}}"
                                 teal
                             />
                             </div>
@@ -25,15 +25,15 @@
                                 <tr>
                                    
                             
-                                    <th scope="col" class="px-4 py-3 text-center">اسم الفرع</th>
-                                    <th scope="col" class="px-4 py-3 text-center">عنوان الفرع</th>
-                                    <th scope="col" class="px-4 py-3 text-center">جوجل </th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('Branch Name')}}</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('Branch Address')}}</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('Map')}}</th>
 
 
 
                             
                                     
-                                    <th scope="col" class="px-4 py-3 text-center">الإجراءات</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('acions')}}</th>
                                 </tr>
                             </thead>                   
                                      <tbody>

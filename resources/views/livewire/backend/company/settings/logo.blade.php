@@ -11,7 +11,7 @@
                                     <x-icon name="cloud-upload" class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" />
                         
                                     <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                                        <span class="font-semibold">إضغط هنا</span>لرفع الشعار</p>
+                                        <span class="font-semibold">{{__('Click here')}}</span>{{__('to upload the logo')}}</p>
                                     <p class="text-xs text-gray-500 dark:text-gray-400">PNG</p>
                                 </div>
                                 <input id="dropzone-file" wire:model="logo" type="file" class="hidden" />
@@ -29,7 +29,7 @@
                                     <x-icon name="cloud-upload" class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" />
                         
                                     <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                                        <span class="font-semibold">إضغط هنا</span>لرفع الختم</p>
+                                        <span class="font-semibold">{{__('Click here')}}</span>{{__('to upload the seal')}}</p>
                                     <p class="text-xs text-gray-500 dark:text-gray-400">PNG</p>
                                 </div>
                                 <input id="dropzone-file2" type="file" class="hidden"  wire:model="seal" />
@@ -42,8 +42,8 @@
             </div>
             <div class="grid md:grid-cols-1 md:gap-6">
 
-                <x-button wire:click='save' positive label="حفظ"     wire:loading.attr="disabled"/>
-                <div wire:loading >تحميل...</div>
+                <x-button wire:click='save' positive label="{{__('save')}}"     wire:loading.attr="disabled"/>
+                <div wire:loading >{{__('download...')}}</div>
 
             </div>
             </div>
