@@ -22,8 +22,8 @@ class BranchSeeder extends Seeder
                 'name' => $faker->company, // Generate a random company name
                 'place' => $faker->address, // Generate a random address
                 'map' => $faker->unique()->url, // Generate a unique random URL
-                'lat' => $faker->latitude, // Generate a random latitude
-                'long' => $faker->longitude, // Generate a random longitude
+                'lat' => 30.9790555, // Generate a random latitude
+                'long' => 31.449317, // Generate a random longitude
             ]);
         }
     }

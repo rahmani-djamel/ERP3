@@ -91,6 +91,8 @@ class AttendanceController extends Controller
         $validateUser = Validator::make($request->all(), 
         [
             'employee_id' => 'required|integer', // Adjust validation rules as needed
+            'lat' => 'required|numeric',
+            'long' => 'required|numeric',
 
         ]);
 
@@ -104,6 +106,8 @@ class AttendanceController extends Controller
     
         // Get the employee ID from the request
         $employeeId = $request->input('employee_id');
+        $lat = $request->input('lat');
+        $long = $request->input('long');
     
         // Check if the employee exists
         $employee = Employee::find($employeeId);
@@ -121,6 +125,20 @@ class AttendanceController extends Controller
             ->first();
         if (!$existingAttendance) {
             return response()->json(['error' => 'لم يتم تسجيل الحضور من قبل'], 400);
+
+        }
+
+        $branche = Branche::findorfail($employee->branch_id);
+
+        $distance = $this->distance($branche->lat,$branche->long,$lat,$long,'M');
+
+        
+        if ($distance > 50) {
+            return response()->json([
+                'status' => false,
+                'distance' => $distance." M",
+                'error' => 'انت خارج الشركة'
+            ], 400);
         }
 
         $existingAttendance->leave = now();
