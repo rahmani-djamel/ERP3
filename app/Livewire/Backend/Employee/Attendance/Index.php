@@ -3,6 +3,7 @@
 namespace App\Livewire\Backend\Employee\Attendance;
 
 use App\Models\Attendance;
+use App\Models\Worktime;
 use App\Traits\Api\ApiAttendanceTrait;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -20,6 +21,7 @@ class Index extends Component
     public $month;
     public $year;
     public $date;
+    public $checker = 0;
 
     public function mount()
     {
@@ -30,6 +32,19 @@ class Index extends Component
         $this->employee = auth()->user()->employee;
 
         $this->filterAttendance($this->year,$this->month);
+
+        $date = date('Y-m-d');
+
+
+        // Check if attendance already exists for that employee and date
+        $existingAttendance = Attendance::where('employee_id', $this->employee->id)
+            ->where('attendance_date', $date)
+            ->first();
+
+        if ($existingAttendance) 
+        {
+            $this->checker = 1;
+        }
 
     }
     public function updating($proprety,$value)
@@ -103,6 +118,24 @@ class Index extends Component
     public function quit()
     {
         $date = date('Y-m-d');
+
+        $dayOfWeek = Carbon::today()->translatedFormat('l');
+
+
+        $workTimeForToday =  Worktime::where('employee_id', $this->employee->id)
+        ->where('weekday', $dayOfWeek)->first();
+
+
+        $endTime = Carbon::parse($workTimeForToday->work_end);
+        $currentTime = Carbon::now();
+
+         //
+
+    
+        if ($currentTime->lessThan($endTime)) {
+            dd("Here we need to add dialog of confermation");
+
+        }
 
 
         $existingAttendance = Attendance::where('employee_id', $this->employee->id)

@@ -24,8 +24,17 @@
                                 </div>
                                 <div class="col-span-1 grid md:grid-cols-2  justify-items-center">
                                     <!-- Content for the second column -->
+                                    @if ($checker == 0)
+
                                     <x-button info wire:click="save" class="md:my-0 my-2" label="{{__('Record attendance')}}" />
+
+                                        
+                                    @else
+
                                     <x-button rose wire:click="quit" label="{{__('sign out')}}" />
+
+                                        
+                                    @endif
                                 </div>
                             </div>
                             <hr class="h-px mt-4 mx-2 bg-gray-200 border-0 dark:bg-gray-700">
