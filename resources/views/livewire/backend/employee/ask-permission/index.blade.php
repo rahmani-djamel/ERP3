@@ -21,7 +21,7 @@
 
                                 <div class="col-span-1">
 
-                                    <x-native-select label="وقت البداية" wire:model="start_time">
+                                    <x-native-select label="{{__('Start Time')}}" wire:model="start_time">
                                         @for ($hour = 0; $hour < 24; $hour++)
                                             @php
                                                 $formattedHour = sprintf("%02d:00", $hour); // Format the hour as HH:00
