@@ -8,7 +8,7 @@
                     <div class="grid md:grid-cols-3 gap-4">
                         <!-- Select Box -->
                         <div>
-                            <x-native-select label="اختر الفرع" wire:model.live="branche">
+                            <x-native-select label="{{__('Select the branch')}}" wire:model.live="branche">
                                 @foreach (settings('branches') as $item)
                                 <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
@@ -18,10 +18,10 @@
                 
                         <!-- Date Input -->
                         <div>
-                            <x-form.datepicker label="تاريخ" model="Start_work" hint="{{$start}} الى غاية {{$end}}"   />
+                            <x-form.datepicker label="{{__('date')}}" model="Start_work" hint="{{$start}}  {{__('to')}}  {{$end}}"   />
                         </div>
                         <div>
-                            <x-button info wire:click="resetTable" label="إعادة ضبط" class="md:mt-6" />
+                            <x-button info wire:click="resetTable" label="{{__('Reset')}}" class="md:mt-6" />
 
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                                 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                                     <div class="flex items-center justify-between d p-4">
                                         <div class="flex">
-                                            <x-input icon="search" wire:model.live.debounce.300ms="search"  placeholder="بحث" />
+                                            <x-input icon="search" wire:model.live.debounce.300ms="search"  placeholder="{{__('search')}}" />
                 
                                         </div>    
                                     </div>
@@ -38,12 +38,12 @@
                                         <table class="w-full text-sm text-left text-gray-500 ">
                                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:text-white dark:bg-gray-700" >
                                                 <tr>
-                                                    <th scope="col" class="px-4 py-3 text-center">اسم الموظف</th>
-                                                    <th scope="col" class="px-4 py-3 text-center">الرقم الوظيفي</th>
-                                                    <th scope="col" class="px-4 py-3 text-center">الفرع</th>
-                                                    <th scope="col" class="px-4 py-3 text-center">ايام الحضور</th>
-                                                    <th scope="col" class="px-4 py-3 text-center">ايام الغياب</th>
-                                                    <th scope="col" class="px-4 py-3 text-center">ايام التأخير</th>
+                                                    <th scope="col" class="px-4 py-3 text-center">{{__('Employee Name')}}</th>
+                                                    <th scope="col" class="px-4 py-3 text-center">{{__('Job Number')}}</th>
+                                                    <th scope="col" class="px-4 py-3 text-center">{{__('Branch')}}</th>
+                                                    <th scope="col" class="px-4 py-3 text-center">{{__('Attendance days')}}</th>
+                                                    <th scope="col" class="px-4 py-3 text-center">{{__('Days of absence')}}</th>
+                                                    <th scope="col" class="px-4 py-3 text-center">{{__('Days of delay')}}</th>
  
                                                 </tr>
                                             </thead>                   

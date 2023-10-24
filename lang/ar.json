@@ -181,7 +181,15 @@
     "the week":"الإسبوع",
     "Designate as a holiday":"تحديد كيوم عطلة",
     "Number of days off in the week":"عدد ايام العطل في الاسبوع",
-    "Back":"رجوع"
+    "Back":"رجوع",
+    "Select the branch":"اختر الفرع",
+    "to": "الى",
+    "Branch":"الفرع",
+    "Reset":"اعادة ضبط",
+    "Absent":"غائب",
+    "Attendance days":"أيام الحضور",
+    "Days of absence":"أيام الغياب",
+    "Days of delay":"ايام التأخير"
 
 
 

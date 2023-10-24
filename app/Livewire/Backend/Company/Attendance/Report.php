@@ -32,8 +32,6 @@ class Report extends Component
     public function mount()
     {
 
-        Carbon::setLocale('ar');
-
         $this->employees = $this->ReportByWeek();
         $this->start = Carbon::parse($this->employees['startWeek'])->isoFormat('dddd, Y-M-D');
         $this->end = Carbon::parse($this->employees['endWeek'])->isoFormat('dddd, Y-M-D');
