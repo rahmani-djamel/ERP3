@@ -74,7 +74,7 @@ class CheckAttendance extends Command
                         }
                         else
                         {
-                            $attendance->status = "اجازة";
+                            $attendance->status = "Vacance";
                         }
                     }
 
