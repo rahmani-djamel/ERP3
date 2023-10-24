@@ -38,7 +38,7 @@ class AttendanceTableSeeder extends Seeder
                 $attendanceData = [
                     'employee_id' => $employee->id,
                     'attendance_date' => $currentDate->copy()->subDays($i), // Use copy() to create a new instance
-                    'status' => $faker->randomElement(['حاضر', 'غائب', 'متأخر','عطلة']),
+                    'status' => $faker->randomElement(['Present', 'Absent', 'Late','Vacance']),
                     'day_of_week' => $dayOfWeek, // Add the day_of_week column
                 ];
         

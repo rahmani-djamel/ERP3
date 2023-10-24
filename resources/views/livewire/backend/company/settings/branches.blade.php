@@ -53,7 +53,7 @@
                            
                                                 <td class="px-4 py-3 text-center">
                                                     <a href="{{$item->map}}"     target="_blank"                                                        >
-                                                        <x-badge info label="إضغط هنا" />
+                                                        <x-badge info label="{{__('Click here')}}" />
                                                     </a>
                                                 </td>
 

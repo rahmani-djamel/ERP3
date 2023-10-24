@@ -119,9 +119,9 @@ foreach ($worktimes as $worktime) {
                     ->get();
 
 
-                    $presentCount = $attendances->where('status', 'حاضر')->count();
-                    $absentCount = $attendances->where('status', 'غائب')->count();
-                    $vacationCount = $attendances->whereIn('status', ['عطلة', 'اجازة'])->count();
+                    $presentCount = $attendances->where('status', 'Present')->count();
+                    $absentCount = $attendances->where('status', 'Absent')->count();
+                    $vacationCount = $attendances->whereIn('status', ['Vacance', 'اجازة'])->count();
                     $IncompleteRecords =  $attendances->whereNull('leave')->count();
                     
                     return response()->json([

@@ -65,15 +65,15 @@ class Index extends Component
         ->get();
 
 
-        $this->presentCount = $attendances->where('status', 'حاضر')->count();
-        $this->absentCount = $attendances->where('status', 'غائب')->count();
-        $this->vacationCount = $attendances->whereIn('status', ['عطلة', 'اجازة'])->count();
+        $this->presentCount = $attendances->where('status', 'Present')->count();
+        $this->absentCount = $attendances->where('status', 'Absent')->count();
+        $this->vacationCount = $attendances->whereIn('status', ['Vacance', 'اجازة'])->count();
         $this->IncompleteRecords =  $attendances->whereNull('leave')->count();
 
     }
     public function save()
     {
-        $dayOfWeek = Carbon::now()->translatedFormat('l');
+        $dayOfWeek = Carbon::now()->format('l');
         $date = date('Y-m-d');
     
         // Check if attendance already exists for that employee and date
@@ -96,7 +96,7 @@ class Index extends Component
         // Record the attendance in the Attendance table
         $attendance = new Attendance();
         $attendance->employee_id = $this->employee->id;
-        $attendance->status = 'حاضر';
+        $attendance->status = 'Present';
         $attendance->day_of_week = $dayOfWeek;
         $attendance->attendance_date = $date;
         $attendance->save();
@@ -118,9 +118,6 @@ class Index extends Component
     public function quit()
     {
         $date = date('Y-m-d');
-
-        Carbon::setLocale('ar');
-
         // Get the name of the day in Arabic
         $dayOfWeek = Carbon::today()->translatedFormat('l');
 

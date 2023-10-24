@@ -47,7 +47,7 @@
                                                 @if($item->start_date && $item->end_date)
                                                 {{ \Carbon\Carbon::parse($item->start_date)->diffInDays($item->end_date) + $addtional }} يوم
                                             @else
-                                                لم يتم تحديد العطلة
+                                                لم يتم تحديد الVacance
                                             @endif
                                             </td>
  

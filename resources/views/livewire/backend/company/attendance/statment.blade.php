@@ -61,9 +61,9 @@
                                                                 @php
                                                                 $startOfMonth = now()->startOfMonth();
                                                                 $endOfMonth = now()->endOfMonth();
-                                                                $attendancesCount = $item->CounterMounth($startOfMonth, $endOfMonth,'حاضر');
-                                                                $AbsentCount = $item->CounterMounth($startOfMonth, $endOfMonth,'غائب');
-                                                                $LateCount = $item->CounterMounth($startOfMonth, $endOfMonth,'متأخر');
+                                                                $attendancesCount = $item->CounterMounth($startOfMonth, $endOfMonth,'Present');
+                                                                $AbsentCount = $item->CounterMounth($startOfMonth, $endOfMonth,'Absent');
+                                                                $LateCount = $item->CounterMounth($startOfMonth, $endOfMonth,'Late');
 
 
                                                             @endphp
@@ -130,10 +130,10 @@
 
                 <x-native-select label="اختر الحالة الجديدة" wire:model.live="Newstatus"
             >
-                <option value="غائب">غائب</option>
-                <option value="حاضر">حاضر</option>
-                <option value="متأخر">متأخر</option>
-                <option value="عطلة">عطلة</option>
+                <option value="Absent">Absent</option>
+                <option value="Present">Present</option>
+                <option value="Late">Late</option>
+                <option value="Vacance">Vacance</option>
             </x-native-select>
 
             </div>

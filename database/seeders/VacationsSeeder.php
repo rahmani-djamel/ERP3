@@ -14,33 +14,32 @@ class VacationsSeeder extends Seeder
      */
     public function run(): void
     {
-        $weekdays = ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الاربعاء','الخميس','الجمعة'];
-
+        $englishWeekdays = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    
         // Seed at least one vacation day using the Vacation model
         Vacation::create([
-            'weekday' => 'الجمعة',
+            'weekday' => 'Friday',  // Change to 'Friday' for English
             'work_start' => '08:00:00',
             'work_end' => '17:00:00',
             'is_vacation' => true,
         ]);
-
+    
         Vacation::create([
-            'weekday' => 'السبت',
+            'weekday' => 'Saturday',  // Change to 'Saturday' for English
             'work_start' => '08:00:00',
             'work_end' => '17:00:00',
             'is_vacation' => true,
         ]);
-
+    
         // Seed data for the remaining weekdays
-        foreach ($weekdays as $weekday) {
-            if ($weekday !== 'الجمعة' || $weekday !== "السبت") {
-                Vacation::create([
-                    'weekday' => $weekday,
-                    'work_start' => '08:00:00',
-                    'work_end' => '17:00:00',
-                    'is_vacation' => false,
-                ]);
-            }
+        foreach ($englishWeekdays as $weekday) {
+            Vacation::create([
+                'weekday' => $weekday,
+                'work_start' => '08:00:00',
+                'work_end' => '17:00:00',
+                'is_vacation' => false,
+            ]);
         }
     }
+    
 }

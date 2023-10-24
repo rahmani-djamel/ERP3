@@ -69,17 +69,17 @@
                                                                 <x-native-select
                                                                 label=""
                                                                 class="
-                                                                    {{ $val->status == 'حاضر' ? 'bg-green-700 text-white' : '' }}
-                                                                    {{ $val->status == 'غائب' ? 'bg-rose-700 text-white' : '' }}
-                                                                    {{ $val->status == 'متأخر' ? 'bg-yellow-400 text-black' : '' }}
-                                                                    {{ $val->status == 'عطلة' ? 'bg-indigo-900 text-white' : '' }}
+                                                                    {{ $val->status == 'Present' ? 'bg-green-700 text-white' : '' }}
+                                                                    {{ $val->status == 'Absent' ? 'bg-rose-700 text-white' : '' }}
+                                                                    {{ $val->status == 'Late' ? 'bg-yellow-400 text-black' : '' }}
+                                                                    {{ $val->status == 'Vacance' ? 'bg-indigo-900 text-white' : '' }}
                                                                     {{ $val->status == 'لم يحدد' ? 'bg-yellow-950 text-white' : '' }}
                                                                 "
                                                                 x-on:change="showSelectedInfo($el)">
-                                                                <option {{ $val->status == 'غائب' ? 'selected' : '' }} value="غائب" data-id="{{$val->id}}" data-current="{{$val->status}}">غائب</option>
-                                                                <option {{ $val->status == 'حاضر' ? 'selected' : '' }} value="حاضر" data-id="{{$val->id}}" data-current="{{$val->status}}">حاضر</option>
-                                                                <option {{ $val->status == 'متأخر' ? 'selected' : '' }} value="متأخر" data-id="{{$val->id}}" data-current="{{$val->status}}">متأخر</option>
-                                                                <option {{ $val->status == 'عطلة' ? 'selected' : '' }} value="عطلة" data-id="{{$val->id}}" data-current="{{$val->status}}">عطلة</option>
+                                                                <option {{ $val->status == 'Absent' ? 'selected' : '' }} value="Absent" data-id="{{$val->id}}" data-current="{{$val->status}}">Absent</option>
+                                                                <option {{ $val->status == 'Present' ? 'selected' : '' }} value="Present" data-id="{{$val->id}}" data-current="{{$val->status}}">Present</option>
+                                                                <option {{ $val->status == 'Late' ? 'selected' : '' }} value="Late" data-id="{{$val->id}}" data-current="{{$val->status}}">Late</option>
+                                                                <option {{ $val->status == 'Vacance' ? 'selected' : '' }} value="Vacance" data-id="{{$val->id}}" data-current="{{$val->status}}">Vacance</option>
                                                             </x-native-select>
                 
                 
@@ -135,10 +135,10 @@
 
                 <x-native-select label="اختر الحالة الجديدة" wire:model.live="Newstatus"
             >
-                <option value="غائب">غائب</option>
-                <option value="حاضر">حاضر</option>
-                <option value="متأخر">متأخر</option>
-                <option value="عطلة">عطلة</option>
+                <option value="Absent">Absent</option>
+                <option value="Present">Present</option>
+                <option value="Late">Late</option>
+                <option value="Vacance">Vacance</option>
             </x-native-select>
 
             </div>

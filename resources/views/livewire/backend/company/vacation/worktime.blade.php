@@ -6,7 +6,7 @@
                 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                     <div class="flex items-center justify-between d p-4">
                         <div class="flex">
-                            <x-input icon="search" wire:model.live.debounce.300ms="search"  placeholder="بحث" />
+                            <x-input icon="search" wire:model.live.debounce.300ms="search"  placeholder="{{__('search')}}" />
 
                         </div>
                     </div>
@@ -15,11 +15,11 @@
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:text-white dark:bg-gray-700">
                                 <tr>
                             
-                                    <th scope="col" class="px-4 py-3 text-center">اسم الموظف</th>
-                                    <th scope="col" class="px-4 py-3 text-center">الرقم الوظيفي</th>
-                                    <th scope="col" class="px-4 py-3 text-center">الحالة</th>
-                                    <th scope="col" class="px-4 py-3 text-center">عدد ايام العطل في الأسبوع</th>
-                                    <th scope="col" class="px-4 py-3 text-center">الإجراءات</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('Employee Name')}}</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('Job number')}}</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('status')}}</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('Number of days off in the week')}}</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('actions')}}</th>
                                 </tr>
                             </thead>                   
                                      <tbody>
@@ -108,7 +108,7 @@
                   
               @else
               <h1 class="dark:text-white">
-                {{$item['weekday']}} : عطلة
+                {{$item['weekday']}} : Vacance
               </h1>
                   
               @endif

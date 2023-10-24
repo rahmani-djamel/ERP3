@@ -10,10 +10,10 @@
                                 <tr>
                                     @foreach ($headers as $item)
                             
-                                    <th scope="col" class="px-4 py-3 text-center">{{$item}}</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__($item)}}</th>
                             
                                     @endforeach
-                                    <th scope="col" class="px-4 py-3 text-center">الإجراءات</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('actions')}}</th>
                                 </tr>
                             </thead>                   
                                      <tbody>
@@ -23,8 +23,8 @@
                                         @php
                                         $startOfMonth = now()->startOfMonth();
                                         $endOfMonth = now()->endOfMonth();
-                                        $AbsentCount = $item->CounterMounth($startOfMonth, $endOfMonth,'غائب');
-                                        $LateCount = $item->CounterMounth($startOfMonth, $endOfMonth,'متأخر');
+                                        $AbsentCount = $item->CounterMounth($startOfMonth, $endOfMonth,'Absent');
+                                        $LateCount = $item->CounterMounth($startOfMonth, $endOfMonth,'Late');
 
 
                                     @endphp

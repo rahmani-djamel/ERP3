@@ -92,10 +92,11 @@ trait VacationTrait
     public function header()
     {
       return  $columnMapping = [
-            'weekday' => ' الأسبوع',
-            'work_start' => 'وقت البداية',
-            'work_end' => 'وقت النهاية',
+            'weekday' => 'the week',
+            'work_start' => 'Start Time',
+            'work_end' => 'End Time',
         ];
+        
         
     }
     public function body()

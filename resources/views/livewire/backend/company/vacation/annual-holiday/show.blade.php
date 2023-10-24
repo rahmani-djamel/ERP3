@@ -6,7 +6,7 @@
                 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                     <div class="flex items-center justify-between d p-4">
                         <div class="flex">
-                            <x-input icon="search" wire:model.live.debounce.300ms="search"  placeholder="بحث" />
+                            <x-input icon="search" wire:model.live.debounce.300ms="search"  placeholder="{{__('search')}}" />
 
                         </div>
                     </div>
@@ -15,13 +15,13 @@
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:text-white dark:bg-gray-700">
                                 <tr>
                             
-                                    <th scope="col" class="px-4 py-3 text-center">اسم الموظف</th>
-                                    <th scope="col" class="px-4 py-3 text-center">الرقم الوظيفي</th>
-                                    <th scope="col" class="px-4 py-3 text-center">عدد أيام الإجازة السنوية المستحقة	</th>
-                                    <th scope="col" class="px-4 py-3 text-center"> الرصيد الفعلي من عدد ايام الإجازة</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('Employee Name')}}</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('Job number')}}</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('Eligible annual leave days')}}</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('The actual balance of the number of leave days')}}</th>
 
-                                    <th scope="col" class="px-4 py-3 text-center">الحالة</th>
-                                    <th scope="col" class="px-4 py-3 text-center">نوع الإجازة </th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('status')}}</th>
+                                    <th scope="col" class="px-4 py-3 text-center">{{__('vacation type')}}</th>
                                 </tr>
                             </thead>                   
                                      <tbody>

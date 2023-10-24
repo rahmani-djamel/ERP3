@@ -56,10 +56,10 @@
                                                             @endif
                                                         </td>
                                                         <td class="px-4 py-3 text-center">
-                                                            @if ($item->status == "حاضر")
+                                                            @if ($item->status == "Present")
                                                               <x-badge outline positive label="{{__('present')}}" />
                                                             @else
-                                                                 @if ($item->status == "غائب")
+                                                                 @if ($item->status == "Absent")
 
                                                                  <x-badge outline negative label="{{__('absent')}}" />
                                                                 @else

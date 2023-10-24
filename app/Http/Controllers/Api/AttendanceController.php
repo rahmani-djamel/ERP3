@@ -77,7 +77,7 @@ class AttendanceController extends Controller
         // Record the attendance in the Attendance table
         $attendance = new Attendance();
         $attendance->employee_id = $employee->id;
-        $attendance->status = 'حاضر';
+        $attendance->status = 'Present';
         $attendance->day_of_week = $dayOfWeek;
         $attendance->attendance_date = $date;
         $attendance->save();
@@ -189,7 +189,7 @@ class AttendanceController extends Controller
             'employee_id' => 'required|integer', // Adjust validation rules as needed
             'start_date' => ['required', 'date', 'date_format:Y-m-d'],
             'end_date' => ['required', 'date', 'date_format:Y-m-d'],
-            'status' => ['nullable', 'in:حاضر,غائب'],
+            'status' => ['nullable', 'in:Present,Absent'],
         ]);
 
         if($validateUser->fails()){
