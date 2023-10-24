@@ -15,7 +15,7 @@ $except = ['vacation']
         @endforeach
         @if (!in_array($this->key,$except))
 
-        <th scope="col" class="px-4 py-3">الإجراءات</th>
+        <th scope="col" class="px-4 py-3">{{__('actions')}}</th>
        @endif
     </tr>
 </thead>

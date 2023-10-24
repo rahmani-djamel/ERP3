@@ -6,14 +6,14 @@
                     <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                         <div class="flex items-center justify-between d p-4">
                             <div class="flex">
-                                <x-input icon="search" wire:model.live.debounce.300ms="search"  placeholder="بحث" />
+                                <x-input icon="search" wire:model.live.debounce.300ms="search"  placeholder="{{__('search')}}" />
 
                             </div>
                             <div class="flex space-x-3">
                                 <div class="flex space-x-3 items-center">
                                     <x-button
                                     href="{{route('employee.create')}}"
-                                    label="إضافة موظف"
+                                    label="{{__('Add an employee')}}"
                                     teal
                                 />
                                 </div>

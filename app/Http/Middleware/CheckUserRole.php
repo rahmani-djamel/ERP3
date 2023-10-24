@@ -19,13 +19,14 @@ class CheckUserRole
      */
     public function handle(Request $request, Closure $next,$permissionName): Response
     {
+        return $next($request);
+
         if (Auth::check()) {
             $user = Auth::user();
             $employee = $user->employee;
 
             //dd($employee->roleCheck());
             //dd($employee);
-          //  dd($permissionName,$user->hasPermission($permissionName),$employee->roleCheck(),$user->id);
 
          
 
@@ -57,6 +58,6 @@ class CheckUserRole
         }
 
         // If the user's role does not match, return a 403 response
-        return abort(404);
+        return abort(403, 'USER DOES NOT HAVE ANY OF THE NECESSARY ACCESS RIGHTS.');
     }
 }

@@ -9,8 +9,8 @@
                 
                 <div class="  grid md:grid-cols-4 md:gap-12 mb-4" >
                 
-                    <x-button lime label="حفظ" type="submit" class="font-semibold" />
-                    <x-button href="{{route('employee.index')}}" primary label="رجوع" class="font-semibold" />
+                    <x-button lime label="{{__('save')}}" type="submit" class="font-semibold" />
+                    <x-button href="{{route('employee.index')}}" primary label="{{__('back')}}" class="font-semibold" />
                               
                 </div>
 
@@ -18,37 +18,37 @@
                     
                             <div class="grid md:grid-cols-2 md:gap-6">
                                     <div class="relative z-0 w-full mb-6 group">
-                                        <x-input wire:model="Name" right-icon="user" label="الاسم الكامل"  />
+                                        <x-input wire:model="Name" right-icon="user" label="{{__('Employee Name')}}"  />
 
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
-                                        <x-input wire:model="CarteNumber" type="number" right-icon="identification" label="رقم الهوية"  />
+                                        <x-input wire:model="CarteNumber" type="number" right-icon="identification" label="{{__('Card Number')}}"  />
 
                                     </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                     <div class="relative z-0 w-full mb-6 group">
-                                        <x-input wire:model="JobNumber" type="number" right-icon="user" label="الرقم الوظيفي"  />
+                                        <x-input wire:model="JobNumber" type="number" right-icon="user" label="{{__('Job number')}}"  />
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
                                             
-                                        <x-native-select label="الجنسية" wire:model="Nationality">
-                                            <option>سعودي</option>
-                                            <option>مصري</option>
+                                        <x-native-select label="{{__('Nationality')}}" wire:model="Nationality">
+                                            <option>{{__('Saudi')}}</option>
+                                            <option>{{__('Egyptian')}}</option>
                                         </x-native-select>
 
                                     </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input wire:model="email" right-icon="at-symbol" label="البريد الإلكتروني"  />
+                                    <x-input wire:model="email" right-icon="at-symbol" label="{{__('Email')}}"  />
 
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
                                         
-                                    <x-native-select label="النوع" wire:model="Gender">
-                                        <option>ذكر</option>
-                                        <option>انثى</option>
+                                    <x-native-select label="{{__('Gender')}}" wire:model="Gender">
+                                        <option value="male">{{('Male')}}</option>
+                                        <option value="female">{{__('Female')}}</option>
                                     </x-native-select>
 
                                 </div>
@@ -56,33 +56,33 @@
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="z-30 w-full ">
                            
-                                    <x-form.datepicker label="تاريخ الميلاد" model="DateOfBirth"   />
+                                    <x-form.datepicker label="{{__('Date of Birth')}}" model="DateOfBirth"   />
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-form.datepicker label="تاريخ المباشرة" model="Start_work"   />
+                                    <x-form.datepicker label="{{__('start date')}}" model="Start_work"   />
                             
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                     <div class="relative z-0 w-full mb-6 group">
-                                        <x-input wire:model="Phone" class="text-left" right-icon="device-mobile"  type="number" label="رقم الهاتف"  />
+                                        <x-input wire:model="Phone" class="text-left" right-icon="device-mobile"  type="number" label="{{__('Phone')}}"  />
 
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
-                                        <x-input wire:model="VacationDays"  right-icon="flag"  type="number" label="عدد ايام الإجازة"  />
+                                        <x-input wire:model="VacationDays"  right-icon="flag"  type="number" label="{{__('Vacation Days')}}"  />
 
                                     </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-native-select label="نوع العقد" wire:model="ContratType">
-                                        <option>محدد</option>
-                                        <option>غير محدد</option>
+                                    <x-native-select label="{{__('Contract Type')}}" wire:model="ContratType">
+                                        <option value="designed">{{__('specified')}}</option>
+                                        <option value="not designed">{{__('undefined')}}</option>
                                     </x-native-select>
   
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-native-select label="التقييم" wire:model="Rating">
+                                    <x-native-select label="{{__('Rating')}}" wire:model="Rating">
                                     <option >ممتاز</option>
                                     <option >جيد جداً</option>
                                     <option >جيد</option>
@@ -96,11 +96,11 @@
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-form.datepicker label="تاريخ نهاية العقد" model="End"  />
+                                    <x-form.datepicker label="{{__('Contract end date')}}" model="End"  />
 
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-native-select label="الحالة" wire:model="Status">
+                                    <x-native-select label="{{__('status')}}" wire:model="Status">
 
                                     <option >على رأس العمل</option>
                                     <option >فترة تجريبية</option>
@@ -119,18 +119,18 @@
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input right-icon="users" label="اسم صديق" model="FriendName"  />
+                                    <x-input right-icon="users" label="{{__('A friend in emergency')}}" model="FriendName"  />
 
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input class="text-left" right-icon="device-mobile"  type="number" label=" رقم هاتف الصديق" model="FriendPhone" />
+                                    <x-input class="text-left" right-icon="device-mobile"  type="number" label="{{__('Emergency Contact')}}" model="FriendPhone" />
 
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
                                         
-                                    <x-native-select label="فئة التأمين" wire:model="InsuranceClass">
+                                    <x-native-select label="{{__('Insurance Class')}}" wire:model="InsuranceClass">
 
                                       <option  >VVIP</option>
                                       <option  >VIP</option>
@@ -141,57 +141,57 @@
               
                                   </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-form.datepicker label="تاريخ نهاية التأمين" model="InsuranceExpiryDate"  />
+                                    <x-form.datepicker label="{{__('Insurance Expiry Date')}}" model="InsuranceExpiryDate"  />
                                 </div>
                                 
                             </div>
 
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input right-icon="library" label="اسم البنك" wire:model="BankName"  />
+                                    <x-input right-icon="library" label="{{__('Bank name')}}" wire:model="BankName"  />
 
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input right-icon="credit-card" label="الحساب البنكي" wire:model="BankNumber" />
-
-                                </div>
-                            </div>
-                            <div class="grid md:grid-cols-2 md:gap-6">
-                                <div class="relative z-0 w-full mb-6 group">
-                                    <x-input right-icon="cash" label="الراتب الأساسي" wire:model="BasicSalary"  />
-
-                                </div>
-                                <div class="relative z-0 w-full mb-6 group">
-                                    <x-input right-icon="cash" label="بدلات أخرى" wire:model="OtherAllowances"  />
+                                    <x-input right-icon="credit-card" label="{{__('Bank Number')}}" wire:model="BankNumber" />
 
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input type="number" right-icon="chart-pie" wire:model="InsuranceRatio" label="نسبة التأمينات"  />
+                                    <x-input right-icon="cash" label="{{__('Basic Salary')}}" wire:model="BasicSalary"  />
 
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input type="number" right-icon="cash" wire:model="InsuranceSubscriptionAmount" label="مبلغ اشتراك التأمينات"  />
+                                    <x-input right-icon="cash" label="{{__('Other Allowances')}}" wire:model="OtherAllowances"  />
 
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input right-icon="cash" wire:model="HousingAllowance" label="بدل السكن"  />
+                                    <x-input type="number" right-icon="chart-pie" wire:model="InsuranceRatio" label="{{__('Insurance Ratio')}}"  />
 
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input right-icon="cash" wire:model="transportationAllowance" label="بدل المواصلات"  />
+                                    <x-input type="number" right-icon="cash" wire:model="InsuranceSubscriptionAmount" label="{{__('Insurance Subscription Amount')}}"  />
+
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input type="number" wire:model="VacationSalary" right-icon="currency-dollar" label="رصيد الإجازة"  />
+                                    <x-input right-icon="cash" wire:model="HousingAllowance" label="{{__('Housing Allowance')}}"  />
 
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input type="number" wire:model="DurationOfTheWarningPeriod" right-icon="exclamation" label="مدة مهلة الإنذار"  />
+                                    <x-input right-icon="cash" wire:model="transportationAllowance" label="{{__('transportation Allowance')}}"  />
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 md:gap-6">
+                                <div class="relative z-0 w-full mb-6 group">
+                                    <x-input type="number" wire:model="VacationSalary" right-icon="currency-dollar" label="{{__('Vacation Salary')}}"  />
+
+                                </div>
+                                <div class="relative z-0 w-full mb-6 group">
+                                    <x-input type="number" wire:model="DurationOfTheWarningPeriod" right-icon="exclamation" label="{{__('Duration Of The Warning Period')}}"  />
 
                                 </div>
                             </div>
@@ -200,16 +200,16 @@
                               
                             </div>
 
-                            <x-textarea wire:model="LoanHistory" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"  label="سجل  القروض" />
+                            <x-textarea wire:model="LoanHistory" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"  label="{{__('Loan History')}}" />
 
     
-                            <x-textarea wire:model="CovenantRecord" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"  label="سجل  العهد" />
+                            <x-textarea wire:model="CovenantRecord" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"  label="{{__('Covenant Record')}}" />
                         <div class="grid md:grid-cols-2 md:gap-6">
                             <div class="relative z-0 w-full mb-6 group">
 
 
                 
-                                <x-native-select class="block mb-2" label="الفرع" wire:model="branch_id">
+                                <x-native-select class="block mb-2" label="{{__('Select the branch')}}" wire:model="branch_id">
                                 @foreach (settings('branches') as $item)
                                 <option value="{{$item->id}}" >{{$item->name}}</option>
 
@@ -218,7 +218,7 @@
                               </x-native-select>
                             </div>
                             <div class="relative z-0 w-full mb-6 group">
-                                <x-native-select class="block mb-2" label="الدور" wire:model="is_adminstaror">
+                                <x-native-select class="block mb-2" label="{{__('Role')}}" wire:model="is_adminstaror">
                                     <option value="0" >موظف</option>
                                     <option value="1" >إداري</option>
 

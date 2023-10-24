@@ -113,32 +113,32 @@ trait EmpTrait
     public function header()
     {
       return  $columnMapping = [
-            'Name' => 'الاسم',
-            'JobNumber' => 'الرقم الوظيفي',
-            'Gender' => 'الجنس',
-            'Nationality' => 'الجنسية',
-            'DateOfBirth' => 'تاريخ الميلاد',
-            'Start_work' => 'تاريخ المباشرة',
-            'ContratType' => 'نوع العقد',
-            'CarteNumber' => 'رقم البطاقة',
-            'VacationSalary' => 'راتب الإجازة',
-            'VacationDays' => 'رصيد الإجازة',
-            'Status' => 'حالة الموظف',
-            'Rating' => 'التقييم',
-            'BasicSalary' => 'الراتب الأساسي',
-            'HousingAllowance' => 'بدل السكن',
-            'transportationAllowance' => 'بدل المواصلات',
-            'Name1' => 'الاسم', //1
-            'Name2' => 'الاسم', //2
-            'InsuranceRatio' => 'نسبة التأمينات',
-            'InsuranceSubscriptionAmount' => 'مبلغ اشتراك التأمينات',
-            'Phone' => 'الهاتف',
-            'email' => 'البريد الإلكتروني',
-            'FriendName' => 'صديق في حالة الطوارئ',
-            'CovenantRecord' => 'سجل العهد',
-            'InsuranceClass' => 'فئة التأمينات',
-            'End' => 'تاريخ الانتهاء',
-            'Name3' => 'الاسم', //2
+            'Name' => __('Employee Name'),
+            'JobNumber' => __('Job number'),
+            'Gender' => __('Gender'),
+            'Nationality' => __('Nationality'),
+            'DateOfBirth' => __('Date of Birth'),
+            'Start_work' => __('Start Date'),
+            'ContratType' => __('Contract Type'),
+            'CarteNumber' => __('Card Number'),
+            'VacationSalary' => __('Vacation Salary'),
+            'VacationDays' => __('Vacation Days'),
+            'Status' => __('status'),
+            'Rating' => __('Rating'),
+            'BasicSalary' => __('Basic Salary'),
+            'HousingAllowance' => __('Housing Allowance'),
+            'transportationAllowance' => __('Transportation Allowance'),
+            'Name1' => __('Name (1)'), //1
+            'Name2' => __('Name (2)'), //2
+            'InsuranceRatio' => __('Insurance Ratio'),
+            'InsuranceSubscriptionAmount' => __('Insurance Subscription Amount'),
+            'Phone' => __('Phone'),
+            'email' => __('Email'),
+            'FriendName' => __('A friend in emergency'),
+            'CovenantRecord' => __('Covenant Record'),
+            'InsuranceClass' => __('Insurance Class'),
+            'End' => __('end date'),
+            'Name3' => __('Name (3)'), //2
         ];
         
     }
