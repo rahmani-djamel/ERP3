@@ -144,7 +144,11 @@
     "Click here":"إضغط هنا",
     "to upload the logo":"لرفع الشعار",
     "to upload the seal":"لرفع الختم",
-    "download...":"تحميل..."
+    "download...":"تحميل...",
+    "Its not time to go out":"لم يحن وقت الخروج",
+    "Do you want to ask permission ?":"هل تريد الاستئذان ؟",
+    "Yes,Ask permission":"نعم أخذ إذن",
+    "Going out without permission":"الخروج بدون إذن"
 
 
 

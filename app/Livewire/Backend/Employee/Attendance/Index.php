@@ -119,11 +119,16 @@ class Index extends Component
     {
         $date = date('Y-m-d');
 
-        $dayOfWeek = Carbon::today()->translatedFormat('l');
+        Carbon::setLocale('ar');
 
+        // Get the name of the day in Arabic
+        $dayOfWeek = Carbon::today()->translatedFormat('l');
 
         $workTimeForToday =  Worktime::where('employee_id', $this->employee->id)
         ->where('weekday', $dayOfWeek)->first();
+
+      //  dd($dayOfWeek);
+
 
 
         $endTime = Carbon::parse($workTimeForToday->work_end);
@@ -133,10 +138,64 @@ class Index extends Component
 
     
         if ($currentTime->lessThan($endTime)) {
-            dd("Here we need to add dialog of confermation");
+            
+            $this->dialog()->confirm([
+                'title'       => __('Its not time to go out'),
+                'description' => __('Do you want to ask permission ?'),
+                'icon'        => 'question',
+                'accept'      => [
+                    'label'  => __('Yes,Ask permission'),
+                    'method' => 'redirection',
+                ],
+                'reject' => [
+                    'label'  => __('Going out without permission'),
+                    'method' => 'cancel',
+                ],
+            ]);
+
+        }
+        else
+        {
+            $existingAttendance = Attendance::where('employee_id', $this->employee->id)
+            ->where('attendance_date', $date)
+            ->first();
+    
+            if (!$existingAttendance) 
+            {
+                $this->dialog([
+                    'title'       => __('sign out'),
+                    'description' => __('Attendance has not been recorded previously'),
+                    'icon'        => 'warning',
+                    'close'      => [
+                        'label'  => __('Ok')
+                    ],
+                ]);
+                return ;
+            }
+    
+            $existingAttendance->leave = now();
+            $existingAttendance->save();
+    
+            $this->dialog()->show([
+                'title'       => __('sign out'),
+                'description' => __('The checkout has been registered successfully'),
+                'icon'   => 'success',
+                'close'      => [
+                    'label'  => __('Ok')
+                ],
+               
+    
+            ]);
 
         }
 
+
+      
+
+    }
+    public function cancel()
+    {
+        $date = date('Y-m-d');
 
         $existingAttendance = Attendance::where('employee_id', $this->employee->id)
         ->where('attendance_date', $date)
@@ -168,6 +227,11 @@ class Index extends Component
            
 
         ]);
+
+    }
+    public function redirection()
+    {
+        return redirect()->route('employee.dashboard.askpermission.index');
 
     }
     public function render()
