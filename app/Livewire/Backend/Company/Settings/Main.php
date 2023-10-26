@@ -62,9 +62,10 @@ class Main extends Component
         ]);
         
 
+
         $this->dialog()->success(
-            $title = 'تم التعديل',
-            $description = 'تم التعديل بنجاح'
+            $title = __('Edited successfully'),
+            $description = __('Successfully edited')
         );
     }
     public function render()

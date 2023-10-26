@@ -109,9 +109,10 @@ class Edit extends Component
         $this->employee->save();
 
         $this->dialog()->success(
-            $title = 'تعديل موظف',
-            $description = 'تم التعديل الموظف بنجاح'
+            $title = __('Edit Employee'),
+            $description = __('Employee edited successfully')
         );
+        
 
         $this->dispatch('refresh');
 

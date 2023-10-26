@@ -33,9 +33,10 @@ class Index extends Component
             $employee->delete();
 
             $this->dialog()->error(
-                $title = 'حذف الموظف',
-                $description = 'تم حذف الموظف بنجاح'
+                $title = __('Delete Employee'),
+                $description = __('Employee deleted successfully')
             );
+            
 
             $this->dispatch('refresh');
         } 

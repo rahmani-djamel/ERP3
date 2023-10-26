@@ -29,8 +29,8 @@ class Index extends Component
         $permission->save();
 
         $this->dialog()->success(
-            $title = 'تم  التعديل',
-            $description = 'تم التعديل  بنجاح'
+            $title = __('Edited successfully'),
+            $description = __('Successfully edited')
         );
 
     }
@@ -42,8 +42,8 @@ class Index extends Component
         $permission->save();
 
         $this->dialog()->success(
-            $title = 'تم  التعديل',
-            $description = 'تم التعديل  بنجاح'
+            $title = __('Edited successfully'),
+            $description = __('Successfully edited')
         );
 
     }

@@ -59,9 +59,10 @@ class Branches extends Component
 
         settings('branches',true);
 
+
         $this->dialog()->success(
-            $title = 'تم التعديل',
-            $description = 'تم التعديل بنجاح'
+            $title = __('Edited successfully'),
+            $description = __('Successfully edited')
         );
 
         $this->dispatch('refresh');
@@ -77,9 +78,10 @@ class Branches extends Component
         settings('branches',true);
 
         $this->dialog()->success(
-            $title = 'تم الحذف',
-            $description = 'تم الحذف بنجاح'
+            $title = __('Deleted successfully'),
+            $description = __('Deleted successfully')
         );
+        
 
         $this->dispatch('refresh');
 
@@ -108,9 +110,10 @@ class Branches extends Component
         settings('branches',true);
 
         $this->dialog()->success(
-            $title = 'تمت الاضافة',
-            $description = 'تمت اضافة الفرع بنجاح'
+            $title = __('Added successfully'),
+            $description = __('Branch added successfully')
         );
+        
     }
 
     public function mount()

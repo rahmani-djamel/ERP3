@@ -49,9 +49,10 @@ class Edit extends Component
                $holiday->save();
 
                $this->dialog()->success(
-                $title = 'تعديل الإجازة',
-                $description = 'تم تعديل الإجازة بنجاح'
+                $title = __('Leave edited'),
+                $description = __('Leave edited successfully')
             );
+            
 
             $this->dispatch('refresh');
 
@@ -60,8 +61,8 @@ class Edit extends Component
                //  dd($this->afterReduce);
            }else{
             $this->dialog()->error(
-                $title = ' خطأ',
-                $description = 'وقت البداية اكبر من وقت النهاية'
+                $title = __('Error'),
+                $description = __('Start time is greater than end time')
             );
            }
         }

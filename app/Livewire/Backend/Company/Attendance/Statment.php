@@ -79,8 +79,8 @@ class Statment extends Component
         $attendance->save();
 
         $this->dialog()->success(
-            $title = 'تم التعديل',
-            $description = 'تم التعديل بنجاح'
+            $title = __('Edited successfully'),
+            $description = __('Successfully edited')
         );
 
     }     
@@ -101,8 +101,8 @@ class Statment extends Component
         $attendance->save();
 
         $this->dialog()->success(
-            $title = 'تم التعديل',
-            $description = 'تم التعديل بنجاح'
+            $title = __('Edited successfully'),
+            $description = __('Successfully edited')
         );
         $this->dispatch('refresh');
     }

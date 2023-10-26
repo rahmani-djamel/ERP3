@@ -50,9 +50,10 @@ class Weekend extends Component
         $this->selected->save();
 
         $this->dialog()->success(
-            $title = 'تعديل التوقيت',
-            $description = 'تم التعديل بنجاح'
+            $title = __('Time edited'),
+            $description = __('Successfully edited')
         );
+        
 
         $this->dispatch('refresh');
 

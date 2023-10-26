@@ -44,9 +44,10 @@ class Logo extends Component
         $setting->files()->save($fileOne);
 
         $this->dialog()->success(
-            $title = 'تم التعديل',
-            $description = 'تم التعديل بنجاح'
+            $title = __('Edited successfully'),
+            $description = __('Successfully edited')
         );
+        
 
         } 
         if ($this->seal != null) {
@@ -68,9 +69,10 @@ class Logo extends Component
         $setting->files()->save($fileOne);
 
         $this->dialog()->success(
-            $title = 'تم التعديل',
-            $description = 'تم التعديل بنجاح'
+            $title = __('Edited successfully'),
+            $description = __('Successfully edited')
         );
+        
 
 
         }

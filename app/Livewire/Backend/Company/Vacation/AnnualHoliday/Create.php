@@ -74,15 +74,17 @@ class Create extends Component
                 $holiday->save();
 
                 $this->dialog()->success(
-                    $title = ' تمت الإضافة',
-                    $description = 'تمت الاضافة بنجاح'
+                    $title = __('Added successfully'),
+                    $description = __('Successfully added')
                 );
+                
               
             } else {
                 $this->dialog()->error(
-                    $title = ' خطأ',
-                    $description = $checker['error']
+                    $title = __('Error'),
+                    $description = __('An error occurred: ') . $checker['error']
                 );
+                
             }
             
             //  

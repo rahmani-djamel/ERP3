@@ -133,10 +133,12 @@ class Create extends Component
         $worktime = $this->worktime($employee);
 
 
+
         $this->dialog()->success(
-            $title = 'اضافة موظف',
-            $description = 'تم اضافة الموظف بنجاح'
+            $title = __('Add Employee'),
+            $description = __('Employee added successfully')
         );
+        
 
         $this->dispatch('refresh');
 

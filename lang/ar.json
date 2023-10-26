@@ -206,7 +206,24 @@
     "specified":"محدد",
     "On the job":"على رأس العمل",
     "Edited successfully":"تم التعديل",
-    "Successfully edited":"تم التعديل بنجاح"
+    "Successfully edited":"تم التعديل بنجاح",
+    "Add Employee":"اضافة موظف",
+    "Employee added successfully":"تم اضافة الموظف بنجاح",
+    "Edit Employee": "تعديل موظف",
+    "Employee edited successfully": "تم تعديل الموظف بنجاح",
+    "Delete Employee": "حذف الموظف",
+    "Employee deleted successfully": "تم حذف الموظف بنجاح",
+    "Deleted successfully": "تم الحذف",
+    "Added successfully": "تمت الاضافة",
+    "Branch added successfully": "تمت اضافة الفرع بنجاح",
+    "Time edited": "تعديل التوقيت",
+    "Successfully added": "تمت الاضافة بنجاح",
+    "Error": "خطأ",
+    "An error occurred: ":" حدث خطأ في ",
+    "Leave edited": "تعديل الإجازة",
+    "Leave edited successfully": "تم تعديل الإجازة بنجاح",
+    "Start time is greater than end time":"وقت البداية أكبر من وقت النهاية"
+
 
 
 
