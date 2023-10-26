@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AttendanceController;
+use App\Http\Controllers\Api\Auth\ChangePassword;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\PaymentController;
@@ -29,6 +30,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->group(function() {
 
+    Route::post('/employee/changepassword',[ChangePassword::class,'index'])->name('employee.ChangePassword');
+
+
     Route::get('/employee', [EmployeeController::class, 'show'])->name('employee.show');
 
     Route::post('/attendance', [AttendanceController::class, 'mark'])->name('attendance.mark');
@@ -50,6 +54,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/employee/payment', [PaymentController::class, 'show'])->name('employee.payment');
 
     Route::get('/employee/month/details', [EmployeeController::class, 'monthDetails'])->name('employee.monthDetails');
+
 
 
 

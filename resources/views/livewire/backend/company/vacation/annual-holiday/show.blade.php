@@ -40,7 +40,7 @@
                                             </td>
                                             <td class="px-4 py-3 text-center">
                                                 @if ($item->checkIfWorkToday() == 0)
-                                                <x-badge positive label="على رأس العمل" />            
+                                                <x-badge positive label="{{__('On the job')}}" />            
                                                 @else
                                                 <x-badge negative label="إجازة" />
                                                 @endif

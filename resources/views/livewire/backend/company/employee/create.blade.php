@@ -102,7 +102,7 @@
                                 <div class="relative z-0 w-full mb-6 group">
                                     <x-native-select label="{{__('status')}}" wire:model="Status">
 
-                                    <option >على رأس العمل</option>
+                                    <option >{{__('On the job')}}</option>
                                     <option >فترة تجريبية</option>
                                     <option >إجازة عادية</option>
                                     <option >إضطرارية</option>
