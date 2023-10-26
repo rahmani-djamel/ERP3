@@ -23,7 +23,7 @@
                    aria-expanded="false" data-dropdown-toggle="dropdown-user2">
                     <span class="sr-only">Open user menu</span>
                     <img class="w-8 h-8 rounded-full object-cover" 
-                    src="{{asset('images/Languages/'.$flag.".svg")}}"
+                    src="{{asset('images/'.strtolower($flag).".svg")}}"
   
                      alt="user photo">
                   </button>
