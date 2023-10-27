@@ -28,6 +28,7 @@ class CheckUserRole
             //dd($employee->roleCheck());
             //dd($employee);
 
+         //   dd($employee->roleCheck());
          
 
             // Check if the user is an administrator

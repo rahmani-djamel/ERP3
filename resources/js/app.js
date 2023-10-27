@@ -2,6 +2,9 @@ import './bootstrap';
 import Alpine from 'alpinejs'
 import 'flowbite';
 
+import './../../vendor/power-components/livewire-powergrid/dist/powergrid'
+ 
+
 import persist from '@alpinejs/persist'
 
 
