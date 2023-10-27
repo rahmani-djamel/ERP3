@@ -33,13 +33,29 @@ class Login extends Component
             return;
         }
 
-        if (auth()->user()->employee->is_adminstaror == 0) {
+        // 
+
+        if (auth()->user()->hasRole('owner')) 
+        {
+            return redirect()->intended(route('owner.dashboard.Index'));
+            
+        }
+
+        if (auth()->user()->hasRole('manger')) {
+            
+        }
+
+        if (auth()->user()->hasRole('administrative')) {
+            
+        }
+
+    /*    if (auth()->user()->employee->is_adminstaror == 0) {
             # code...
             return redirect()->intended(route('employee.dashboard.Index'));
 
         } 
 
-        return redirect()->intended(route('employee.index'));
+        return redirect()->intended(route('employee.index'));*/
 
         
 

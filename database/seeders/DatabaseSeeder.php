@@ -22,7 +22,10 @@ class DatabaseSeeder extends Seeder
             SettingsSeeder::class,
             VacationTypesSeeder::class,
             PermissionsSeeder::class,
-            LanguageSeeder::class
+            LanguageSeeder::class,
+            RoleSeeder::class,
+            OwnerSeeder::class,
+            PackagesTableSeeder::class
         ]);
 
     }
