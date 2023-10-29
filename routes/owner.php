@@ -10,6 +10,8 @@ Route::namespace('App\Livewire\Backend\Owner')->middleware(['auth','checker:all'
     Route::namespace('Packages')->prefix('packages')->as('packages.')->group(function() {
         
         Route::get('/', Index::class)->name('index');
+        Route::get('/create', Create::class)->name('create');
+
     });
 
 

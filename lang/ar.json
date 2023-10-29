@@ -223,5 +223,15 @@
     "Leave edited": "تعديل الإجازة",
     "Leave edited successfully": "تم تعديل الإجازة بنجاح",
     "Start time is greater than end time": "وقت البداية أكبر من وقت النهاية",
-    "Packages": "الباقات"
+    "Packages": "الباقات",
+    "ID":"المعرف",
+    "Price":"السعر",
+    "Days":"الأيام",
+    "Number Of Employees":"عدد الموظفين",
+    "Number of administrators":"عدد الإداريين",
+    "Number of branches":"عدد الفروع",
+    "Basic":"أساسي",
+    "Standard":"أولي",
+    "Premium":"ذهبي",
+    "Add New Package":"إضافة باقة جديدة"
 }
