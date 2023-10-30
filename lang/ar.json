@@ -233,5 +233,7 @@
     "Basic":"أساسي",
     "Standard":"أولي",
     "Premium":"ذهبي",
-    "Add New Package":"إضافة باقة جديدة"
+    "Add New Package":"إضافة باقة جديدة",
+    "Package Name":"اسم الباقة",
+    "Package name in English":"إسم الباقة بالإنجلزية"
 }
