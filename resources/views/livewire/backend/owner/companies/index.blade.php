@@ -5,8 +5,8 @@
                 <div class="flex justify-between">
                     <x-button
                     class="m-2"
-                    href="{{route('owner.dashboard.packages.create')}}"
-                    label="{{__('Add New Package')}}"
+                    href="{{route('owner.dashboard.companies.create')}}"
+                    label="{{__('Add New Company')}}"
                     teal
                 />    
 
@@ -17,9 +17,11 @@
                     class="font-semibold my-2"
                 />
 
+
                 </div>
             <!-- Start coding here -->
-                <livewire:package-table/>
+            <livewire:company-table/>
+            
             </div>
         </section>
     </div>

@@ -51,30 +51,24 @@ final class PackageTable extends PowerGridComponent
             ->addColumn('N_Of_Emps')
             ->addColumn('N_Of_Adminstrative')
             ->addColumn('N_branches')
-            ->addColumn('days')
-
-            
-
-            
-            ->addColumn('created_at_formatted', function ($entry) {
-                return Carbon::parse($entry->created_at)->format('d/m/Y');
-            });
+            ->addColumn('days');
     }
     public function actions(Package $row): array
     {
         return [
 
             Button::add('edit-package')  
-            ->slot('<x-icon name="eye" class="w-5 h-5" />')
-            ->class('bg-slate-300  text-white p-2 rounded-full'),
-
-            Button::add('edit-package')  
                 ->slot('<x-icon name="pencil" class="w-5 h-5" />')
-                ->class('bg-indigo-500 text-white p-2 rounded-full'),
+                ->class('bg-indigo-500 text-white p-2 rounded-full')
+                ->dispatch('PackageEdited',['id' => $row->id]),
 
-            Button::add('edit-package')  
+                
+
+            Button::add('delete-package')  
                 ->slot('<x-icon name="trash" class="w-5 h-5" />')
-                ->class('bg-red-500 text-white p-2 rounded-full'),
+                ->class('bg-red-500 text-white p-2 rounded-full')
+                ->dispatch('Package-Delete',['id' => $row->id]),
+
    
         ];
     }
@@ -123,9 +117,8 @@ final class PackageTable extends PowerGridComponent
             ->bodyAttribute('rtl:text-end ltr:text-center')
                 ->sortable(),
 
-            Column::make('Created', 'created_at_formatted'),
-
-            Column::action('Actions')
+            Column::action(__('actions'))
+            ->bodyAttribute('text-start')
         ];
     }
 }

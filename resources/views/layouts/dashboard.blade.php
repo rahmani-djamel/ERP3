@@ -19,6 +19,8 @@
 </head>
 <body class="bg-gray-50 dark:bg-gray-800" x-data="{ mode: $persist('theme') || 'light' }" x-init="$watch('mode', value => $persist('theme', value))" :class="{'dark': mode === 'dark'}">
   <x-dialog />
+  <x-notifications />
+
 
 
 @livewire('includes.navbar',['fixed' => true])
@@ -62,6 +64,5 @@
 
   
       @stack('scripts')
-      
 </body>
 </html>

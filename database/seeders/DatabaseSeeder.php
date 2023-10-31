@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             RoleSeeder::class,
             OwnerSeeder::class,
-            PackagesTableSeeder::class
+            PackagesTableSeeder::class,
+            CompanySeeder::class
         ]);
 
     }

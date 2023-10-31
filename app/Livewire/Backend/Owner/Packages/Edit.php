@@ -8,9 +8,10 @@ use Livewire\Attributes\Rule;
 use Livewire\Component;
 use WireUi\Traits\Actions;
 
-class Create extends Component
+class Edit extends Component
 {
-    use Actions,LangTrait;
+    use Actions, LangTrait;
+    public Package $package;
 
     #[Rule('required|min:3')] 
     public $Name;
@@ -27,11 +28,26 @@ class Create extends Component
     #[Rule('required')] 
     public $N_Branches;
 
+    public function mount()
+    {
+        $this->Name = $this->GetWord($this->package->name);
+        $this->price = $this->package->price;
+        $this->days = $this->package->days;
+        $this->N_Employee = $this->package->N_Of_Emps;
+        $this->N_Adminstrators = $this->package->N_Of_Adminstrative;
+        $this->N_Branches = $this->package->N_branches;
+
+        $this->Name_English = $this->package->name;
+    }
     public function save()
     {
         $this->validate();
 
-        $package = new Package();
+        //dd($this->package->name,$this->Name_English,$this->Name);
+        $this->EditWord($this->package->name,$this->Name_English,$this->Name);
+
+
+        $package = $this->package;
         $package->name = $this->Name_English;
         $package->price = $this->price;
         $package->days = $this->days;
@@ -39,7 +55,8 @@ class Create extends Component
         $package->N_Of_Adminstrative = $this->N_Adminstrators;
         $package->N_branches = $this->N_Branches;
 
-        $this->addToFile($this->Name_English,$this->Name);
+        
+
         $package->save();
 
 
@@ -53,13 +70,9 @@ class Create extends Component
 
          redirect()->route('owner.dashboard.packages.index');
 
-
-        
-     
     }
-
     public function render()
     {
-        return view('livewire.backend.owner.packages.create')->layout('layouts.employee');
+        return view('livewire.backend.owner.packages.edit')->layout('layouts.employee');
     }
 }

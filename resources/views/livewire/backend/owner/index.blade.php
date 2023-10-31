@@ -9,6 +9,12 @@
                     title="{{ __('Packages') }}"
                     />
 
+                    <x-employee.index.card 
+                    link="owner.dashboard.companies.index"
+                    iconName="office-building"
+                    title="{{ __('Companies') }}"
+                    />
+
 
 
                 </div>

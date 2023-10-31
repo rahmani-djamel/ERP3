@@ -17,4 +17,10 @@ class Package extends Model
         'N_Of_Adminstrative',
         'N_branches',
     ];
+
+
+    public function Company()
+    {
+        return $this->hasMany(Company::class);
+    }
 }
