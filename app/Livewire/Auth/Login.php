@@ -41,8 +41,9 @@ class Login extends Component
             
         }
 
-        if (auth()->user()->hasRole('manger')) {
-            
+        if (auth()->user()->hasRole('manger')) 
+        {
+            return redirect()->intended(route('employee.index'));
         }
 
         if (auth()->user()->hasRole('administrative')) {
