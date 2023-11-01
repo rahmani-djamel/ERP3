@@ -250,7 +250,10 @@
     "Company owner":"مالك الشركة",
     "Testing period":"الفترة التجربية",
     "Subscription":"اشتراك",
-    "Company name":"اسم الشركة"
+    "Company name":"اسم الشركة",
+    "Company added successfully":"تمت إضافة الشركة بنجاح",
+    "Delete the Company": "حذف هذه الشركة",
+    "selected packages is":"الباقة المختارة هي"
     
     
 

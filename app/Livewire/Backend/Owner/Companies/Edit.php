@@ -11,9 +11,11 @@ use Livewire\Attributes\Rule;
 use Livewire\Component;
 use WireUi\Traits\Actions;
 
-class Create extends Component
+class Edit extends Component
 {
     use Actions;
+
+    public Company $company;
 
     #[Rule('boolean')]
     public $is_trial = false;
@@ -27,7 +29,7 @@ class Create extends Component
    #[Rule('required|numeric')]
     public $phone;
 
-    #[Rule('required|email|unique:users,email')]
+    #[Rule('required|email')]
     public $email;
 
     #[Rule('required|max:255|exists:packages,id')]
@@ -36,7 +38,25 @@ class Create extends Component
     #[Rule('nullable','numeric','min:1')]
     public $days = 1;
 
+    public $user;
+    public $package_name;
 
+    public function mount()
+    {
+
+            $this->Name = $this->company->name;
+            $this->user = $this->company->owner;
+
+            $this->owner_name = $this->user->name;
+            $this->phone = $this->company->phone;
+            $this->email = $this->user->email;
+            $this->package = $this->company->package->id;
+            $this->package_name = $this->company->package->name;
+            $this->is_trial = $this->company->Testing_period != 0 ? true : false;
+            $this->days = $this->company->days;
+     
+
+    }
     public function save()
     {
         try {
@@ -45,18 +65,22 @@ class Create extends Component
             
             DB::beginTransaction(); // Start a database transaction
             
-            $user = new User();
+            $user = $this->user;
+
             $user->name = $this->owner_name;
+
+            $this->validate([ 
+                'email' => 'unique:users,email,'.$user->id
+            ]);
             $user->email = $this->email;
-            $user->password = Hash::make('password');
             $user->save();
             
-            $user->addRole(2);
+
             
-            $company = new Company();
+            $company = $this->company;
             $company->name = $this->Name;
             $company->user_id = $user->id;
-            $company->package_id = $this->package; // Replace with your logic for package_id
+            $company->package_id = $this->package; //error
             $company->phone = $this->phone;
             
             if ($this->is_trial) {
@@ -83,11 +107,8 @@ class Create extends Component
             dd($e); // Dump the error for debugging
         }
     }
-
-
-
     public function render()
     {
-        return view('livewire.backend.owner.companies.create')->layout('layouts.employee');
+        return view('livewire.backend.owner.companies.edit')->layout('layouts.employee');
     }
 }

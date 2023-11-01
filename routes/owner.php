@@ -17,6 +17,8 @@ Route::namespace('App\Livewire\Backend\Owner')->middleware(['auth','checker:all'
     Route::namespace('Companies')->prefix('companies')->as('companies.')->group(function() {
         Route::get('/', Index::class)->name('index');
         Route::get('/create', Create::class)->name('create');
+        Route::get('/edit/{company}', Edit::class)->name('edit');
+
 
 
     

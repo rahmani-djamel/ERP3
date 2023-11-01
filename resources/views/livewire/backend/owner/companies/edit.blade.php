@@ -25,9 +25,9 @@
            </div>
            <div class="grid md:grid-cols-2 md:gap-6">
             <div class="relative z-0 w-full mb-6 group">
-                <x-native-select label="{{__('Package')}}" wire:model="package">
+                <x-native-select label="{{__('Package')}}" wire:model="package" hint="{{__('selected packages is')}} {{__($package_name)}}">
                     @forelse (settings('packages') as $item)
-                    <option value="{{$item->id}}">{{__($item->name)}}</option>
+                    <option value="{{$item->id}}"  selected>{{__($item->name)}}</option>
                     @empty
                     <option value="undfiend" disabled></option>
 

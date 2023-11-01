@@ -31,6 +31,8 @@ class CompanySeeder extends Seeder
                 'package_id' => 1, // Replace with your logic for package_id
                 'days' => 30,      // Replace with your logic for days
                 'Testing_period' => 0, // Default value
+                'phone' => '213656881308', // Replace with the actual phone number
+
             ]);
 
             $user->addRole(2);

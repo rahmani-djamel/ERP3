@@ -89,7 +89,14 @@ final class CompanyTable extends PowerGridComponent
             Column::add()
             ->title(__('Testing period'))
             ->field('Testing_period')
-            ->toggleable($canEdit, __('Subscription'),  __('Testing period')),
+  
+            
+            ->toggleable($canEdit, __('Testing period'),  __('Subscription'))
+            ->bodyAttribute('text-blue-500')
+            ->contentClasses([
+                'Testing period' => 'text-blue-600',
+                'Subscription' => 'text-green-600'
+           ]),
 
 
             Column::make(__('Created at'), 'created_at_formatted', 'created_at')
