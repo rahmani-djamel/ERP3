@@ -43,6 +43,9 @@ Route::middleware('auth:sanctum')->group(function() {
 
     Route::get('/employee/report', [AttendanceController::class, 'report'])->name('attendance.report');
 
+    Route::get('/employee/report/Monthly', [AttendanceController::class, 'Monthly_report'])->name('attendance.Monthlyreport');
+
+
     Route::get('/employee/location', [EmployeeController::class, 'location'])->name('employee.location');
 
     Route::get('/employee/vacation', [VacationController::class, 'show'])->name('employee.vacation');

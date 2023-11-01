@@ -229,4 +229,41 @@ class AttendanceController extends Controller
 
     }
 
+    public function Monthly_report(Request $request)
+{
+    $validateUser = Validator::make($request->all(), [
+        'employee_id' => 'required|integer', // Adjust validation rules as needed
+        'month' => ['required', 'date_format:Y-m'], // Format should be YYYY-MM
+    ]);
+
+    if ($validateUser->fails()) {
+        return response()->json([
+            'status' => false,
+            'message' => 'Validation error',
+            'errors' => $validateUser->errors()
+        ], 400); // Change status code to 400 for a validation error
+    }
+
+    // If validation passes, proceed to fetch and process data
+    $employeeId = $request->input('employee_id');
+    $monthYear = $request->input('month');
+    $startDate = Carbon::parse($monthYear)->startOfMonth();
+    $endDate = Carbon::parse($monthYear)->endOfMonth();
+    
+    // Fetch data from the database
+    $query = Attendance::where('employee_id', $employeeId)
+        ->whereBetween('created_at', [$startDate, $endDate]);
+
+    $reportData = $query->get(['attendance_date', 'day_of_week', 'status', 'created_at', 'delay']);
+
+    // Process the report data as needed
+
+    // Return a JSON response with the report data
+    return response()->json([
+        'status' => true,
+        'message' => 'Report data retrieved successfully',
+        'data' => $reportData
+    ], 200);
+}
+
 }
