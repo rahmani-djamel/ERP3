@@ -37,7 +37,16 @@ final class EmployeeTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Employee::query();
+      
+        if (auth()->user()->hasRole('manger')) {
+     
+            return Employee::where('company_id', auth()->user()->company->id);
+        }
+        else{
+            return Employee::where('company_id', auth()->user()->employee->id);
+
+        }
+    
     }
 
     public function relationSearch(): array
@@ -261,11 +270,17 @@ final class EmployeeTable extends PowerGridComponent
     public function actions(\App\Models\Employee $row): array
     {
         return [
-            Button::add('edit')
-                ->slot('Edit: '.$row->id)
-                ->id()
-                ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
-                ->dispatch('edit', ['rowId' => $row->id])
+            Button::add('edit-employee')  
+                ->slot('<x-icon name="pencil" class="w-5 h-5" />')
+                ->class('bg-indigo-500 text-white p-2 rounded-full')
+                ->dispatch('Employee-Edited',['id' => $row->id]),
+
+                
+
+            Button::add('delete-employee')  
+                ->slot('<x-icon name="trash" class="w-5 h-5" />')
+                ->class('bg-red-500 text-white p-2 rounded-full')
+                ->dispatch('Employee-Delete',['id' => $row->id]),
         ];
     }
 

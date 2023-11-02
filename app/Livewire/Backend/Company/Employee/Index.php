@@ -4,6 +4,7 @@ namespace App\Livewire\Backend\Company\Employee;
 
 use App\Models\Employee;
 use App\Traits\Employee\EmpTrait;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use WireUi\Traits\Actions;
 
@@ -16,6 +17,18 @@ class Index extends Component
     public $search ='';
     public $key = "employee";
     public $deleteKey = 0;
+
+    #[On('Employee-Edited')] 
+    public function updateEmployee($id)
+    {
+        redirect()->route('employee.edit',['employee' => $id]);
+    }
+
+    #[On('Employee-Delete')]
+    public function deleting($id)
+    {
+        
+    }
 
     public function mount()
     {
@@ -44,8 +57,6 @@ class Index extends Component
   
     public function deleteItem()
     {
- 
-        
   
         dd($this->deleteKey);
     }

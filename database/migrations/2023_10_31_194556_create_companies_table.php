@@ -26,6 +26,14 @@ return new class extends Migration
 
             $table->timestamps();
         });
+
+        
+        Schema::table('employees', function (Blueprint $table) {
+            $table->unsignedBigInteger('company_id'); // Add the employee column
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade'); // Define the relationship
+        });
+
+        
     }
 
     /**

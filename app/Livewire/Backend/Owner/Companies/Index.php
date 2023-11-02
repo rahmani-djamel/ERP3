@@ -11,7 +11,6 @@ class Index extends Component
 {
     use Actions;
     public $company;
-
     
 
     #[On('Company-Edited')] 

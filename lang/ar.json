@@ -197,7 +197,7 @@
     "Attendance days": "أيام الحضور",
     "Days of absence": "أيام الغياب",
     "Days of delay": "ايام التأخير",
-    "Add an employee": "اضافة موظف",
+    "Add New Employee": "اضافة موظف",
     "Role": "الدور",
     "Saudi": "سعودي",
     "Egyptian": "مصري",
@@ -253,7 +253,13 @@
     "Company name":"اسم الشركة",
     "Company added successfully":"تمت إضافة الشركة بنجاح",
     "Delete the Company": "حذف هذه الشركة",
-    "selected packages is":"الباقة المختارة هي"
+    "selected packages is":"الباقة المختارة هي",
+    "You can add":"يمكنك إضافة",
+    "Adminstrators":"اداريين",
+    "Employee addition was unsuccessful" :"إضافة الموظف لم تكن ناجحة",
+    "Home":"الرئيسية",
+    "Administrative":"إداري",
+    "The current role is":"الدور الحالي هو"
     
     
 

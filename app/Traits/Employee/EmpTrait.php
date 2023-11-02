@@ -17,7 +17,7 @@ trait EmpTrait
         $user = new User();
         $user->name = $validated['Name'];
         $user->email = $validated['email'];
-        $user->password = Hash::make('123456789');
+        $user->password = Hash::make('password');
         $user->save();
 
         return $user;
@@ -26,6 +26,15 @@ trait EmpTrait
 
     public function createEmp($validated,$user)
     {
+        if (auth()->user()->hasRole('manger')) {
+            # code...
+            $company = auth()->user()->company->id;
+        } else {
+            # code...
+            $company = auth()->user()->employee->company_id;
+
+        }
+        
        $employee =  new Employee([
             'Name' => $validated['Name'],
             'email' => $validated['email'],
@@ -59,7 +68,8 @@ trait EmpTrait
             'CovenantRecord' => $validated['CovenantRecord'],
             'user_id' => $user->id,
             'branch_id' => $validated['branch_id'],
-            'is_adminstaror' => $validated['is_adminstaror']
+            'is_adminstaror' => $validated['is_adminstaror'],
+            'company_id' => $company,
         ]);
         
         // Save the employee to the database

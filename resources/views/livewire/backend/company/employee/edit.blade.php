@@ -5,12 +5,40 @@
         <form class="z-1" wire:submit="save">
                     <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
                         <!-- Start coding here -->
+
+                        <div class="grid md:grid-cols-2 gap-4 mb-2">
+                            <div class="flex items-center p-4 mb-4 text-sm  rounded-lg @if($this->counter_employees >0) text-blue-800 bg-blue-50 dark:text-blue-400 @else text-red-600 bg-red-200 dark:text-red-400 @endif dark:bg-gray-800 " role="alert">
+                                <x-icon name="information-circle" class="flex-shrink-0 inline w-4 h-4 ltr:mr-3 rtl:ml-3" />
+    
+                                <span class="sr-only">Info</span>
+                                <div>
+                                  <span class="font-medium">
+                                    {{__('You can add')}} {{$this->counter_employees}} {{__('Employee')}}
+                                  </span>
+                                </div>
+                              </div>
+    
+                              <div class="flex items-center p-4 mb-4 text-sm  rounded-lg @if($this->counter_admins >0) text-blue-800 bg-blue-50 dark:text-blue-400 @else text-red-600 bg-red-200 dark:text-red-400 @endif dark:bg-gray-800 " role="alert">
+                                <x-icon name="information-circle" class="flex-shrink-0 inline w-4 h-4 ltr:mr-3 rtl:ml-3" />
+    
+                                <span class="sr-only">Info</span>
+                                <div>
+                                  <span class="font-medium">
+                                    {{__('You can add')}} {{$this->counter_admins}} {{__('Adminstrators')}}
+                                  </span>
+                                </div>
+                              </div>
+                        </div>
                       
                     
                     <div class="  grid md:grid-cols-4 md:gap-12 mb-4" >
                     
                         <x-button lime label="حفظ" type="submit" class="font-semibold" />
+                        @if ($employee->is_adminstaror == 1)
                         <x-button href="{{route('employee.permession',['employee' => $employee])}}" info  label="تعديل الصلاحيات" type="submit" class="font-semibold" />
+
+                            
+                        @endif
 
                         <x-button href="{{route('employee.index')}}" primary label="رجوع" class="font-semibold" />
                                   
@@ -207,14 +235,30 @@
         
                                 <x-textarea wire:model="CovenantRecord" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"  label="سجل  العهد" />
     
-                    
-                                <x-native-select class="block mb-2" label="الفرع" wire:model="branch_id">
-                                  @foreach (settings('branches') as $item)
-                                  <option value="{{$item->id}}" >{{$item->name}}</option>
-    
-                                  @endforeach
-    
-                                  </x-native-select>
+                                <div class="grid md:grid-cols-2 md:gap-6">
+                                    <div class="relative z-0 w-full mb-6 group">
+        
+        
+                        
+                                        <x-native-select class="block mb-2" label="{{__('Select the branch')}}" wire:model="branch_id">
+                                        @foreach (settings('branches') as $item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+        
+                                        @endforeach
+        
+                                      </x-native-select>
+                                    </div>
+                                    <div class="relative z-0 w-full mb-6 group">
+                                        <x-native-select class="block mb-2" label="{{__('Role')}}" hint="{{__('The current role is')}} {{__($role_name)}}" wire:model="is_adminstaror">
+                                            <option value="0" >{{__('Employee')}}</option>
+                                            <option value="1">{{__('Administrative')}}</option>
+        
+                                        </x-native-select>
+        
+        
+        
+                                    </div>
+                                </div>
       
                     </div>
                 </form>

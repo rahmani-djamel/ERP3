@@ -3,6 +3,7 @@
 namespace App\Livewire\Backend\Company\Employee;
 
 use App\Models\Branche;
+use App\Models\Employee;
 use App\Traits\Employee\EmpTrait;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -116,31 +117,75 @@ class Create extends Component
     #[Rule('required|in:0,1')]
     public $is_adminstaror = 0;
 
+    public $user;
+    public $company;
+    public $package;
+    public $counter_employees;
+    public $counter_admins;
+
     public function mount()
     {
+        $this->company = auth()->user()->company;
+
+        if (auth()->user()->hasRole('manger')) {
+
+            $this->package = $this->company->package;
+            
+        } else {
+            $this->package = auth()->user()->employee->company->package;
+        }
+        
+        $this->counter_employees  =  $this->package->N_Of_Emps - Employee::countEmployeesByCompany($this->company->id);
+
+        if ($this->counter_employees  < 0) {
+            # code...
+            $this->counter_employees = 0;
+        }
+
+        $this->counter_admins  =  $this->package->N_Of_Adminstrative - Employee::countAdminsByCompany($this->company->id);
+
+
+       // dd($this->counter_employees);
+        
     }
 
     public function save()
     {
-        $this->validate();
+     
+        if (($this->counter_admins > 0 && $this->is_adminstaror == 1) || ($this->counter_employees > 0 && $this->is_adminstaror == 0) ) {
+            $this->validate();
 
-        $user = $this->createUser($this->validate());
+            $user = $this->createUser($this->validate());
+    
+            $employee = $this->createEmp($this->validate(),$user);
+    
+            $store = $this->storeFiles($this->files,$user,$employee);
+    
+            $worktime = $this->worktime($employee);
 
-        $employee = $this->createEmp($this->validate(),$user);
+            $role = $this->is_adminstaror == 0 ? 4 : 3;
 
-        $store = $this->storeFiles($this->files,$user,$employee);
+            $user->addRole($role);
+    
+    
+    
+            $this->dialog()->success(
+                $title = __('Add Employee'),
+                $description = __('Employee added successfully')
+            );
+            
+    
+            $this->dispatch('refresh');
+        }
+        else
+        {
+            $this->dialog()->error(
+                $title = __('Add Employee'),
+                $description = __('Employee addition was unsuccessful')
+            );
 
-        $worktime = $this->worktime($employee);
+        }
 
-
-
-        $this->dialog()->success(
-            $title = __('Add Employee'),
-            $description = __('Employee added successfully')
-        );
-        
-
-        $this->dispatch('refresh');
 
 
 

@@ -10,7 +10,7 @@ Route::get('/',function() {
 
 Route::namespace('App\Livewire\Backend\Company')->group(function() {
 
-
+    Route::get('/admin/home', Index::class)->name('company.Index');
 
 
     //Employee

@@ -43,7 +43,8 @@ class Employee extends Model
         'CovenantRecord',
         'user_id',
         'branch_id',
-        'is_adminstaror'
+        'is_adminstaror',
+        'company_id'
     ];
 
 
@@ -58,9 +59,24 @@ class Employee extends Model
         return $this->morphMany(File::class, 'fileable');
     }
 
+    public static function countEmployeesByCompany($companyId)
+    {
+        return self::where('company_id', $companyId)->count();
+    }
+
+    public static function countAdminsByCompany($companyId)
+    {
+        return self::where('company_id', $companyId)->where('is_adminstaror',1)->count();
+    }
+
     public function user()
     {
         return  $this->belongsTo(User::class);
+    }
+
+    public function company()
+    {
+        return  $this->belongsTo(Company::class);
     }
 
     public function worktime()

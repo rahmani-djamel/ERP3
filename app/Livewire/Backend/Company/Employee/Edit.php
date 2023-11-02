@@ -46,6 +46,16 @@ class Edit extends Component
     public $LoanHistory = '';
     public $CovenantRecord = '';
     public $branch_id;
+    public $is_adminstaror;
+
+    
+    public $user;
+    public $company;
+    public $package;
+    public $counter_employees = 0;
+    public $counter_admins = 0;
+    public $role_name;
+    public $branch_name;
 
     public function rules()
     {
@@ -81,6 +91,7 @@ class Edit extends Component
             'LoanHistory' => 'nullable|string|max:255',
             'CovenantRecord' => 'nullable|string|max:255',
             'branch_id' => 'required',
+            'is_adminstaror' => 'required|in:0,1'
         ];
     }
 
@@ -93,10 +104,41 @@ class Edit extends Component
         foreach ($properties as $property) {
             $this->{$property} = $this->employee->{$property};
         }
+
+        $this->company = auth()->user()->company;
+
+        if (auth()->user()->hasRole('manger')) {
+
+            $this->package = $this->company->package;
+            
+        } else {
+            $this->package = auth()->user()->employee->company->package;
+        }
+        
+        $this->counter_employees  =  $this->package->N_Of_Emps - Employee::countEmployeesByCompany($this->company->id);
+
+        if ($this->counter_employees  < 0) {
+            # code...
+            $this->counter_employees = 0;
+        }
+
+        $this->counter_admins  =  $this->package->N_Of_Adminstrative - Employee::countAdminsByCompany($this->company->id);
+
+        $this->role_name = $this->employee->is_adminstaror == 0 ? 'Employee' : 'Administrative';
     }
 
     public function save()
     {
+        if ($this->employee->is_adminstaror == 1) 
+        {
+            $this->counter_admins++;
+            
+        } else {
+            $this->counter_employees++;
+        }
+        
+    if (($this->counter_admins > 0 && $this->is_adminstaror == 1) || ($this->counter_employees > 0 && $this->is_adminstaror == 0) ) {
+
         $validation = $this->validate();
 
         $properties = $this->mapping();
@@ -115,6 +157,23 @@ class Edit extends Component
         
 
         $this->dispatch('refresh');
+    }
+    else
+    {
+        $this->dialog()->error(
+            $title = __('Add Employee'),
+            $description = __('Employee addition was unsuccessful')
+        );
+
+        if ($this->employee->is_adminstaror == 1) 
+        {
+            $this->counter_admins--;
+            
+        } else {
+            $this->counter_employees--;
+        }
+
+    }
 
     }
     public function render()

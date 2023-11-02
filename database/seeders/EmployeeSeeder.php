@@ -60,7 +60,8 @@ class EmployeeSeeder extends Seeder
                 'LoanHistory' => $faker->text,
                 'CovenantRecord' => $faker->text,
                 'user_id' => $user->id,
-                'branch_id' => 1
+                'branch_id' => 1,
+                'company_id' => rand(1, 5),
             ]);
         }
     }
