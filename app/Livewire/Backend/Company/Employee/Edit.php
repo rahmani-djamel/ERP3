@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Backend\Company\Employee;
 
+use App\Models\Branche;
 use App\Models\Employee;
 use App\Traits\Employee\EmpTrait;
 use Livewire\Attributes\Rule;
@@ -56,6 +57,8 @@ class Edit extends Component
     public $counter_admins = 0;
     public $role_name;
     public $branch_name;
+    public $branches;
+
 
     public function rules()
     {
@@ -105,13 +108,16 @@ class Edit extends Component
             $this->{$property} = $this->employee->{$property};
         }
 
-        $this->company = auth()->user()->company;
 
         if (auth()->user()->hasRole('manger')) {
+            $this->company = auth()->user()->company;
+
 
             $this->package = $this->company->package;
             
         } else {
+            $this->company = auth()->user()->employee->company;
+
             $this->package = auth()->user()->employee->company->package;
         }
         
@@ -125,6 +131,9 @@ class Edit extends Component
         $this->counter_admins  =  $this->package->N_Of_Adminstrative - Employee::countAdminsByCompany($this->company->id);
 
         $this->role_name = $this->employee->is_adminstaror == 0 ? 'Employee' : 'Administrative';
+
+        $this->branches = Branche::where('company_id',$this->company->id)->get();
+
     }
 
     public function save()

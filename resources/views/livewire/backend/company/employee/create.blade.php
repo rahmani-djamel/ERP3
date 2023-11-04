@@ -234,7 +234,7 @@
 
                 
                                 <x-native-select class="block mb-2" label="{{__('Select the branch')}}" wire:model="branch_id">
-                                @foreach (settings('branches') as $item)
+                                @foreach ($branches as $item)
                                 <option value="{{$item->id}}" >{{$item->name}}</option>
 
                                 @endforeach

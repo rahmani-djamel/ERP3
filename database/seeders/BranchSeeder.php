@@ -24,6 +24,8 @@ class BranchSeeder extends Seeder
                 'map' => $faker->unique()->url, // Generate a unique random URL
                 'lat' =>  30.9790555, // Generate a random latitude
                 'long' => 31.449317, // Generate a random longitude
+                'company_id' => 1
+
 
             ]);
         }

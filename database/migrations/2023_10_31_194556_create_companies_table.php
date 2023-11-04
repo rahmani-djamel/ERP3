@@ -33,6 +33,12 @@ return new class extends Migration
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade'); // Define the relationship
         });
 
+        Schema::table('branches', function (Blueprint $table) {
+           $table->unsignedBigInteger('company_id'); // Add the employee column
+            $table->foreign('company_id')->references('id')->on('branches')->onDelete('cascade');
+        });
+
+
         
     }
 

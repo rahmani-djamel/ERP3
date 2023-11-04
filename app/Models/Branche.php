@@ -14,6 +14,7 @@ class Branche extends Model
         'place',
         'map',
         'lat',
-        'long'
+        'long',
+        'company_id'
     ];
 }

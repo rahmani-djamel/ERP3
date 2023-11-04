@@ -122,16 +122,20 @@ class Create extends Component
     public $package;
     public $counter_employees;
     public $counter_admins;
+    public $branches;
 
     public function mount()
     {
-        $this->company = auth()->user()->company;
 
         if (auth()->user()->hasRole('manger')) {
+
+            $this->company = auth()->user()->company;
+
 
             $this->package = $this->company->package;
             
         } else {
+            $this->company = auth()->user()->employee->company;
             $this->package = auth()->user()->employee->company->package;
         }
         
@@ -143,6 +147,11 @@ class Create extends Component
         }
 
         $this->counter_admins  =  $this->package->N_Of_Adminstrative - Employee::countAdminsByCompany($this->company->id);
+
+        $this->branches = Branche::where('company_id',$this->company->id)->get();
+
+
+
 
 
        // dd($this->counter_employees);
