@@ -259,5 +259,7 @@
     "Home": "الرئيسية",
     "Administrative": "إداري",
     "The current role is": "الدور الحالي هو",
-    "Basic": "أساسي"
+    "Basic": "أساسي",
+    "The subscription will expire in ":"سينتهي الإشتراك خلال ",
+    "day":"يوم"
 }

@@ -35,6 +35,13 @@ class Login extends Component
 
         // 
 
+        if (!$this->checkCompany())
+        {
+
+           return abort(403,"يرجى تجديد الإشتراك");
+
+        }
+
         if (auth()->user()->hasRole('owner')) 
         {
             return redirect()->intended(route('owner.dashboard.Index'));
@@ -64,6 +71,35 @@ class Login extends Component
 
         
 
+    }
+
+    public function checkCompany()
+    {
+        $user = auth()->user();
+
+        if ($user->hasRole('manger')) {
+            if (auth()->user()->company->days <= 0)
+            {
+                return false;
+            }   
+        }
+
+        if ($user->hasRole('administrative')) {
+            if (auth()->user()->employee->company->days <= 0)
+            {
+                return false;
+            }   
+        }
+
+        if ($user->hasRole('employee')) {
+            if (auth()->user()->employee->company->days <= 0)
+            {
+                return false;
+            }   
+        }
+
+        return true;
+        
     }
 
     public function render()

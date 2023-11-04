@@ -20,6 +20,9 @@ final class EmployeeTable extends PowerGridComponent
 {
     use WithExport;
 
+    public  $company;
+
+
     public function setUp(): array
     {
         $this->showCheckBox();
@@ -37,6 +40,12 @@ final class EmployeeTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
+      
+        if (auth()->user()->hasRole('owner')) {
+            return Employee::where('company_id', $this->company);
+
+            # code...
+        }
       
         if (auth()->user()->hasRole('manger')) {
      
@@ -270,6 +279,7 @@ final class EmployeeTable extends PowerGridComponent
     public function actions(\App\Models\Employee $row): array
     {
         return [
+            
             Button::add('edit-employee')  
                 ->slot('<x-icon name="pencil" class="w-5 h-5" />')
                 ->class('bg-indigo-500 text-white p-2 rounded-full')

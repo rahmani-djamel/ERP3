@@ -27,9 +27,21 @@ public  function ReportByWeek($date = null,$branche = null)
     $startOfWeekFormatted = $now->format('Y-m-d'); // Example format for the start of the week
     $endOfWeekFormatted = $endOfWeek->format('Y-m-d'); // Example format for the end of the week
 
+    $company = 0;
+
+    if (auth()->user()->hasRole('manger')) {
+        # code...
+        $company = auth()->user()->company->id;
+    } else {
+        # code...
+        $company = auth()->user()->employee->company_id;
+
+    }
     
 
-    $employees = Employee::with(['attendances' => function ($query) use ($startOfWeekFormatted, $endOfWeekFormatted) {
+    
+
+    $employees = Employee::where('company_id',$company)->with(['attendances' => function ($query) use ($startOfWeekFormatted, $endOfWeekFormatted) {
         $query->whereBetween('attendance_date', [$startOfWeekFormatted, $endOfWeekFormatted]);
     }]);
 

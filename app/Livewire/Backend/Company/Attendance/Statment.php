@@ -33,9 +33,17 @@ class Statment extends Component
 
         Carbon::setLocale('ar');
 
- 
+        $company = 0;
 
-        $this->employees = Employee::all();
+        if (auth()->user()->hasRole('manger')) {
+            # code...
+            $company = auth()->user()->company->id;
+        } else {
+            # code...
+            $company = auth()->user()->employee->company_id;
+    
+        }
+        $this->employees = Employee::where('company_id',$company)->get();
 
        // dd($this->employees);
 

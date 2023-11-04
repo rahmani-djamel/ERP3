@@ -19,6 +19,10 @@ class Kernel extends ConsoleKernel
         ->daily()
         ->at('23:00')
         ->timezone('Asia/Riyadh'); // Set the timezone to 'Asia/Riyadh' (Saudi Arabia)
+
+        $schedule->command('app:update-companies')
+        ->timezone('Asia/Riyadh') // Set the timezone to 'Asia/Riyadh' (Saudi Arabia)
+        ->dailyAt('00:01');
 }
 
     /**

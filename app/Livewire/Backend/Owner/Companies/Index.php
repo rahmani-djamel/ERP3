@@ -11,6 +11,12 @@ class Index extends Component
 {
     use Actions;
     public $company;
+
+    #[On('Company-show')] 
+    public function show($id)
+    {
+        redirect()->route('owner.dashboard.companies.employees',['company' => $id]);
+    }
     
 
     #[On('Company-Edited')] 

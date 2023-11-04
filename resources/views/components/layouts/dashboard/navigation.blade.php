@@ -42,6 +42,9 @@
 
     @endability
 
+    <x-layouts.dashboard.navigationitem url="company.dashboard.password.index" icon="lock-closed" text="Change Password" />
+
+
 
 
     

@@ -121,6 +121,11 @@ final class CompanyTable extends PowerGridComponent
         return [
 
             Button::add('edit-package')  
+            ->slot('<x-icon name="eye" class="w-5 h-5" />')
+            ->class('bg-sky-500 text-white p-2 rounded-full')
+            ->dispatch('Company-show',['id' => $row->id]),
+
+            Button::add('edit-package')  
                 ->slot('<x-icon name="pencil" class="w-5 h-5" />')
                 ->class('bg-indigo-500 text-white p-2 rounded-full')
                 ->dispatch('Company-Edited',['id' => $row->id]),
