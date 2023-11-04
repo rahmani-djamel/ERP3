@@ -19,42 +19,36 @@ class CheckUserRole
      */
     public function handle(Request $request, Closure $next,$permissionName): Response
     {
-        return $next($request);
+       // return $next($request);
 
         if (Auth::check()) {
             $user = Auth::user();
             $employee = $user->employee;
 
-            //dd($employee->roleCheck());
-            //dd($employee);
-
-         //   dd($employee->roleCheck());
-         
-
-            // Check if the user is an administrator
-            if ($employee->roleCheck()) 
+            if ( $user->hasRole('manger')) 
             {
-                if (Route::has($request->route()->getName()) && Str::startsWith($request->route()->getName(), 'employee.dashboard.')) {
-                    return abort(403, 'USER DOES NOT HAVE ANY OF THE NECESSARY ACCESS RIGHTS.');
-                } 
-
-                if ($user->hasPermission($permissionName)) {
+                if (Route::has($request->route()->getName()) && Str::startsWith($request->route()->getName(), 'company.dashboard.')) {
                     return $next($request);
                 }
-                return abort(403, 'USER DOES NOT HAVE ANY OF THE NECESSARY ACCESS RIGHTS.');
-
+                else{
+                    return abort(403, 'USER DOES NOT HAVE ANY OF THE NECESSARY ACCESS RIGHTS.');
+                }
             }
-            //dd($employee);
-
-            // Check if the user is an employee
-            if (!$employee->roleCheck()) {
-                  // Check if the current route exists and its name starts with "employee.dashboard."
-                  if (Route::has($request->route()->getName()) && Str::startsWith($request->route()->getName(), 'employee.dashboard.')) {
+            if ( $user->hasRole('administrative')) 
+            {
+                if (Route::has($request->route()->getName()) && Str::startsWith($request->route()->getName(), 'company.dashboard.') && $user->hasPermission($permissionName)) {
                     return $next($request);
-                } else {
-                    // Abort with a 403 response if the route does not match
+                }
+                else{
                     return abort(403, 'USER DOES NOT HAVE ANY OF THE NECESSARY ACCESS RIGHTS.');
                 }
+            }
+            if ( $user->hasRole('owner')) 
+            {
+                if (Route::has($request->route()->getName()) && Str::startsWith($request->route()->getName(), 'owner.dashboard.')) {
+                    return $next($request);
+                }
+
             }
         }
 

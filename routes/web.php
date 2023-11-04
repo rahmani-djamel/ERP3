@@ -8,9 +8,9 @@ Route::get('/',function() {
 
 })->name('home');
 
-Route::namespace('App\Livewire\Backend\Company')->group(function() {
+Route::namespace('App\Livewire\Backend\Company')->as('company.dashboard.')->group(function() {
 
-    Route::get('/admin/home', Index::class)->name('company.Index');
+    Route::get('/admin/home', Index::class)->name('Index');
 
 
     //Employee
@@ -18,23 +18,23 @@ Route::namespace('App\Livewire\Backend\Company')->group(function() {
         Route::get('/', Index::class)->name('index')->middleware('checker:read-employee');
         Route::get('/create', Create::class)->name('create')->middleware('checker:create-employee');
         Route::get('/edit/{employee}', Edit::class)->name('edit')->middleware('checker:edit-employee');
-        Route::get('/permession/{employee}', Permission::class)->name('permession');
+        Route::get('/permession/{employee}', Permission::class)->name('permession')->middleware('checker:edit-employee');
 
     });
 
     //Vacation
     Route::namespace('Vacation')->prefix('vacation')->as('vacation.')->group(function() {
         Route::get('/', Index::class)->name('index');
-        Route::get('/weekend', Weekend::class)->name('weekend');
-        Route::get('/worktime', Worktime::class)->name('worktime');
-        Route::get('/worktime/{employee}', WorktimeEdit::class)->name('worktimeedit');
+        Route::get('/weekend', Weekend::class)->name('weekend')->middleware('checker:weekend-days');
+        Route::get('/worktime', Worktime::class)->name('worktime')->middleware('checker:employees-working-hours');
+        Route::get('/worktime/{employee}', WorktimeEdit::class)->name('worktimeedit')->middleware('checker:employees-working-hours');
 
         // Vacation/Annual Holiday
         Route::namespace('AnnualHoliday')->prefix('annualholiday')->as('annualholiday.')->group(function () {
-            Route::get('/', Index::class)->name('index');
-            Route::get('/create', Create::class)->name('create');
-            Route::get('/edit', Edit::class)->name('edit');
-            Route::get('/show', Show::class)->name('show');
+            Route::get('/', Index::class)->name('index')->middleware('checker:annual-leave');
+            Route::get('/create', Create::class)->name('create')->middleware('checker:annual-leave');
+            Route::get('/edit', Edit::class)->name('edit')->middleware('checker:annual-leave');
+            Route::get('/show', Show::class)->name('show')->middleware('checker:annual-leave');
 
         });
     });
@@ -42,22 +42,19 @@ Route::namespace('App\Livewire\Backend\Company')->group(function() {
 
     Route::namespace('Attendance')->prefix('attendance')->as('attendance.')->group(function() {
          Route::get('/', Index::class)->name('index');
-         Route::get('/report', Report::class)->name('report');
-         Route::get('/statement', Statment::class)->name('statment');
+         Route::get('/report', Report::class)->name('report')->middleware('checker:read-report-attendance');
+         Route::get('/statement', Statment::class)->name('statment')->middleware('checker:read-statment-attendance');
     });
     
     // Salaires
 
     Route::namespace('Salaires')->prefix('salaires')->as('salaires.')->group(function() {
         Route::get('/', Index::class)->name('index');
-        Route::get('/payroll', Payroll::class)->name('payroll');
-
-
-
+        Route::get('/payroll', Payroll::class)->name('payroll')->middleware('checker:salaries-and-commissions');
     });
 
      // Settings
-    Route::namespace('Settings')->prefix('settings')->as('settings.')->group(function() {
+    Route::namespace('Settings')->prefix('settings')->as('settings.')->middleware('checker:company-settings')->group(function() {
         Route::get('/', Index::class)->name('index');
         Route::get('/main', Main::class)->name('main');
         Route::get('/branches', Branches::class)->name('branches');
@@ -65,13 +62,12 @@ Route::namespace('App\Livewire\Backend\Company')->group(function() {
     });
 
          // Resumption
-    Route::namespace('Resumption')->prefix('resumption')->as('resumption.')->group(function() {
+    Route::namespace('Resumption')->prefix('resumption')->as('resumption.')->middleware('checker:appeal-requests')->group(function() {
         Route::get('/', Index::class)->name('index');
-
     });
 
              // AskPermission
-    Route::namespace('AskPermission')->prefix('askpermission')->as('askpermission.')->group(function() {
+    Route::namespace('AskPermission')->prefix('askpermission')->as('askpermission.')->middleware('checker:ask-permission')->group(function() {
         Route::get('/', Index::class)->name('index');
 
     });

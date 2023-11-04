@@ -34,7 +34,7 @@
                 <div class="  grid md:grid-cols-4 md:gap-12 mb-4" >
                 
                     <x-button lime label="{{__('save')}}" type="submit" class="font-semibold" />
-                    <x-button href="{{route('employee.index')}}" primary label="{{__('Back')}}" class="font-semibold" />
+                    <x-button href="{{route('company.dashboard.employee.index')}}" primary label="{{__('Back')}}" class="font-semibold" />
                               
                 </div>
 

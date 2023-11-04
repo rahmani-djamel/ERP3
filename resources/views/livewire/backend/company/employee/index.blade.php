@@ -5,12 +5,12 @@
                     <div class="flex justify-between">
                         <x-button
                         class="m-2"
-                        href="{{route('employee.create')}}"
+                        href="{{route('company.dashboard.employee.create')}}"
                         label="{{__('Add New Employee')}}"
                         teal
                     />    
     
-                    <x-button href="{{route('company.Index')}}" 
+                    <x-button href="{{route('company.dashboard.Index')}}" 
                         info 
                         icon="arrow-{{config('direction') == 'ltr' ? 'left' : 'right'}}" 
                         label="{{__('Back')}}"

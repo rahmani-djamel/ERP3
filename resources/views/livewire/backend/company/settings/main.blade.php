@@ -10,7 +10,7 @@
                     <div class="  grid md:grid-cols-4 md:gap-12 mb-4" >
                     
                         <x-button lime label="{{__('save')}}" type="submit" class="font-semibold" />
-                        <x-button href="{{route('settings.index')}}" primary label="{{__('cancel')}}" class="font-semibold" />
+                        <x-button href="{{route('company.dashboard.settings.index')}}" primary label="{{__('cancel')}}" class="font-semibold" />
                                   
                     </div>
     

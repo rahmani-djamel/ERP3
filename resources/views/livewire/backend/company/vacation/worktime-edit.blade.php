@@ -13,7 +13,7 @@
                     <div class="flex items-center justify-between d p-4">
                         <div class="flex">
                             <x-button
-                            href="{{route('vacation.worktime')}}"
+                            href="{{route('company.dashboard.vacation.worktime')}}"
                             target="_blank"
                             label="{{__('Back')}}"
                             teal

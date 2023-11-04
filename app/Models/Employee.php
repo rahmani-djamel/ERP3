@@ -61,7 +61,7 @@ class Employee extends Model
 
     public static function countEmployeesByCompany($companyId)
     {
-        return self::where('company_id', $companyId)->count();
+        return self::where('company_id', $companyId)->where('is_adminstaror',0)->count();
     }
 
     public static function countAdminsByCompany($companyId)

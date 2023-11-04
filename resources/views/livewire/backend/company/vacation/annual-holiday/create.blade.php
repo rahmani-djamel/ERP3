@@ -10,7 +10,7 @@
                     <div class="  grid md:grid-cols-4 md:gap-12 mb-4" >
                     
                         <x-button lime label="حفظ" type="submit" class="font-semibold" />
-                        <x-button href="{{route('vacation.annualholiday.index')}}" primary label="رجوع" class="font-semibold" />
+                        <x-button href="{{route('company.dashboard.vacation.annualholiday.index')}}" primary label="رجوع" class="font-semibold" />
                                   
                     </div>
     

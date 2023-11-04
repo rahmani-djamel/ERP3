@@ -35,12 +35,12 @@
                     
                         <x-button lime label="حفظ" type="submit" class="font-semibold" />
                         @if ($employee->is_adminstaror == 1)
-                        <x-button href="{{route('employee.permession',['employee' => $employee])}}" info  label="تعديل الصلاحيات" type="submit" class="font-semibold" />
+                        <x-button href="{{route('company.dashboard.employee.permession',['employee' => $employee])}}" info  label="تعديل الصلاحيات" type="submit" class="font-semibold" />
 
                             
                         @endif
 
-                        <x-button href="{{route('employee.index')}}" primary label="رجوع" class="font-semibold" />
+                        <x-button href="{{route('company.dashboard.employee.index')}}" primary label="رجوع" class="font-semibold" />
                                   
                     </div>
     

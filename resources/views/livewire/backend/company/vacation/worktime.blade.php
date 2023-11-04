@@ -48,7 +48,7 @@
                                         
                                             <x-button.circle 
                                              icon="pencil" 
-                                             href="{{route('vacation.worktimeedit',['employee' => $item])}}"
+                                             href="{{route('company.dashboard.vacation.worktimeedit',['employee' => $item])}}"
                                             />
                                             <x-button.circle info icon="eye"
                                             data-modal-target="defaultModal"

@@ -8,11 +8,11 @@
 
                 <div class="  grid md:grid-cols-3 md:gap-12 my-4" >
 
-                    <x-button href="{{route('vacation.annualholiday.show')}}" primary label="{{__('View annual leaves')}}" class="font-semibold" />
+                    <x-button href="{{route('company.dashboard.vacation.annualholiday.show')}}" primary label="{{__('View annual leaves')}}" class="font-semibold" />
               
-                    <x-button href="{{route('vacation.annualholiday.edit')}}" primary label="{{__('Amendment to leave')}}" class="font-semibold" />
+                    <x-button href="{{route('company.dashboard.vacation.annualholiday.edit')}}" primary label="{{__('Amendment to leave')}}" class="font-semibold" />
                   
-                    <x-button href="{{route('vacation.annualholiday.create')}}" positive label="{{__('Create a vacation')}}" class="font-semibold" />
+                    <x-button href="{{route('company.dashboard.vacation.annualholiday.create')}}" positive label="{{__('Create a vacation')}}" class="font-semibold" />
 
                 </div>
             </div>

@@ -43,12 +43,12 @@ class Login extends Component
 
         if (auth()->user()->hasRole('manger')) 
         {
-            return redirect()->intended(route('employee.index'));
+            return redirect()->intended(route('company.dashboard.Index'));  
         }
 
         if (auth()->user()->hasRole('administrative')) {
 
-            return redirect()->intended(route('company.Index'));  
+            return redirect()->intended(route('company.dashboard.Index'));  
         }
 
         return redirect()->intended(route('employee.dashboard.Index'));  

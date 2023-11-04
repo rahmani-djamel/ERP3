@@ -8,9 +8,9 @@
 
                 <div class="  grid md:grid-cols-4 md:gap-12 my-4" >
               
-                    <x-button href="{{route('attendance.report')}}" primary label="{{__('Read report')}}" class="font-semibold" />
+                    <x-button href="{{route('company.dashboard.attendance.report')}}" primary label="{{__('Read report')}}" class="font-semibold" />
                   
-                    <x-button href="{{route('attendance.statment')}}" positive label="{{__('Read Satatment Information')}}" class="font-semibold" />
+                    <x-button href="{{route('company.dashboard.attendance.statment')}}" positive label="{{__('Read Satatment Information')}}" class="font-semibold" />
 
                 </div>
             </div>

@@ -8,7 +8,7 @@
    
               <div>
                   
-          <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">{{__('Employee Permissions')}} - {{$employee->Name}}</h3>
+          <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">{{__('Administrative  Permissions')}} - {{$employee->Name}}</h3>
           @php $count = []; @endphp
           <!-- col-span-2 -->
           <div class="grid grid-cols-1 md:grid-cols-4 gap-4">

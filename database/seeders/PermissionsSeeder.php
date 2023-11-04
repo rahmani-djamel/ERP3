@@ -60,5 +60,69 @@ class PermissionsSeeder extends Seeder
                         'class' => 'attendance'
                 ]);
 
+                //Vacations
+
+                $AnnulaLeaves = Permission::create([
+                    'name' => 'annual-leave',
+                    'display_name' => 'Annual leaves', // optional
+                    'description' => 'Annual leaves', // optional
+                    'class' => 'Vacations'
+                ]);
+                
+                $WeekEndDays = Permission::create([
+                    'name' => 'weekend-days',
+                    'display_name' => 'Weekend days', // optional
+                    'description' => 'WeekEnd Days', // optional
+                    'class' => 'Vacations'
+                ]);
+
+                $employeesWorkingHours = Permission::create([
+                    'name' => 'employees-working-hours',
+                    'display_name' => 'Employees working hours', // optional
+                    'description' => 'Annual leave', // optional
+                    'class' => 'Vacations'
+                ]);
+
+                //Salaries and commissions
+
+                $SalariesAndCommissions = Permission::create([
+                    'name' => 'salaries-and-commissions',
+                    'display_name' => 'Salaries and commissions', // optional
+                    'description' => 'Salaries And Commissions', // optional
+                    'class' => 'Salaries and commissions'
+                ]);
+
+                //Appeal requests
+
+                $AppealRequests = Permission::create([
+                    'name' => 'appeal-requests',
+                    'display_name' => 'Appeal requests', // optional
+                    'description' => 'Appeal requests', // optional
+                    'class' => 'Appeal requests'
+                ]);
+
+                //ask permission
+
+
+                $AskPermission = Permission::create([
+                    'name' => 'ask-permission',
+                    'display_name' => 'ask permission', // optional
+                    'description' => 'ask permission', // optional
+                    'class' => 'ask permission'
+                ]);
+
+              //settings
+
+
+              $settings = Permission::create([
+                'name' => 'company-settings',
+                'display_name' => 'Settings', // optional
+                'description' => 'ask permission', // optional
+                'class' => 'Settings'
+            ]);
+
+
+
+
     }
 }

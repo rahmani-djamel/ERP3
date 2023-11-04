@@ -21,7 +21,7 @@ class Index extends Component
     #[On('Employee-Edited')] 
     public function updateEmployee($id)
     {
-        redirect()->route('employee.edit',['employee' => $id]);
+        redirect()->route('company.dashboard.employee.edit',['employee' => $id]);
     }
 
     #[On('Employee-Delete')]
