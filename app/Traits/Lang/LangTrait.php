@@ -13,7 +13,7 @@ trait LangTrait
     $newTranslationValue = $value;
 
     // Path to the ar.json file in the root directory
-    $jsonFilePath = base_path('Lang/ar.json');
+    $jsonFilePath = base_path('lang/ar.json');
 
     // Load the existing JSON data
     $jsonData = File::get($jsonFilePath);
@@ -42,7 +42,7 @@ trait LangTrait
         $translationKey = $key;
     
         // Path to the ar.json file in the root directory
-        $jsonFilePath = base_path('Lang/ar.json');
+        $jsonFilePath = base_path('lang/ar.json');
     
         // Load the existing JSON data
         $jsonData = File::get($jsonFilePath);
@@ -63,7 +63,7 @@ trait LangTrait
         $translationKey = $key;
     
         // Path to the ar.json file in the root directory
-        $jsonFilePath = base_path('Lang/ar.json');
+        $jsonFilePath = base_path('lang/ar.json');
     
         // Load the existing JSON data
         $jsonData = File::get($jsonFilePath);
