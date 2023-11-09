@@ -50,17 +50,15 @@
 
     @if (auth()->user()->hasRole('manger'))
         @if (auth()->user()->company->days < 30)
-            
-        @endif  
-      <section class="mt-10">
-        <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
-          
-          <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-            <span class="font-medium">{{__('The subscription will expire in ')}} {{auth()->user()->company->days}} {{__('day')}}</span> 
-          </div>
-        </div>
-      </section>
-        
+          <section class="mt-10">
+            <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+              
+              <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                <span class="font-medium">{{__('The subscription will expire in ')}} {{auth()->user()->company->days}} {{__('day')}}</span> 
+              </div>
+            </div>
+          </section>
+        @endif
     @endif
 
 

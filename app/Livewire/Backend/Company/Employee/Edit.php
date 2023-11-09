@@ -121,14 +121,14 @@ class Edit extends Component
             $this->package = auth()->user()->employee->company->package;
         }
         
-        $this->counter_employees  =  $this->package->N_Of_Emps - Employee::countEmployeesByCompany($this->company->id);
+        $this->counter_employees  =  $this->company->N_Of_Emps - Employee::countEmployeesByCompany($this->company->id);
 
         if ($this->counter_employees  < 0) {
             # code...
             $this->counter_employees = 0;
         }
 
-        $this->counter_admins  =  $this->package->N_Of_Adminstrative - Employee::countAdminsByCompany($this->company->id);
+        $this->counter_admins  =  $this->company->N_Of_Adminstrative - Employee::countAdminsByCompany($this->company->id);
 
         $this->role_name = $this->employee->is_adminstaror == 0 ? 'Employee' : 'Administrative';
 

@@ -32,6 +32,9 @@ class CompanySeeder extends Seeder
                 'days' => 30,      // Replace with your logic for days
                 'Testing_period' => 0, // Default value
                 'phone' => '213656881308', // Replace with the actual phone number
+                'N_Of_Emps' => 50,
+                'N_Of_Adminstrative' => 10,
+                'N_branches' => 5,
 
             ]);
 

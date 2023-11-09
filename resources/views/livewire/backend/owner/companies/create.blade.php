@@ -26,6 +26,7 @@
            <div class="grid md:grid-cols-2 md:gap-6">
             <div class="relative z-0 w-full mb-6 group">
                 <x-native-select label="{{__('Package')}}" wire:model="package">
+                    <option value=""></option>
                     @forelse (settings('packages') as $item)
                     <option value="{{$item->id}}">{{__($item->name)}}</option>
                     @empty

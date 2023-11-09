@@ -38,6 +38,13 @@ class Edit extends Component
     #[Rule('nullable','numeric','min:1')]
     public $days = 1;
 
+    #[Rule('required')] 
+    public $N_Employee;
+    #[Rule('required')]
+    public $N_Adminstrators;
+    #[Rule('required')] 
+    public $N_Branches;
+
     public $user;
     public $package_name;
 
@@ -54,6 +61,11 @@ class Edit extends Component
             $this->package_name = $this->company->package->name;
             $this->is_trial = $this->company->Testing_period != 0 ? true : false;
             $this->days = $this->company->days;
+            //
+            $this->N_Employee = $this->company->N_Of_Emps;
+            $this->N_Adminstrators = $this->company->N_Of_Adminstrative;
+            $this->N_Branches = $this->company->N_branches;
+            
      
 
     }
@@ -82,6 +94,10 @@ class Edit extends Component
             $company->user_id = $user->id;
             $company->package_id = $this->package; //error
             $company->phone = $this->phone;
+
+            $company->N_Of_Emps	 = $this->N_Employee;
+            $company->N_Of_Adminstrative = $this->N_Adminstrators;
+            $company->N_branches = $this->N_Branches;
             
             if ($this->is_trial) {
                 $company->days = $this->days; // Replace with your logic for days

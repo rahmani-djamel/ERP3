@@ -18,6 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('package_id');
             $table->integer('days');
+            $table->integer('N_Of_Emps');
+            $table->integer('N_Of_Adminstrative');
+            $table->integer('N_branches');
             $table->integer('Testing_period')->default(0);
 
 

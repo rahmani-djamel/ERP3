@@ -44,6 +44,8 @@ class Create extends Component
             $this->validate();
             
             DB::beginTransaction(); // Start a database transaction
+
+            $package = Package::findorfail($this->package);
             
             $user = new User();
             $user->name = $this->owner_name;
@@ -58,6 +60,9 @@ class Create extends Component
             $company->user_id = $user->id;
             $company->package_id = $this->package; // Replace with your logic for package_id
             $company->phone = $this->phone;
+            $company->N_Of_Emps	 = (int)$package->N_Of_Emps;
+            $company->N_Of_Adminstrative = (int)$package->N_Of_Adminstrative;
+            $company->N_branches = (int)$package->N_branches;
             
             if ($this->is_trial) {
                 $company->days = $this->days; // Replace with your logic for days

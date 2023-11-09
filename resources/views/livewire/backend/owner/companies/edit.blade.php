@@ -24,6 +24,17 @@
                 </div>
            </div>
            <div class="grid md:grid-cols-2 md:gap-6">
+                <div class="relative z-0 w-full mb-6 group">
+                    <x-input type="number" wire:model="N_Employee" right-icon="adjustments" label="{{__('Number Of Employees')}}"  />
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <x-input type="number" wire:model="N_Adminstrators" right-icon="adjustments" label="{{__('Number of administrators')}}"  />
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <x-input type="number" wire:model="N_Branches" right-icon="adjustments" label="{{__('Number of branches')}}"  />
+                </div>
+           </div>
+           <div class="grid md:grid-cols-2 md:gap-6">
             <div class="relative z-0 w-full mb-6 group">
                 <x-native-select label="{{__('Package')}}" wire:model="package" hint="{{__('selected packages is')}} {{__($package_name)}}">
                     @forelse (settings('packages') as $item)
@@ -35,6 +46,7 @@
                     @endforelse
             </x-native-select>
             </div>
+            
             <div class="relative z-0 w-full mb-6 group">
                 <div class="flex items-center lg:mt-8">
                     <input  type="checkbox"
@@ -49,6 +61,7 @@
                 @enderror
             </div>
        </div>
+       
        <div class="grid md:grid-cols-2 md:gap-6"  x-data="{ open: @entangle('is_trial') }">
 
         @if ($is_trial)
