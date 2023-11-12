@@ -53,8 +53,6 @@ class Create extends Component
     #[Rule('required|integer|min:0')]
     public $VacationDays = '';
 
-    #[Rule('required|integer|min:0')]
-    public $leaveBalance = '';
 
     #[Rule('required|string|max:255')]
     public $ContratType = '';
@@ -169,6 +167,7 @@ class Create extends Component
      
         if (($this->counter_admins > 0 && $this->is_adminstaror == 1) || ($this->counter_employees > 0 && $this->is_adminstaror == 0) ) {
             $this->validate();
+
 
             $user = $this->createUser($this->validate());
     

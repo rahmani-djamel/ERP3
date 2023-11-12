@@ -28,6 +28,14 @@
                               </span>
                             </div>
                           </div>
+                          @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    @foreach ($errors->all() as $error)
+                                        {{ $error }}<br>
+                                    @endforeach
+                                </div>
+                          @endif
+
                           @if($this->branchesCounter)
                           <div class="flex items-center p-4 mb-4 text-sm  rounded-lg  text-red-600 bg-red-200 dark:text-red-400  dark:bg-gray-800 " role="alert">
                             <x-icon name="information-circle" class="flex-shrink-0 inline w-4 h-4 ltr:mr-3 rtl:ml-3" />
