@@ -14,9 +14,20 @@ class Payroll extends Component
 
     public function mount()
     {
+        $company = $this->company();
         $this->headers = $this->header();
-        $this->data = Employee::all();
+        $this->data = Employee::where('company_id',$company->id)->get();
 
+    }
+    public function company()
+    {
+        $user = auth()->user();
+
+        if ($user->hasRole('manger')) {
+           return $user->company;
+        } else {
+            return $user->employee->company;
+        }
     }
     public function render()
     {

@@ -17,6 +17,8 @@ class Branches extends Component
     public $map;
     public $id;
     public $display;
+    public $branches;
+    public $counter_branches;
 
     //for new
     public $NBname;
@@ -57,7 +59,6 @@ class Branches extends Component
         $branche->save();
 
 
-        settings('branches',true);
 
 
         $this->dialog()->success(
@@ -75,52 +76,92 @@ class Branches extends Component
 
         $branche->delete();
 
-        settings('branches',true);
+        $this->getBranches();
+
+
+        $this->counter_branches++;
+
+
 
         $this->dialog()->success(
             $title = __('Deleted successfully'),
             $description = __('Deleted successfully')
         );
         
-
-        $this->dispatch('refresh');
-
         
     }
     public function saveTWO()
     {
-        $validated = $this->validate([ 
-            'NBname' => 'required|min:5|max:40',
-            'Naddress' => 'required|min:5|max:100',
-            'Nmap' => 'required|url:https',
-            'lat' => 'required|numeric', // 'lat' should be a numeric value
-            'long' => 'required|numeric', // 'long' should be a numeric value
-        ]);
+        if ($this->counter_branches > 0) {
+            $validated = $this->validate([ 
+                'NBname' => 'required|min:5|max:40',
+                'Naddress' => 'required|min:5|max:100',
+                'Nmap' => 'required|url:https',
+                'lat' => 'required|numeric', // 'lat' should be a numeric value
+                'long' => 'required|numeric', // 'long' should be a numeric value
+            ]);
+    
+            $branche = new Branche();
+            $branche->name = $this->NBname;
+            $branche->place = $this->Naddress;
+            $branche->map = $this->Nmap;
+            $branche->lat = $this->lat;
+            $branche->long = $this->long;
+            
+            $branche->company_id = $this->company()->id;
+            $branche->save();
+    
+            $this->dialog()->success(
+                $title = __('Added successfully'),
+                $description = __('Branch added successfully')
+            );
 
-        $branche = new Branche();
-        $branche->name = $this->NBname;
-        $branche->place = $this->Naddress;
-        $branche->map = $this->Nmap;
-        $branche->lat = $this->lat;
-        $branche->long = $this->long;
-
-        $branche->save();
+            $this->dispatch('refresh');
 
 
-        settings('branches',true);
 
-        $this->dialog()->success(
-            $title = __('Added successfully'),
-            $description = __('Branch added successfully')
-        );
+
+            # code...
+        } else {
+
+            $this->dialog()->info(
+                $title = __('The operation was not completed successfully'),
+            );        
+        }
+
+
+
         
+    }
+
+    public function company()
+    {
+        $user = auth()->user();
+
+        if ($user->hasRole('manger')) {
+           return $user->company;
+        } else {
+            return $user->employee->company;
+        }
     }
 
     public function mount()
     {
+        $id_company = $this->company()->id;
+
+        $this->getBranches();
+
+        $this->counter_branches  =  $this->company()->N_branches - Branche::counter($id_company);
+
       /*   $test =  $this->distance(32.9697, -98.53505, 32.9696, -98.53506, "M") . " Meter<br>";
 
        dd($test);*/
+    }
+
+    public function getBranches()
+    {
+        $this->branches = Branche::where('company_id',$this->company()->id)->get();
+
     }
 
     

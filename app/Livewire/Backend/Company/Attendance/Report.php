@@ -3,6 +3,7 @@
 namespace App\Livewire\Backend\Company\Attendance;
 
 use App\Models\Attendance;
+use App\Models\Branche;
 use App\Models\Employee;
 use App\Traits\Attendance\AttendanceTrait;
 use Carbon\Carbon;
@@ -27,6 +28,7 @@ class Report extends Component
     public $selectedDay;
     public $Newstatus;
     public $empName = '';
+    public $branches;
 
     
     public function mount()
@@ -38,11 +40,28 @@ class Report extends Component
 
         $this->employees = $this->employees['formattedEmployees'];
 
+        $this->branches = Branche::where('company_id',$this->company()->id)->get();
+
+
        // dd($this->employees);
 
 
        // dd($this->employees);
     }
+
+    
+    public function company()
+    {
+        $user = auth()->user();
+
+        if ($user->hasRole('manger')) {
+           return $user->company;
+        } else {
+            return $user->employee->company;
+        }
+    }
+
+
     public function updating($proprety,$value)
     {
         if ($proprety == 'Start_work')

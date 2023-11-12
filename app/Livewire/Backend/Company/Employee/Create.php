@@ -50,8 +50,11 @@ class Create extends Component
     #[Rule('required|string|max:20')]
     public $Phone = '';
 
-    #[Rule('required|integer')]
+    #[Rule('required|integer|min:0')]
     public $VacationDays = '';
+
+    #[Rule('required|integer|min:0')]
+    public $leaveBalance = '';
 
     #[Rule('required|string|max:255')]
     public $ContratType = '';
@@ -123,6 +126,7 @@ class Create extends Component
     public $counter_employees;
     public $counter_admins;
     public $branches;
+    public $branchesCounter;
 
     public function mount()
     {
@@ -130,14 +134,14 @@ class Create extends Component
         if (auth()->user()->hasRole('manger')) {
 
             $this->company = auth()->user()->company;
-
-
             $this->package = $this->company->package;
             
         } else {
             $this->company = auth()->user()->employee->company;
             $this->package = auth()->user()->employee->company->package;
         }
+
+    
         
         $this->counter_employees  =  $this->company->N_Of_Emps - Employee::countEmployeesByCompany($this->company->id);
 
@@ -149,6 +153,8 @@ class Create extends Component
         $this->counter_admins  =  $this->company->N_Of_Adminstrative - Employee::countAdminsByCompany($this->company->id);
 
         $this->branches = Branche::where('company_id',$this->company->id)->get();
+        
+        $this->branchesCounter =   Branche::counter($this->company->id) == 0;
 
 
 

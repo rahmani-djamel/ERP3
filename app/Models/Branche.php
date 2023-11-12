@@ -17,4 +17,14 @@ class Branche extends Model
         'long',
         'company_id'
     ];
+
+    public static function counter($companyId)
+    {
+        return self::where('company_id', $companyId)->count();
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

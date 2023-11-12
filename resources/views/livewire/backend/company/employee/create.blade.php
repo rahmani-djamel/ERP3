@@ -28,6 +28,19 @@
                               </span>
                             </div>
                           </div>
+                          @if($this->branchesCounter)
+                          <div class="flex items-center p-4 mb-4 text-sm  rounded-lg  text-red-600 bg-red-200 dark:text-red-400  dark:bg-gray-800 " role="alert">
+                            <x-icon name="information-circle" class="flex-shrink-0 inline w-4 h-4 ltr:mr-3 rtl:ml-3" />
+
+                            <span class="sr-only">Info</span>
+                            <div>
+                              <span class="font-medium">
+                                {{__('Please add the company branches first')}}
+                              </span>
+                            </div>
+                          </div>
+                          @endif
+                          
                     </div>
                   
                 
@@ -94,7 +107,6 @@
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
                                         <x-input wire:model="VacationDays"  right-icon="flag"  type="number" label="{{__('Vacation Days')}}"  />
-
                                     </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
@@ -211,7 +223,7 @@
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input type="number" wire:model="VacationSalary" right-icon="currency-dollar" label="{{__('Vacation Salary')}}"  />
+                                    <x-input type="number" wire:model="VacationSalary" right-icon="flag" label="{{__('Vacation Salary')}}"  />
 
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">

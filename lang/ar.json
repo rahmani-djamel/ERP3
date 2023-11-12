@@ -84,7 +84,7 @@
     "Contract Type": "نوع العقد",
     "Contract end date": "تاريخ نهاية العقد",
     "Card Number": "رقم البطاقة",
-    "Vacation Salary": "راتب الإجازة",
+    "Vacation Salary": "رصيد الإجازة",
     "Vacation Days": "أيام الإجازة",
     "Vacation Balance": "رصيد الإجازة",
     "Employee Status": "حالة الموظف",
@@ -261,5 +261,10 @@
     "The current role is": "الدور الحالي هو",
     "Basic": "أساسي",
     "The subscription will expire in ":"سينتهي الإشتراك خلال ",
-    "day":"يوم"
+    "day":"يوم",
+    "There is no data to display":"لا توجد بيانات لعرضها",
+    "Branches":"فروع",
+    "The operation was not completed successfully":"العملية لم تتم بنجاح",
+    "Please add the company branches first":"يرجى اضافة فروع الشركة اولا",
+    "Leave balance":"رصيد الإجازة"
 }

@@ -31,4 +31,9 @@ class Company extends Model
         return $this->hasMany(Employee::class);
     }
 
+    public function branches()
+    {
+        return $this->hasMany(Branche::class);
+    }
+
 }

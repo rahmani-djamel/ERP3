@@ -9,7 +9,7 @@
                         <!-- Select Box -->
                         <div>
                             <x-native-select label="{{__('Select the branch')}}" wire:model.live="branche">
-                                @foreach (settings('branches') as $item)
+                                @foreach ($this->branches as $item)
                                 <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
                         
@@ -94,7 +94,7 @@
                                                         </tr>
                                                     @empty
                                                         <tr>
-                                                            <td colspan="4">No employees found.</td>
+                                                            <td colspan="10" class="text-center font-bold">{{__('There is no data to display')}}</td>
                                                         </tr>
                                                     @endforelse
                                                     

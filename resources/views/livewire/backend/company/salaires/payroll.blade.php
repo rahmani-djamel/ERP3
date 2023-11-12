@@ -84,7 +84,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="{{ count($keysToDisplay) }}">No employees found.</td>
+                                            <td colspan="{{count($headers) + 1}}" class="text-center font-bold">{{__('There is no data to display')}}</td>
                                         </tr>
                                     
                                         

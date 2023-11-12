@@ -2,6 +2,21 @@
     <div>
         <section class="mt-10">
             <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+
+                <div class="grid md:grid-cols-2 gap-4 mb-2">
+                    <div class="flex items-center p-4 mb-4 text-sm  rounded-lg @if($this->counter_branches >0) text-blue-800 bg-blue-50 dark:text-blue-400 @else text-red-600 bg-red-200 dark:text-red-400 @endif dark:bg-gray-800 " role="alert">
+                        <x-icon name="information-circle" class="flex-shrink-0 inline w-4 h-4 ltr:mr-3 rtl:ml-3" />
+
+                        <span class="sr-only">Info</span>
+                        <div>
+                          <span class="font-medium">
+                            {{__('You can add')}} {{$this->counter_branches}} {{__('Branches')}}
+                          </span>
+                        </div>
+                      </div>
+
+
+                </div>
                 <!-- Start coding here -->
                 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                     <div class="flex items-center justify-between d p-4">
@@ -37,7 +52,7 @@
                                 </tr>
                             </thead>                   
                                      <tbody>
-                                        @forelse (settings('branches') as $item)
+                                        @forelse ($branches as $item)
                                             
                                             
 
@@ -84,7 +99,7 @@
                                         @empty
 
                                         <tr>
-                                            <td colspan="4">No employees found.</td>
+                                            <td colspan="4" class="text-center font-bold text-white">{{__('There is no data to display')}}</td>
                                         </tr>
 
                                         @endforelse
@@ -143,7 +158,7 @@
 </div>
 
 <!-- Main modal -->
-<div wire:ignore.self id="defaultModal1" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div wire:ignore.self id="defaultModal1" tabindex="-1"  aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-2xl max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -171,15 +186,15 @@
             </div>
             <!-- Modal footer -->
             <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button wire:click="saveTWO" data-modal-hide="defaultModal" type="button" class="text-white mx-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">حفظ</button>
-                <button data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">إلغاء</button>
+                <button wire:click="saveTWO"  data-modal-hide="defaultModal1" type="button" class="text-white mx-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">حفظ</button>
+                <button data-modal-hide="defaultModal1" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">إلغاء</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Main modal -->
-<div wire:ignore.self id="defaultModal2" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div wire:ignore.self id="defaultModal2" tabindex="-1"  aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-2xl max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -196,10 +211,9 @@
             </div>
             <!-- Modal footer -->
             <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button wire:click="deleting" data-modal-hide="defaultModal" type="button" class="text-white mx-3 bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:red-blue-800">حذف</button>
-                <button data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">إلغاء</button>
+                <button wire:click="deleting" data-modal-hide="defaultModal2" type="button" class="text-white mx-3 bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:red-blue-800">حذف</button>
+                <button data-modal-hide="defaultModal2" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">إلغاء</button>
             </div>
         </div>
     </div>
-</div>
 </main>
