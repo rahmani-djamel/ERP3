@@ -14,7 +14,6 @@
                         <div class="flex">
                             <x-button
                             href="{{route('company.dashboard.vacation.worktime')}}"
-                            target="_blank"
                             label="{{__('Back')}}"
                             teal
                         />
@@ -47,7 +46,7 @@
                                                 <x-badge info label="{{__('Vacance')}}" />
 
                                                 @else
-                                                    {{ $item->$ke }}
+                                                    {{ __($item->$ke) }}
                                                 @endif
                                             </td>
                                         @endforeach
@@ -100,31 +99,34 @@
             <!-- Modal header -->
             <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    {{ __('Adjust the timing') }} <span class="text-sky-500 font-medium">{{ $selected['weekday']?? ''}}</span>
+                    {{ __('Adjust the timing') }} <span class="text-sky-500 font-medium"></span>
                 </h3>
             </div>
             <!-- Modal body -->
             <div class="p-6 space-y-6">
 
-                <x-native-select label="{{__('Start Time')}}" wire:model="start">
-                    @for ($hour = 0; $hour < 24; $hour++)
-                        @php
-                            $formattedHour = sprintf("%02d:00", $hour); // Format the hour as HH:00
-                        @endphp
-                        <option value="{{ $formattedHour }}">{{ $formattedHour }}</option>
-                    @endfor
-                </x-native-select>
+                <div class="flex space-x-4 justify-between">
+                    <div class="w-full mx-2">
+                        <label for="start-hour" class="block text-sm font-medium text-blue-700">{{ __('Start Time') }}</label>
+                        <x-input type="number" min="0" max="24" label="{{__('Hour')}}" right-icon="clock"  wire:model="start.hour"  />
+                    </div>
+                    <div class="w-full mx-2 lg:mt-5">
+                        <x-input type="number" min="0" max="59" label="{{__('Minute')}}" right-icon="clock"  wire:model="start.minute"  />
+                    </div>
+                </div>
 
-                <x-native-select label="{{__('End Time')}}" wire:model="end">
-                    @for ($hour = 0; $hour < 24; $hour++)
-                        @php
-                            $formattedHour = sprintf("%02d:00", $hour); // Format the hour as HH:00
-                        @endphp
-                        <option value="{{ $formattedHour }}">{{ $formattedHour }}</option>
-                    @endfor
-                </x-native-select>
 
-                <x-toggle  class="mx-4"  label="{{__('Designate as a holiday')}}"  wire:model="is_vacation" />
+                <div class="flex space-x-4 justify-between">
+                    <div class="w-full mx-2">
+                        <label for="start-hour" class="block text-sm font-medium text-blue-700">{{ __('End Time') }}</label>
+                        <x-input type="number" min="0" max="24" label="{{__('Hour')}}" right-icon="clock"  wire:model="end.hour"  />
+                    </div>
+                    <div class="w-full mx-2 lg:mt-5">
+                        <x-input type="number" min="0" max="59" label="{{__('Minute')}}" right-icon="clock"  wire:model="end.minute"  />
+                    </div>
+                </div>
+
+                <x-toggle  class="mx-4"  label="{{__('Designate as a holiday')}}"  wire:model.live="is_vacation" />
 
 
                 

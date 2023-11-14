@@ -41,8 +41,19 @@ class Create extends Component
     public function mount()
     {
         $this->vacationtypes = $this->Vacation_type();
-        $this->employees = Employee::with('annualholiday')->get();
+        $this->employees = Employee::where('company_id',$this->company()->id)->with('annualholiday')->get();
 
+    }
+
+    public function company()
+    {
+        $user = auth()->user();
+
+        if ($user->hasRole('manger')) {
+           return $user->company;
+        } else {
+            return $user->employee->company;
+        }
     }
 
     public function save ()

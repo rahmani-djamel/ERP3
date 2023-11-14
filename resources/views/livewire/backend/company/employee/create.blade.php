@@ -78,8 +78,8 @@
                                     <div class="relative z-0 w-full mb-6 group">
                                             
                                         <x-native-select label="{{__('Nationality')}}" wire:model="Nationality">
-                                            <option>{{__('Saudi')}}</option>
-                                            <option>{{__('Egyptian')}}</option>
+                                            <option >{{__('Saudi')}}</option>
+                                            <option selected>{{__('Egyptian')}}</option>
                                         </x-native-select>
 
                                     </div>
@@ -114,7 +114,7 @@
 
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
-                                        <x-input wire:model="VacationDays"  right-icon="flag"  type="number" label="{{__('Vacation Days')}}"  />
+                                        <x-input wire:model="VacationDays" placeholder="{{__('Number of days due per month')}}"  right-icon="flag"  type="number" label="{{__('Vacation Days')}}"  />
                                     </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
@@ -127,12 +127,12 @@
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
                                     <x-native-select label="{{__('Rating')}}" wire:model="Rating">
-                                    <option >ممتاز</option>
-                                    <option >جيد جداً</option>
-                                    <option >جيد</option>
-                                    <option >مقبول</option>
-                                    <option >ضعيف</option>
-                                    <option >لا يوجد</option>
+                                        <option value="excellent">{{__('Excellent')}}</option>
+                                        <option value="very_good">{{__('Very Good')}}</option>
+                                        <option value="good">{{__('Good')}}</option>
+                                        <option value="acceptable">{{__('Acceptable')}}</option>
+                                        <option value="poor">{{__('Poor')}}</option>
+                                        <option value="none">{{__('None')}}</option>
     
                                   </x-native-select>
 
@@ -146,17 +146,17 @@
                                 <div class="relative z-0 w-full mb-6 group">
                                     <x-native-select label="{{__('status')}}" wire:model="Status">
 
-                                    <option >{{__('On the job')}}</option>
-                                    <option >فترة تجريبية</option>
-                                    <option >إجازة عادية</option>
-                                    <option >إضطرارية</option>
-                                    <option >خرج ولم يعد</option>
-                                    <option >مفصول</option>
-                                    <option >إستقالة</option>
-                                    <option >إنهاء خدمات</option>
-                                    <option >إجازة مرضية انتهت ولم يباشر</option>
-                                    <option >إجازة عادية انتهت ولم يباشر</option>
-                                    <option >متدرب</option>
+                                    <option value="On the job">{{__('On the job')}}</option>
+                                    <option value="Trial Period">{{ __('Trial Period') }}</option>
+                                    <option value="Regular Leave">{{ __('Regular Leave') }}</option>
+                                    <option value="Compulsory Leave">{{ __('Compulsory Leave') }}</option>
+                                    <option value="Left and Not Returned">{{ __('Left and Not Returned') }}</option>
+                                    <option value="Dismissed">{{ __('Dismissed') }}</option>
+                                    <option value="Resignation">{{ __('Resignation') }}</option>
+                                    <option value="Termination of Service">{{ __('Termination of Service') }}</option>
+                                    <option value="Sick Leave Ended and Not Reported">{{ __('Sick Leave Ended and Not Reported') }}</option>
+                                    <option value="Regular Leave Ended and Not Reported">{{ __('Regular Leave Ended and Not Reported') }}</option>
+                                    <option value="Trainee">{{ __('Trainee') }}</option>
                                 </x-native-select>
 
                                 </div>
@@ -175,12 +175,11 @@
                                 <div class="relative z-0 w-full mb-6 group">
                                         
                                     <x-native-select label="{{__('Insurance Class')}}" wire:model="InsuranceClass">
-
-                                      <option  >VVIP</option>
-                                      <option  >VIP</option>
-                                      <option  >a</option>
-                                      <option  >b</option>
-                                      <option  >c</option>
+                                        <option value="VVIP">{{ __('VVIP') }}</option>
+                                        <option value="VIP">{{ __('VIP') }}</option>
+                                        <option value="a">{{ __('a') }}</option>
+                                        <option value="b">{{ __('b') }}</option>
+                                        <option value="c">{{ __('c') }}</option>
                                     </x-native-select>
               
                                   </div>
@@ -206,7 +205,7 @@
 
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input right-icon="cash" label="{{__('Other Allowances')}}" wire:model="OtherAllowances"  />
+                                    <x-input type="number" right-icon="cash" label="{{__('Other Allowances')}}" wire:model="OtherAllowances"  />
 
                                 </div>
                             </div>
@@ -222,11 +221,11 @@
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input right-icon="cash" wire:model="HousingAllowance" label="{{__('Housing Allowance')}}"  />
+                                    <x-input type="number" right-icon="cash" wire:model="HousingAllowance" label="{{__('Housing Allowance')}}"  />
 
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input right-icon="cash" wire:model="transportationAllowance" label="{{__('transportation Allowance')}}"  />
+                                    <x-input type="number" right-icon="cash" wire:model="transportationAllowance" label="{{__('Transportation Allowance')}}"  />
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">

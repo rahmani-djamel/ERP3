@@ -109,6 +109,7 @@ class Edit extends Component
         }
 
 
+
         if (auth()->user()->hasRole('manger')) {
             $this->company = auth()->user()->company;
 

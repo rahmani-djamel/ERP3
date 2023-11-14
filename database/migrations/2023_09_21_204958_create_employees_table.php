@@ -33,12 +33,12 @@ return new class extends Migration
             $table->date('InsuranceExpiryDate')->nullable();
             $table->string('BankName')->nullable();
             $table->string('BankNumber')->nullable();
-            $table->string('BasicSalary');
-            $table->string('OtherAllowances'); //
+            $table->double('BasicSalary', 8, 2);
+            $table->double('OtherAllowances', 8, 2); //
             $table->string('InsuranceRatio'); //
             $table->string('InsuranceSubscriptionAmount'); 
-            $table->string('HousingAllowance');  //
-            $table->string('transportationAllowance');
+            $table->double('HousingAllowance', 8, 2);  //
+            $table->double('transportationAllowance', 8, 2);
             $table->string('VacationSalary');
             $table->string('DurationOfTheWarningPeriod');
             $table->string('LoanHistory')->nullable();

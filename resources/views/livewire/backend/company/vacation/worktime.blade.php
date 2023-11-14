@@ -61,7 +61,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="4">No employees found.</td>
+                                            <td colspan="5" class="text-center font-bold dark:text-white">{{__('There is no data to display')}}</td>
                                         </tr>
                                     
                                         

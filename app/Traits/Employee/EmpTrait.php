@@ -203,7 +203,7 @@ trait EmpTrait
         'InsuranceSubscriptionAmount', 'HousingAllowance', 
         'transportationAllowance', 'VacationSalary', 
         'DurationOfTheWarningPeriod', 'LoanHistory', 'CovenantRecord', 
-        'branch_id'
+        'branch_id','is_adminstaror'
        ];
     }
     public function worktime($employee)

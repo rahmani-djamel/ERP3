@@ -59,7 +59,7 @@
                                             10
                                         </td>
                                         <td class="px-4 py-3 text-center text-red-500">
-                                            10
+                                            {{(double) $item->HousingAllowance + (double) $item->BasicSalary + (double) $item->transportationAllowance}}
                                         </td>
                                         <td class="px-4 py-3 text-center">
                                             {{$AbsentCount}}

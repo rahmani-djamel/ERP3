@@ -19,12 +19,16 @@
                                 <div class="grid md:grid-cols-2 md:gap-6">
                                         <div class="relative z-0 w-full mb-6 group">
                                             <x-native-select label="إختر موظف" wire:model.live="selected">
+
+                                                <!-- Empty option for selection -->
+                                                <option value="" selected>{{ __('Select an employee') }}</option>
+                                            
+                                                <!-- Loop through employees and generate options -->
                                                 @foreach ($employees as $item)
-                                                <option value="{{$item->id}}">{{$item->Name}}</option>
-
+                                                    <option value="{{$item->id}}">{{$item->Name}}</option>
                                                 @endforeach
-
-                                            </x-native-select>    
+                                            
+                                            </x-native-select>   
                                         </div>
                                         <div class="relative z-0 w-full mb-6 group">
                                             <x-input wire:model="jobNumber" type="text" right-icon="identification" label="الرقم الوظيفي" disabled value="{{$jobNumber}}" />   

@@ -30,13 +30,13 @@ class Create extends Component
     public $CarteNumber = '';
 
     #[Rule('required|string|max:255')]
-    public $JobNumber = '';
+    public $JobNumber;
 
     #[Rule('required|string|max:255')]
-    public $Nationality = '';
+    public $Nationality = 'saudi';
 
     #[Rule('required|string|max:255')]
-    public $Gender = '';
+    public $Gender = 'male';
 
     #[Rule('required|date')]
     public $DateOfBirth = '';
@@ -55,13 +55,13 @@ class Create extends Component
 
 
     #[Rule('required|string|max:255')]
-    public $ContratType = '';
+    public $ContratType = 'designed';
 
     #[Rule('required|string|max:255')]
-    public $Rating = '';
+    public $Rating = 'excellent';
 
     #[Rule('required|string|max:255')]
-    public $Status = '';
+    public $Status = 'On the job';
 
     #[Rule('nullable|string|max:255')]
     public $FriendName = '';
@@ -151,6 +151,8 @@ class Create extends Component
         $this->counter_admins  =  $this->company->N_Of_Adminstrative - Employee::countAdminsByCompany($this->company->id);
 
         $this->branches = Branche::where('company_id',$this->company->id)->get();
+
+        $this->branch_id = $this->branches[0]->id ?? null;
         
         $this->branchesCounter =   Branche::counter($this->company->id) == 0;
 
