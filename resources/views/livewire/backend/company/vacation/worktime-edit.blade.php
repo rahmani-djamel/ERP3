@@ -105,6 +105,10 @@
             <!-- Modal body -->
             <div class="p-6 space-y-6">
 
+                <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+                    <span class="font-medium">{{__('Time zone 24')}}</span> 
+                  </div>
+
                 <div class="flex space-x-4 justify-between">
                     <div class="w-full mx-2">
                         <label for="start-hour" class="block text-sm font-medium text-blue-700">{{ __('Start Time') }}</label>

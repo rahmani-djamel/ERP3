@@ -289,5 +289,6 @@
     "Number of days due per month":"عدد ايام الاجازة السنوية حسب العقد",
     "Duration Of The Warning Period":"مدة فترة التحذير",
     "Select an employee":"إختر موظف",
-    "Hour":"الساعة"
+    "Hour":"الساعة",
+    "Time zone 24":"التوقيت الزمني 24"
 }
