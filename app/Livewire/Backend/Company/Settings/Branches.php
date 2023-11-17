@@ -25,6 +25,10 @@ class Branches extends Component
     public $Naddress;
     public $Nmap;
 
+    //for edit
+    public $Elong = '';
+    public $Elat = '';
+
     public function rules()
     {
         return [
@@ -37,24 +41,42 @@ class Branches extends Component
     }
     
 
-    public function selection($item)
+    public function selection($item,$edit=0)
     {
+        //dd($item);
+        if ($edit != 0) {
+            //dd($item);
+            $this->Elong = $item['long'];
+            $this->Elat = $item['lat'];
+            $this->Bname = $item['name'];
+            $this->address = $item['place'];
+            $this->map =$item['map'];
+
+
+        } 
+        
         $this->selected = $item;
         $this->display = $item['name'];
         $this->id = $item['id'];
     }
     public function save()
     {
-        $this->validate();
-       // dd('hello world');
+        $this->validate([ 
+            'Bname' => 'required|min:5|max:40',
+            'address' => 'required|min:5|max:100',
+            'map' => 'required|url:https',
+            'Elat' => 'required|numeric', // 'lat' should be a numeric value
+            'Elong' => 'required|numeric', // 'long' should be a numeric value
+        ]);
+   
 
 
         $branche = Branche::findorfail($this->id);
         $branche->name = $this->Bname;
         $branche->place = $this->address;
         $branche->map = $this->map;
-        $branche->lat = $this->lat;
-        $branche->long = $this->long;
+        $branche->lat = $this->Elat;
+        $branche->long = $this->Elong;
 
         $branche->save();
 
@@ -153,9 +175,14 @@ class Branches extends Component
 
         $this->counter_branches  =  $this->company()->N_branches - Branche::counter($id_company);
 
-      /*   $test =  $this->distance(32.9697, -98.53505, 32.9696, -98.53506, "M") . " Meter<br>";
 
-       dd($test);*/
+        // Initialize properties with default or retrieved values
+        $this->Bname = '';
+        $this->address = '';
+        $this->map = '';
+        $this->Elat = '';
+        $this->Elong = '';
+               // ...
     }
 
     public function getBranches()

@@ -50,6 +50,14 @@ class CheckUserRole
                 }
 
             }
+
+            if ( $user->hasRole('employee')) 
+            {
+                if (Route::has($request->route()->getName()) && Str::startsWith($request->route()->getName(), 'employee.dashboard.')) {
+                    return $next($request);
+                }
+
+            }
         }
 
         // If the user's role does not match, return a 403 response

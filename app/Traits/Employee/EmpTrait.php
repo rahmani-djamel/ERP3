@@ -7,6 +7,7 @@ use App\Models\File;
 use App\Models\User;
 use App\Models\Vacation;
 use App\Models\Worktime;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,6 +15,8 @@ trait EmpTrait
 {
     public function createUser($validated)
     {
+
+        //dd($validated);
         $user = new User();
         $user->name = $validated['Name'];
         $user->email = $validated['email'];
@@ -26,6 +29,7 @@ trait EmpTrait
 
     public function createEmp($validated,$user)
     {
+        //dd($validated);
         if (auth()->user()->hasRole('manger')) {
             # code...
             $company = auth()->user()->company->id;
@@ -42,9 +46,9 @@ trait EmpTrait
             'JobNumber' => $validated['JobNumber'],
             'Nationality' => $validated['Nationality'],
             'Gender' => $validated['Gender'],
-            'DateOfBirth' => $validated['DateOfBirth'],
-            'Start_work' => $validated['Start_work'],
-            'End' => $validated['End'],
+            'DateOfBirth' => Carbon::parse($validated['DateOfBirth']),
+            'Start_work' => Carbon::parse($validated['Start_work']),
+            'End' => Carbon::parse($validated['End']),
             'Phone' => $validated['Phone'],
             'VacationDays' => $validated['VacationDays'],
             'ContratType' => $validated['ContratType'],
@@ -53,10 +57,10 @@ trait EmpTrait
             'FriendName' => $validated['FriendName'],
             'FriendPhone' => $validated['FriendPhone'],
             'InsuranceClass' => $validated['InsuranceClass'],
-            'InsuranceExpiryDate' => $validated['InsuranceExpiryDate'],
+            'InsuranceExpiryDate' => Carbon::parse($validated['InsuranceExpiryDate']),
             'BankName' => $validated['BankName'],
             'BankNumber' => $validated['BankNumber'],
-            'BasicSalary' => $validated['BasicSalary'],
+            'BasicSalary' => (double) $validated['BasicSalary'],
             'OtherAllowances' => $validated['OtherAllowances'],
             'InsuranceRatio' => $validated['InsuranceRatio'],
             'InsuranceSubscriptionAmount' => $validated['InsuranceSubscriptionAmount'],

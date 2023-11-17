@@ -82,7 +82,7 @@
                                              icon="pencil" 
                                              data-modal-target="defaultModal"
                                               data-modal-toggle="defaultModal"
-                                              wire:click="selection({{$item}})"
+                                              wire:click="selection({{$item}},1)"
                                             />
 
                                             <x-button.circle 
@@ -141,11 +141,15 @@
             <!-- Modal body -->
             <div class="p-6 space-y-6">
 
-                <x-input wire:model.live="Bname"  right-icon="hashtag"   label="اسم الفرع" />
+                <x-input wire:model.live="Bname" value="{{$Bname}}"  right-icon="hashtag"   label="اسم الفرع" />
 
-                <x-input wire:model.live="address"  right-icon="hashtag"   label="عنوان الفرع" />
+                <x-input wire:model.live="address" value="{{$address}}"   right-icon="hashtag"   label="عنوان الفرع" />
 
-                <x-input wire:model.live="map"  right-icon="location-marker"   label="رابط على جوجل" />
+                <x-input wire:model.live="map" value="{{$map}}"   right-icon="location-marker"   label="رابط على جوجل" />
+
+                <x-input wire:model.live="Elat" value="{{$Elat}}"   right-icon="map"   label="احداثية lat" />
+
+                <x-input wire:model.live="Elong" value="{{$Elong}}"   right-icon="map"   label="احداثية long" />
 
             </div>
             <!-- Modal footer -->

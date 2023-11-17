@@ -40,5 +40,28 @@ class CompanySeeder extends Seeder
 
             $user->addRole(2);
         }
+
+
+        $user = User::create([
+            'name' => 'عبد الله',
+            'email' => 'aaaa@gggg.com',
+            'password' => Hash::make('123456789'),
+        ]);
+
+        // Create a company and associate it with the user as the owner
+        Company::create([
+            'name' => 'رفود',
+            'user_id' => $user->id,
+            'package_id' => 1, // Replace with your logic for package_id
+            'days' => 30,      // Replace with your logic for days
+            'Testing_period' => 0, // Default value
+            'phone' => '966 50 901 6572', // Replace with the actual phone number
+            'N_Of_Emps' => 50,
+            'N_Of_Adminstrative' => 10,
+            'N_branches' => 5,
+
+        ]);
+
+        $user->addRole(2);
     }
 }

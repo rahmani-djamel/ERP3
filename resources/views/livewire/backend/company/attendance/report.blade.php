@@ -62,9 +62,7 @@
                                                                 <x-badge positive label="{{$item['branch']}}" />
                                                             </td>
                                                             @forelse ($item['days'] as $key => $val)
-                                                            
-                                                           
-                                                            
+                                                                  
                                                             <td class="px-4 py-3 text-center">
                                                                 
                                                                 <x-native-select
@@ -72,15 +70,13 @@
                                                                 class="
                                                                     {{ $val->status == 'Present' ? 'bg-green-700 text-white' : '' }}
                                                                     {{ $val->status == 'Absent' ? 'bg-rose-700 text-white' : '' }}
-                                                                    {{ $val->status == 'Late' ? 'bg-yellow-400 text-black' : '' }}
                                                                     {{ $val->status == 'Vacance' ? 'bg-indigo-900 text-white' : '' }}
                                                                     {{ $val->status == 'لم يحدد' ? 'bg-yellow-950 text-white' : '' }}
                                                                 "
                                                                 x-on:change="showSelectedInfo($el)">
-                                                                <option {{ $val->status == 'Absent' ? 'selected' : '' }} value="Absent" data-id="{{$val->id}}" data-current="{{$val->status}}">{{__('Absent')}}</option>
-                                                                <option {{ $val->status == 'Present' ? 'selected' : '' }} value="Present" data-id="{{$val->id}}" data-current="{{$val->status}}">{{__('Present')}}</option>
-                                                                <option {{ $val->status == 'Late' ? 'selected' : '' }} value="Late" data-id="{{$val->id}}" data-current="{{$val->status}}">{{__('Late')}}</option>
-                                                                <option {{ $val->status == 'Vacance' ? 'selected' : '' }} value="Vacance" data-id="{{$val->id}}" data-current="{{$val->status}}">{{__('Vacance')}}</option>
+                                                                <option {{ $val->status == 'Absent' ? 'selected' : '' }} value="Absent" data-id="{{$val->id}}" data-day="{{$key}}" data-current="{{$val->status}}">{{__('Absent')}}</option>
+                                                                <option {{ $val->status == 'Present' ? 'selected' : '' }} value="Present" data-id="{{$val->id}}" data-day="{{$key}}" data-current="{{$val->status}}">{{__('Present')}}</option>
+                                                                <option {{ $val->status == 'Vacance' ? 'selected' : '' }} value="Vacance" data-id="{{$val->id}}" data-day="{{$key}}" data-current="{{$val->status}}">{{__('Vacance')}}</option>
                                                                 
                                                             </x-native-select>
                 
@@ -158,8 +154,11 @@
         const selectedOption = selectElement.options[selectElement.selectedIndex];
         const status = selectedOption.dataset.current;
         const id = selectedOption.dataset.id;
+        const day = selectedOption.dataset.day;
 
-        
+
+        console.log(`Current day: ${day}`);
+
         console.log(`Current Status: ${status}`);
         console.log(`Selected ID: ${id}`);
         console.log(`Selected Option: ${selectedOption.textContent}`);
@@ -167,6 +166,7 @@
         Livewire.dispatch('post-created',{
             selectedoption : selectedOption.textContent,
             id:id,
+            day:day,
             current: status
         })
     }

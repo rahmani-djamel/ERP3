@@ -20,8 +20,16 @@ class CheckDefaultPassword
     // dd( Auth::user()->hasDefaultPassword());
         if (Auth::check() && Auth::user()->hasDefaultPassword()) 
         {
-            // Replace 'hasDefaultPassword()' with your actual logic to check if the user has the default password.
-            return redirect()->route('company.dashboard.password.index'); // Redirect to the password change page.
+            if (auth()->user()->hasRole(['manger','administrative'])) {
+                 // Replace 'hasDefaultPassword()' with your actual logic to check if the user has the default password.
+                  return redirect()->route('company.dashboard.password.index'); // Redirect to the password change page.
+            }
+
+            if (auth()->user()->hasRole(['employee'])) {
+                // Replace 'hasDefaultPassword()' with your actual logic to check if the user has the default password.
+                 return redirect()->route('employee.dashboard.password.index'); // Redirect to the password change page.
+           }
+           
         }
         return $next($request);
     }

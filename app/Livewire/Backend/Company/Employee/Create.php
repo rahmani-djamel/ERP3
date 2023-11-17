@@ -23,7 +23,7 @@ class Create extends Component
     #[Rule('required|string|max:255')]
     public $Name = '';
 
-    #[Rule('required|email|unique:employees,email')]
+    #[Rule('required|email|unique:users,email')]
     public $email = '';
 
     #[Rule('required|string|max:255')]
@@ -168,12 +168,12 @@ class Create extends Component
     {
      
         if (($this->counter_admins > 0 && $this->is_adminstaror == 1) || ($this->counter_employees > 0 && $this->is_adminstaror == 0) ) {
-            $this->validate();
+            $validation = $this->validate();
 
 
-            $user = $this->createUser($this->validate());
+            $user = $this->createUser($validation);
     
-            $employee = $this->createEmp($this->validate(),$user);
+            $employee = $this->createEmp($validation,$user);
     
             $store = $this->storeFiles($this->files,$user,$employee);
     

@@ -91,19 +91,52 @@ class Report extends Component
         }
 
     }
+    
     #[On('post-created')] 
-    public function updatePostList($selectedoption,$id,$current)
+    public function updatePostList($selectedoption, $id, $current,$day)
     {
-        $attendance = Attendance::findorfail($id);
-        $attendance->status = $selectedoption;
-        $attendance->save();
+        $attendance = Attendance::firstOrNew(['id' => $id]);
+    
+        // Check if the record exists
+        if ($attendance->exists) {
+            // If the record exists, update its status
+            $attendance->status = $selectedoption;
+            $attendance->save();
+        } else {
+                    // Parse the strings to create Carbon objects
+        $start_date = Carbon::parse(substr($this->start, strpos($this->start, ',') + 2));
+        $end_date = Carbon::parse(substr($this->end, strpos($this->end, ',') + 2));
 
+        // Now $start_date and $end_date are Carbon objects
+     
+   
+                $Cday = Carbon::parse($day);
+
+                $current_date = $start_date;
+                $dates_on_day = null;
+
+                while ($current_date->lte($end_date)) {
+                    if ($current_date->dayOfWeek == $Cday->dayOfWeek) {
+                        $dates_on_day = $current_date->toDateString();
+                        break; // Break the loop once the first Monday is found
+                    }
+                    $current_date->addDay();
+                }
+              //  $attendance->attendance_date = $dates_on_day;
+
+
+    
+
+            dd($selectedoption, $id,$Cday->translatedFormat('l'), $current,$this->start,$this->end,$dates_on_day);
+            // If the record doesn't exist, create a new one with five fields
+  
+        }
+    
         $this->dialog()->success(
             $title = __('Edited successfully'),
             $description = __('Successfully edited')
         );
-
-    }     
+    }
     public function selection($status,$id,$idEmployee,$name,$cle)
     {
         dd($status,$id,$idEmployee,$name,$this->start,$this->end,$cle);

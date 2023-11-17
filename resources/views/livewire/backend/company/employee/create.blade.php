@@ -56,7 +56,10 @@
                 
                     <x-button lime label="{{__('save')}}" type="submit" class="font-semibold" />
                     <x-button href="{{route('company.dashboard.employee.index')}}" primary label="{{__('Back')}}" class="font-semibold" />
-                              
+                     
+                    @if($this->branchesCounter)      
+                    <x-button href="{{route('company.dashboard.settings.branches')}}" primary label="{{__('Add New Branch')}}" class="font-semibold" />
+                    @endif   
                 </div>
 
 
@@ -201,7 +204,7 @@
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <x-input right-icon="cash" label="{{__('Basic Salary')}}" wire:model="BasicSalary"  />
+                                    <x-input type="number" right-icon="cash" label="{{__('Basic Salary')}}" wire:model="BasicSalary"  />
 
                                 </div>
                                 <div class="relative z-0 w-full mb-6 group">
