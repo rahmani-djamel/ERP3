@@ -70,7 +70,7 @@
                                                                 <x-native-select
                                                                 label=""
                                                                 class="
-                                                                    {{ $val->status == __('Present') ? 'bg-info-700 text-white' : '' }}
+                                                                    {{ $val->status == __('Present') ? 'bg-green-400 text-white' : '' }}
                                                                     {{ $val->status == __('Absent') ? 'bg-cyan-700 text-white' : '' }}
                                                                     {{ $val->status == __('Vacance') ? 'bg-indigo-900 text-white' : '' }}
                                                                     {{ $val->status ==  __('not specify') ? 'bg-yellow-950 text-white' : '' }}
