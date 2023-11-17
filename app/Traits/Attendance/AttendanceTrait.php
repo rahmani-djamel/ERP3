@@ -60,13 +60,13 @@ public  function ReportByWeek($date = null,$branche = null)
 
     $formattedEmployees = $employees->map(function ($employee) use ($startOfWeekFormatted, $endOfWeekFormatted) {
         $days = [
-            'Saturday' => (object)['status' => 'لم يحدد', 'id' => null], // Default value for Saturday
-            'Sunday' => (object)['status' => 'لم يحدد', 'id' => null],   // Default value for Sunday
-            'Monday' => (object)['status' => 'لم يحدد', 'id' => null],   // Default value for Monday
-            'Tuesday' => (object)['status' => 'لم يحدد', 'id' => null],  // Default value for Tuesday
-            'Wednesday' => (object)['status' => 'لم يحدد', 'id' => null], // Default value for Wednesday
-            'Thursday' => (object)['status' => 'لم يحدد', 'id' => null],  // Default value for Thursday
-            'Friday' => (object)['status' => 'لم يحدد', 'id' => null],    // Default value for Friday
+            'Saturday' => (object)['status' => __('not specify'), 'id' => null], // Default value for Saturday
+            'Sunday' => (object)['status' => __('not specify'), 'id' => null],   // Default value for Sunday
+            'Monday' => (object)['status' => __('not specify'), 'id' => null],   // Default value for Monday
+            'Tuesday' => (object)['status' => __('not specify'), 'id' => null],  // Default value for Tuesday
+            'Wednesday' => (object)['status' => __('not specify'), 'id' => null], // Default value for Wednesday
+            'Thursday' => (object)['status' => __('not specify'), 'id' => null],  // Default value for Thursday
+            'Friday' => (object)['status' => __('not specify'), 'id' => null],    // Default value for Friday
         ];
     
         foreach ($employee->attendances as $attendanceRecord) {

@@ -62,21 +62,28 @@
                                                                 <x-badge positive label="{{$item['branch']}}" />
                                                             </td>
                                                             @forelse ($item['days'] as $key => $val)
+                                                    
+                                                   
                                                                   
                                                             <td class="px-4 py-3 text-center">
                                                                 
                                                                 <x-native-select
                                                                 label=""
                                                                 class="
-                                                                    {{ $val->status == 'Present' ? 'bg-green-700 text-white' : '' }}
-                                                                    {{ $val->status == 'Absent' ? 'bg-rose-700 text-white' : '' }}
-                                                                    {{ $val->status == 'Vacance' ? 'bg-indigo-900 text-white' : '' }}
-                                                                    {{ $val->status == 'لم يحدد' ? 'bg-yellow-950 text-white' : '' }}
+                                                                    {{ $val->status == __('Present') ? 'bg-info-700 text-white' : '' }}
+                                                                    {{ $val->status == __('Absent') ? 'bg-cyan-700 text-white' : '' }}
+                                                                    {{ $val->status == __('Vacance') ? 'bg-indigo-900 text-white' : '' }}
+                                                                    {{ $val->status ==  __('not specify') ? 'bg-yellow-950 text-white' : '' }}
                                                                 "
-                                                                x-on:change="showSelectedInfo($el)">
-                                                                <option {{ $val->status == 'Absent' ? 'selected' : '' }} value="Absent" data-id="{{$val->id}}" data-day="{{$key}}" data-current="{{$val->status}}">{{__('Absent')}}</option>
-                                                                <option {{ $val->status == 'Present' ? 'selected' : '' }} value="Present" data-id="{{$val->id}}" data-day="{{$key}}" data-current="{{$val->status}}">{{__('Present')}}</option>
-                                                                <option {{ $val->status == 'Vacance' ? 'selected' : '' }} value="Vacance" data-id="{{$val->id}}" data-day="{{$key}}" data-current="{{$val->status}}">{{__('Vacance')}}</option>
+                                                                x-on:change="showSelectedInfo($el,{{$item['id']}})">
+                                                                <option {{ $val->status == __('Absent') ? 'selected' : '' }} value="Absent" data-id="{{$val->id}}" data-day="{{$key}}" data-current="{{$val->status}}">{{ __('Absent') }}</option>
+                                                                <option {{ $val->status == __('Present') ? 'selected' : '' }} value="Present" data-id="{{$val->id}}" data-day="{{$key}}" data-current="{{$val->status}}">{{ __('Present') }}</option>
+                                                                <option {{ $val->status == __('Vacance') ? 'selected' : '' }} value="Vacance" data-id="{{$val->id}}" data-day="{{$key}}" data-current="{{$val->status}}">{{ __('Vacance') }}</option>
+                                                                
+                                                                @if($val->status != __('Absent') && $val->status != __('Present') && $val->status != __('Vacance'))
+                                                                    <option selected disabled>{{ __('not specify') }}</option>
+                                                                @endif
+                                                                
                                                                 
                                                             </x-native-select>
                 
@@ -150,23 +157,27 @@
     </div>
 </div>
 <script>
-    function showSelectedInfo(selectElement) {
+    function showSelectedInfo(selectElement,idE) {
         const selectedOption = selectElement.options[selectElement.selectedIndex];
         const status = selectedOption.dataset.current;
         const id = selectedOption.dataset.id;
         const day = selectedOption.dataset.day;
 
+        console.log(`Current id: ${idE}`);
 
         console.log(`Current day: ${day}`);
 
+        
+
         console.log(`Current Status: ${status}`);
         console.log(`Selected ID: ${id}`);
-        console.log(`Selected Option: ${selectedOption.textContent}`);
+        console.log(`Selected Option: ${selectedOption.value}`);
 
         Livewire.dispatch('post-created',{
-            selectedoption : selectedOption.textContent,
+            selectedoption : selectedOption.value,
             id:id,
             day:day,
+            idE: idE,
             current: status
         })
     }

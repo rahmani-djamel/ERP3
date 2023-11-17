@@ -108,6 +108,8 @@ class EmployeeSeeder extends Seeder
             'company_id' => rand(1, 5),
         ]);
 
+        $user->addRole(4);
+
 
         $user = User::create([
             'name' => 'employee dev',
@@ -151,6 +153,9 @@ class EmployeeSeeder extends Seeder
             'branch_id' => 1,
             'company_id' => 6,
         ]);
+
+        $user->addRole(4);
+
 
         
     }

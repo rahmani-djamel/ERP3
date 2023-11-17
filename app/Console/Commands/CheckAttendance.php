@@ -35,7 +35,7 @@ class CheckAttendance extends Command
                 // Get the current date
                 $currentDate = Carbon::today()->format('Y-m-d');
 
-                $dayOfWeek = Carbon::today()->translatedFormat('l');
+                $dayOfWeek = Carbon::today()->locale('en')->translatedFormat('l');
 
 
                 // Query employees who haven't marked attendance for today

@@ -93,8 +93,9 @@ class Report extends Component
     }
     
     #[On('post-created')] 
-    public function updatePostList($selectedoption, $id, $current,$day)
+    public function updatePostList($selectedoption, $id, $current,$day,$idE)
     {
+
         $attendance = Attendance::firstOrNew(['id' => $id]);
     
         // Check if the record exists
@@ -122,12 +123,16 @@ class Report extends Component
                     }
                     $current_date->addDay();
                 }
-              //  $attendance->attendance_date = $dates_on_day;
+                $attendance->attendance_date = $dates_on_day;
+                $attendance->day_of_week = $day;
+                $attendance->status = $selectedoption;
+                $attendance->employee_id = $idE;
+                $attendance->save();
 
 
     
 
-            dd($selectedoption, $id,$Cday->translatedFormat('l'), $current,$this->start,$this->end,$dates_on_day);
+          //  dd($selectedoption, $id,$day, $current,$this->start,$this->end,$dates_on_day);
             // If the record doesn't exist, create a new one with five fields
   
         }

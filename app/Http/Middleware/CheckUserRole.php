@@ -59,6 +59,7 @@ class CheckUserRole
 
             }
         }
+        //dd($user,$user->roles);
 
         // If the user's role does not match, return a 403 response
         return abort(403, 'USER DOES NOT HAVE ANY OF THE NECESSARY ACCESS RIGHTS.');
