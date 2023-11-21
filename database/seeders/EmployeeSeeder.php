@@ -141,7 +141,7 @@ class EmployeeSeeder extends Seeder
             'BankNumber' => $faker->unique()->bankAccountNumber,
             'BasicSalary' => $faker->randomFloat(2, 2000, 5000),
             'OtherAllowances' => $faker->randomFloat(2, 0, 1000),
-            'InsuranceRatio' => $faker->randomFloat(2, 0, 1),
+            'transportationAllowance' => $faker->randomFloat(2, 100, 500),
             'InsuranceSubscriptionAmount' => $faker->randomFloat(2, 100, 500),
             'HousingAllowance' => $faker->randomFloat(2, 500, 2000),
             'transportationAllowance' => $faker->randomFloat(2, 100, 500),

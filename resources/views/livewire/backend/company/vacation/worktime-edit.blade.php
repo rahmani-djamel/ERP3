@@ -106,13 +106,13 @@
             <div class="p-6 space-y-6">
 
                 <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-                    <span class="font-medium">{{__('Time zone 24')}}</span> 
+                    <span class="font-medium">{{__('Time zone 12')}}</span> 
                   </div>
 
                 <div class="flex space-x-4 justify-between">
                     <div class="w-full mx-2">
                         <label for="start-hour" class="block text-sm font-medium text-blue-700">{{ __('Start Time') }}</label>
-                        <x-input type="number" min="0" max="24" label="{{__('Hour')}}" right-icon="clock"  wire:model="start.hour"  />
+                        <x-input type="number" min="0" max="12" label="{{__('Hour')}}" right-icon="clock"  wire:model="start.hour"  />
                     </div>
                     <div class="w-full mx-2 lg:mt-5">
                         <x-input type="number" min="0" max="59" label="{{__('Minute')}}" right-icon="clock"  wire:model="start.minute"  />
@@ -123,7 +123,7 @@
                 <div class="flex space-x-4 justify-between">
                     <div class="w-full mx-2">
                         <label for="start-hour" class="block text-sm font-medium text-blue-700">{{ __('End Time') }}</label>
-                        <x-input type="number" min="0" max="24" label="{{__('Hour')}}" right-icon="clock"  wire:model="end.hour"  />
+                        <x-input type="number" min="0" max="12" label="{{__('Hour')}}" right-icon="clock"  wire:model="end.hour"  />
                     </div>
                     <div class="w-full mx-2 lg:mt-5">
                         <x-input type="number" min="0" max="59" label="{{__('Minute')}}" right-icon="clock"  wire:model="end.minute"  />

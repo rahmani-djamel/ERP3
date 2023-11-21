@@ -26,9 +26,9 @@ class WorktimeEdit extends Component
     public function rules()
     {
         return [
-            'start.hour' => 'required|numeric|min:0|max:23',
+            'start.hour' => 'required|numeric|min:0|max:12',
             'start.minute' => 'required|numeric|min:0|max:59',
-            'end.hour' => 'required|numeric|min:0|max:23',
+            'end.hour' => 'required|numeric|min:0|max:12',
             'end.minute' => 'required|numeric|min:0|max:59',
         ];
     }

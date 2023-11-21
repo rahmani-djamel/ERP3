@@ -195,30 +195,30 @@
                                 </div>
                                 <div class="grid md:grid-cols-2 md:gap-6">
                                     <div class="relative z-0 w-full mb-6 group">
-                                        <x-input type="number" right-icon="chart-pie" wire:model="InsuranceRatio" label="{{__('Insurance Ratio')}}"  />
+                                        <x-input type="number" step="any" right-icon="chart-pie" wire:model="InsuranceRatio" label="{{__('Insurance Ratio')}}"  />
     
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
-                                        <x-input type="number" right-icon="cash" wire:model="InsuranceSubscriptionAmount" label="{{__('Insurance Subscription Amount')}}"  />
+                                        <x-input type="number" step="any" right-icon="cash" wire:model="InsuranceSubscriptionAmount" label="{{__('Insurance Subscription Amount')}}"  />
     
                                     </div>
                                 </div>
                                 <div class="grid md:grid-cols-2 md:gap-6">
                                     <div class="relative z-0 w-full mb-6 group">
-                                        <x-input right-icon="cash" wire:model="HousingAllowance" label="{{__('Housing Allowance')}}"  />
+                                        <x-input right-icon="cash" step="any" wire:model="HousingAllowance" label="{{__('Housing Allowance')}}"  />
     
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
-                                        <x-input right-icon="cash" wire:model="transportationAllowance" label="{{__('transportation Allowance')}}"  />
+                                        <x-input right-icon="cash" step="any" wire:model="transportationAllowance" label="{{__('transportation Allowance')}}"  />
                                     </div>
                                 </div>
                                 <div class="grid md:grid-cols-2 md:gap-6">
                                     <div class="relative z-0 w-full mb-6 group">
-                                        <x-input type="number" wire:model="VacationSalary" right-icon="flag" label="{{__('Vacation Salary')}}"  />
+                                        <x-input type="number" step="any" wire:model="VacationSalary" right-icon="flag" label="{{__('Vacation Salary')}}"  />
     
                                     </div>
                                     <div class="relative z-0 w-full mb-6 group">
-                                        <x-input type="number" wire:model="DurationOfTheWarningPeriod" right-icon="exclamation" label="{{__('Duration Of The Warning Period')}}"  />
+                                        <x-input type="number" step="any" wire:model="DurationOfTheWarningPeriod" right-icon="exclamation" label="{{__('Duration Of The Warning Period')}}"  />
     
                                     </div>
                                 </div>
