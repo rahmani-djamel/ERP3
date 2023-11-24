@@ -16,6 +16,8 @@ trait ApiAttendanceTrait
         
         // Find the most recent attendance record for the employee
         $attendance = $att;
+
+        Carbon::setLocale('en');
     
         // Get the day of the week and date from the attendance record
         $dayOfWeek = Carbon::parse($attendance->attendance_date)->translatedFormat('l');
