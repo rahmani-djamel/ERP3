@@ -46,6 +46,9 @@ class AttendanceController extends Controller
     
         // Get the current day of the week and date
         // Set the Carbon locale to Arabic
+
+        Carbon::setLocale('en');
+
  
 
         // Get the day of the week in Arabic
