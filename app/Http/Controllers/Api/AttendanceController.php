@@ -51,8 +51,8 @@ class AttendanceController extends Controller
 
  
 
-        // Get the day of the week in Arabic
-        $dayOfWeek = Carbon::now()->translatedFormat('l');
+        // Get the day of the week in English
+        $dayOfWeek = Carbon::now()->locale('en')->translatedFormat('l');
         $date = date('Y-m-d');
     
         // Check if attendance already exists for that employee and date

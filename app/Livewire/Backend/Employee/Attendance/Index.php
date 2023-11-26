@@ -119,12 +119,12 @@ class Index extends Component
     {
         $date = date('Y-m-d');
         // Get the name of the day in Arabic
-        $dayOfWeek = Carbon::today()->translatedFormat('l');
+        $dayOfWeek = Carbon::today()->locale('en')->translatedFormat('l');
 
         $workTimeForToday =  Worktime::where('employee_id', $this->employee->id)
         ->where('weekday', $dayOfWeek)->first();
 
-      //  dd($dayOfWeek);
+       //dd($dayOfWeek,$workTimeForToday);
 
 
 
